@@ -1,0 +1,6 @@
+{
+  "name": "SignatureOne Mobile Notary",
+  "description": "Professional in-person, mobile, and remote online notary and loan signing agent services in Texas.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
