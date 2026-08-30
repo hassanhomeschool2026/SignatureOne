@@ -1,22 +1,17 @@
 import React from 'react';
-import { HeroBanner } from '../components/HeroBanner';
-import { PRICING_DATA, SERVICES, BRAND_INFO } from '../data/notaryData';
 import { 
-  CheckCircle2, 
   Calendar, 
-  FileText, 
-  Sparkles, 
-  ShieldCheck, 
-  MapPin, 
+  Phone, 
+  Building2, 
+  Car, 
+  Video, 
+  Briefcase, 
   Clock, 
-  ArrowRight, 
-  Info,
-  DollarSign,
-  Zap,
-  Building2,
-  Video,
-  Car
+  MapPin, 
+  ChevronRight
 } from 'lucide-react';
+import { BRAND_INFO } from '../data/notaryData';
+import { Logo } from '../components/Logo';
 
 interface HomePageProps {
   onOpenBooking: (serviceTitle?: string, fee?: string, placeholder?: string) => void;
@@ -26,430 +21,596 @@ interface HomePageProps {
 
 export const HomePage: React.FC<HomePageProps> = ({
   onOpenBooking,
-  onOpenQuote,
   onNavigateToTab,
 }) => {
   return (
-    <div className="space-y-12 pb-16">
-      {/* Hero Banner with exact user cover styling & quick actions */}
-      <HeroBanner 
-        onOpenBooking={onOpenBooking} 
-        onOpenQuote={onOpenQuote} 
-        onNavigateToTab={onNavigateToTab} 
-      />
-
-      {/* Main Pricing Sheet Section (Straightforward & Transparent) */}
-      <section id="pricing-sheet" className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div className="bg-white text-[#1E1B18] space-y-16 sm:space-y-20 pb-16">
+      
+      {/* =========================================================================
+          1. HERO SECTION
+          ========================================================================= */}
+      <section className="relative overflow-hidden bg-white border-b border-[#F0EAE6] pt-8 sm:pt-12 pb-12 sm:pb-16">
         
-        {/* Section Header */}
-        <div className="text-center max-w-3xl mx-auto space-y-3 mb-10">
-          <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-[#E8C9C5]/40 text-[#1E1B18] text-xs font-semibold uppercase tracking-wider">
-            <DollarSign className="w-3.5 h-3.5 text-[#B9827B]" />
-            Transparent Pricing Sheet
+        {/* Subtle blush ambient background accent */}
+        <div className="absolute top-0 right-0 w-96 h-96 bg-[#E8C9C5]/20 rounded-full blur-3xl pointer-events-none" />
+        <div className="absolute bottom-0 left-0 w-80 h-80 bg-[#FAF6F5] rounded-full blur-2xl pointer-events-none" />
+
+        <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+          
+          <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
+            
+            {/* SignatureOne Cover Artwork / Brand Seal */}
+            <div className="lg:col-span-5 flex flex-col items-center justify-center">
+              <div className="p-3 bg-white rounded-full border border-[#F0EAE6] shadow-sm">
+                <Logo size="xl" variant="full" showSubtitle={false} showEst={true} />
+              </div>
+            </div>
+
+            {/* Core Brand & Quick-Access Information */}
+            <div className="lg:col-span-7 space-y-4 text-center lg:text-left">
+              
+              <div className="space-y-1">
+                <h1 className="font-heading text-3xl sm:text-4xl font-extrabold text-[#1E1B18] tracking-tight">
+                  SignatureOne Mobile Notary
+                </h1>
+                <p className="font-script text-2xl sm:text-3xl text-[#B9827B]">
+                  Trusted. Professional. Convenient.
+                </p>
+              </div>
+
+              <div className="space-y-1 text-sm text-[#554E4A]">
+                <p className="font-medium text-[#1E1B18]">
+                  Lavon, Texas 75166
+                </p>
+                <p>
+                  <a
+                    href="tel:+19728531513"
+                    className="font-bold text-[#1E1B18] hover:text-[#B9827B] transition-colors inline-flex items-center gap-1.5"
+                  >
+                    <Phone className="w-4 h-4 text-[#B9827B]" />
+                    <span>(972) 853-1513</span>
+                  </a>
+                </p>
+              </div>
+
+              {/* Primary & Secondary Hero Actions */}
+              <div className="pt-3 flex flex-col sm:flex-row items-center justify-center lg:justify-start gap-3">
+                <button
+                  id="hero-primary-book-btn"
+                  onClick={() => onOpenBooking('Select Notary Service', '$15–$35 + notarial fees', '[GENERAL NOTARY CALENDLY LINK]')}
+                  className="w-full sm:w-auto py-3.5 px-7 bg-[#B9827B] hover:bg-[#a56f68] active:scale-[0.98] text-white text-xs sm:text-sm font-semibold tracking-wider uppercase rounded-xl transition-all shadow-xs flex items-center justify-center gap-2"
+                >
+                  <Calendar className="w-4 h-4" />
+                  <span>BOOK AN APPOINTMENT</span>
+                </button>
+
+                <a
+                  id="hero-call-btn"
+                  href="tel:+19728531513"
+                  className="w-full sm:w-auto py-3.5 px-6 bg-white hover:bg-[#FAF6F5] active:scale-[0.98] text-[#1E1B18] border border-[#F0EAE6] hover:border-[#B9827B] text-xs sm:text-sm font-semibold rounded-xl transition-all flex items-center justify-center gap-2"
+                >
+                  <Phone className="w-4 h-4 text-[#B9827B]" />
+                  <span>CALL (972) 853-1513</span>
+                </a>
+              </div>
+
+            </div>
+
           </div>
-          <h2 className="text-2xl sm:text-3xl lg:text-4xl font-extrabold text-[#1E1B18] tracking-tight font-heading">
-            Simple, Straightforward Rates
+
+        </div>
+      </section>
+
+      {/* =========================================================================
+          2. NOTARY SERVICES
+          ========================================================================= */}
+      <section id="notary-services" className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
+        
+        <div className="text-center max-w-2xl mx-auto space-y-2 mb-8">
+          <h2 className="text-2xl sm:text-3xl font-extrabold text-[#1E1B18] tracking-tight font-heading uppercase">
+            NOTARY SERVICES
           </h2>
-          <p className="text-sm sm:text-base text-[#554E4A]">
-            No hidden mileage surprises or surprise add-ons. Clear convenience fees plus standard Texas statutory notarial fees. Every appointment includes our $10 deposit credited directly toward your final invoice.
+          <p className="text-sm text-[#554E4A]">
+            Choose the service that works best for you.
           </p>
         </div>
 
-        {/* Pricing Cards Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+        {/* 4 Simple Cards */}
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5">
           
-          {/* 1. In-Person (Meet Me) */}
-          <div className="bg-white rounded-2xl border border-[#D8CEC7] p-6 flex flex-col justify-between hover:border-[#B9827B] hover:shadow-md transition-all">
-            <div className="space-y-4">
-              <div className="flex items-center justify-between">
-                <span className="p-2.5 rounded-xl bg-[#FAF7F2] text-[#B9827B] border border-[#E3D9CE]">
-                  <Building2 className="w-5 h-5" />
-                </span>
-                <span className="text-[11px] font-semibold uppercase px-2.5 py-1 rounded-full bg-[#FAF7F2] text-[#554E4A] border border-[#D8CEC7]">
-                  You Come To Me
-                </span>
+          {/* Card 1: You Come To Me */}
+          <div className="bg-white rounded-2xl border border-[#F0EAE6] p-5 flex flex-col justify-between hover:border-[#E8C9C5] transition-all">
+            <div className="space-y-3">
+              <div className="w-9 h-9 rounded-xl bg-[#FAF6F5] flex items-center justify-center text-[#B9827B]">
+                <Building2 className="w-4 h-4" />
               </div>
+
               <div>
-                <h3 className="text-lg font-bold text-[#1E1B18] font-heading">In-Person Notary</h3>
-                <p className="text-xs text-[#554E4A] mt-1">Convenient meeting location in Lavon, TX 75166</p>
+                <h3 className="text-sm font-bold uppercase tracking-wider text-[#1E1B18] font-heading">
+                  YOU COME TO ME
+                </h3>
+                <p className="text-xs font-medium text-[#786F6A] mt-0.5">
+                  In-Person Notary
+                </p>
               </div>
-              <div className="pt-2 border-t border-[#FAF7F2]">
-                <div className="flex items-baseline gap-1">
-                  <span className="text-3xl font-extrabold text-[#1E1B18] font-heading">$15</span>
-                  <span className="text-xs text-[#786F6A]">convenience fee</span>
+
+              <div className="text-xs text-[#554E4A] space-y-1">
+                <p className="text-[#786F6A]">Designated meeting location:</p>
+                <p className="font-semibold text-[#1E1B18]">Wylie, TX 75098</p>
+              </div>
+
+              <div className="pt-2 border-t border-[#F0EAE6]">
+                <div className="text-base font-extrabold text-[#1E1B18]">
+                  $15 <span className="text-xs font-normal text-[#786F6A]">convenience fee</span>
                 </div>
-                <p className="text-[11px] text-[#B9827B] font-medium mt-1">+ $10 per Texas notarized signature</p>
+                <p className="text-[11px] text-[#B9827B] font-medium mt-0.5">
+                  + applicable Texas notarial fees
+                </p>
               </div>
-              <ul className="space-y-2 text-xs text-[#554E4A] pt-2">
-                <li className="flex items-start gap-2">
-                  <CheckCircle2 className="w-3.5 h-3.5 text-[#B9827B] shrink-0 mt-0.5" />
-                  <span>Ideal for single documents or quick affidavits</span>
-                </li>
-                <li className="flex items-start gap-2">
-                  <CheckCircle2 className="w-3.5 h-3.5 text-[#B9827B] shrink-0 mt-0.5" />
-                  <span>15-minute appointment block</span>
-                </li>
-                <li className="flex items-start gap-2">
-                  <CheckCircle2 className="w-3.5 h-3.5 text-[#B9827B] shrink-0 mt-0.5" />
-                  <span>$10 deposit applied to final bill</span>
-                </li>
-              </ul>
             </div>
-            <button
-              onClick={() => onOpenBooking('In-Person Notary (You Come to Me)', '$15 convenience fee + $10/signature', '[IN PERSON CALENDLY LINK]')}
-              className="mt-6 w-full py-2.5 px-4 rounded-xl bg-[#FAF7F2] hover:bg-[#B9827B] text-[#1E1B18] hover:text-white font-semibold text-xs transition-all border border-[#D8CEC7] hover:border-[#B9827B] flex items-center justify-center gap-1.5"
-            >
-              <Calendar className="w-3.5 h-3.5" />
-              <span>Book In-Person</span>
-            </button>
+
+            <div className="pt-4 mt-3 border-t border-[#F0EAE6]">
+              <button
+                onClick={() => onNavigateToTab('services')}
+                className="inline-flex items-center gap-1 text-xs font-semibold text-[#1E1B18] hover:text-[#B9827B] transition-colors"
+              >
+                <span>Learn More</span>
+                <ChevronRight className="w-3.5 h-3.5" />
+              </button>
+            </div>
           </div>
 
-          {/* 2. Local Mobile (I Come To You) */}
-          <div className="bg-[#FAF7F2] rounded-2xl border-2 border-[#B9827B] p-6 flex flex-col justify-between shadow-sm relative">
-            <div className="absolute -top-3 right-6 bg-[#B9827B] text-white text-[10px] font-bold uppercase tracking-wider px-3 py-0.5 rounded-full">
-              Most Popular
-            </div>
-            <div className="space-y-4">
-              <div className="flex items-center justify-between">
-                <span className="p-2.5 rounded-xl bg-white text-[#B9827B] border border-[#E8C9C5]">
-                  <Car className="w-5 h-5" />
-                </span>
-                <span className="text-[11px] font-semibold uppercase px-2.5 py-1 rounded-full bg-[#E8C9C5]/40 text-[#1E1B18]">
-                  I Come To You
-                </span>
+          {/* Card 2: I Come To You */}
+          <div className="bg-white rounded-2xl border border-[#F0EAE6] p-5 flex flex-col justify-between hover:border-[#E8C9C5] transition-all">
+            <div className="space-y-3">
+              <div className="w-9 h-9 rounded-xl bg-[#FAF6F5] flex items-center justify-center text-[#B9827B]">
+                <Car className="w-4 h-4" />
               </div>
+
               <div>
-                <h3 className="text-lg font-bold text-[#1E1B18] font-heading">Local Mobile Notary</h3>
-                <p className="text-xs text-[#554E4A] mt-1">To your home, office, coffee shop, or hospital</p>
+                <h3 className="text-sm font-bold uppercase tracking-wider text-[#1E1B18] font-heading">
+                  I COME TO YOU
+                </h3>
+                <p className="text-xs font-medium text-[#786F6A] mt-0.5">
+                  Local Mobile Notary
+                </p>
               </div>
-              <div className="pt-2 border-t border-white">
-                <div className="flex items-baseline gap-1">
-                  <span className="text-3xl font-extrabold text-[#1E1B18] font-heading">$35</span>
-                  <span className="text-xs text-[#786F6A]">flat travel fee</span>
+
+              <div className="text-xs text-[#554E4A] space-y-1">
+                <p className="text-[#786F6A]">Service area:</p>
+                <p className="font-semibold text-[#1E1B18]">Within a 12-mile radius of ZIP 75166</p>
+              </div>
+
+              <div className="pt-2 border-t border-[#F0EAE6]">
+                <div className="text-base font-extrabold text-[#1E1B18]">
+                  $35 <span className="text-xs font-normal text-[#786F6A]">convenience fee</span>
                 </div>
-                <p className="text-[11px] text-[#B9827B] font-medium mt-1">+ $10 per Texas notarized signature</p>
+                <p className="text-[11px] text-[#B9827B] font-medium mt-0.5">
+                  + applicable Texas notarial fees
+                </p>
               </div>
-              <ul className="space-y-2 text-xs text-[#554E4A] pt-2">
-                <li className="flex items-start gap-2">
-                  <CheckCircle2 className="w-3.5 h-3.5 text-[#B9827B] shrink-0 mt-0.5" />
-                  <span>12-mile radius from Lavon 75166</span>
-                </li>
-                <li className="flex items-start gap-2">
-                  <CheckCircle2 className="w-3.5 h-3.5 text-[#B9827B] shrink-0 mt-0.5" />
-                  <span>Wylie, Nevada, Josephine, Royse City, Fate</span>
-                </li>
-                <li className="flex items-start gap-2">
-                  <CheckCircle2 className="w-3.5 h-3.5 text-[#B9827B] shrink-0 mt-0.5" />
-                  <span>$10 deposit applied to final bill</span>
-                </li>
-              </ul>
             </div>
-            <button
-              onClick={() => onOpenBooking('Local Mobile Notary (I Come to You)', '$35 travel fee + $10/signature', '[MOBILE NOTARY CALENDLY LINK]')}
-              className="mt-6 w-full py-2.5 px-4 rounded-xl bg-[#B9827B] hover:bg-[#a56f68] text-white font-semibold text-xs transition-all shadow-xs flex items-center justify-center gap-1.5"
-            >
-              <Calendar className="w-3.5 h-3.5" />
-              <span>Book Mobile Notary</span>
-            </button>
+
+            <div className="pt-4 mt-3 border-t border-[#F0EAE6]">
+              <button
+                onClick={() => onNavigateToTab('services')}
+                className="inline-flex items-center gap-1 text-xs font-semibold text-[#1E1B18] hover:text-[#B9827B] transition-colors"
+              >
+                <span>Learn More</span>
+                <ChevronRight className="w-3.5 h-3.5" />
+              </button>
+            </div>
           </div>
 
-          {/* 3. Remote Online Notarization (RON) */}
-          <div className="bg-white rounded-2xl border border-[#D8CEC7] p-6 flex flex-col justify-between hover:border-[#B9827B] hover:shadow-md transition-all">
-            <div className="space-y-4">
-              <div className="flex items-center justify-between">
-                <span className="p-2.5 rounded-xl bg-[#FAF7F2] text-[#B9827B] border border-[#E3D9CE]">
-                  <Video className="w-5 h-5" />
-                </span>
-                <span className="text-[11px] font-semibold uppercase px-2.5 py-1 rounded-full bg-[#FAF7F2] text-[#554E4A] border border-[#D8CEC7]">
-                  100% Online
-                </span>
+          {/* Card 3: RON */}
+          <div className="bg-white rounded-2xl border border-[#F0EAE6] p-5 flex flex-col justify-between hover:border-[#E8C9C5] transition-all">
+            <div className="space-y-3">
+              <div className="w-9 h-9 rounded-xl bg-[#FAF6F5] flex items-center justify-center text-[#B9827B]">
+                <Video className="w-4 h-4" />
               </div>
+
               <div>
-                <h3 className="text-lg font-bold text-[#1E1B18] font-heading">Remote Online (RON)</h3>
-                <p className="text-xs text-[#554E4A] mt-1">Legally notarize anywhere in Texas via BlueNotary</p>
+                <h3 className="text-sm font-bold uppercase tracking-wider text-[#1E1B18] font-heading">
+                  RON (REMOTE ONLINE NOTARY)
+                </h3>
+                <p className="text-xs font-medium text-[#786F6A] mt-0.5">
+                  Online Video Session
+                </p>
               </div>
-              <div className="pt-2 border-t border-[#FAF7F2]">
-                <div className="flex items-baseline gap-1">
-                  <span className="text-3xl font-extrabold text-[#1E1B18] font-heading">$25</span>
-                  <span className="text-xs text-[#786F6A]">platform fee</span>
+
+              <div className="text-xs text-[#554E4A] space-y-1">
+                <p className="text-[#786F6A]">Format:</p>
+                <p className="font-semibold text-[#1E1B18]">Secure online notarization by video.</p>
+              </div>
+
+              <div className="pt-2 border-t border-[#F0EAE6]">
+                <div className="text-base font-extrabold text-[#1E1B18]">
+                  $25 <span className="text-xs font-normal text-[#786F6A]">RON fee</span>
                 </div>
-                <p className="text-[11px] text-[#B9827B] font-medium mt-1">+ $10 per Texas notarized signature</p>
+                <p className="text-[11px] text-[#B9827B] font-medium mt-0.5">
+                  + applicable Texas notarial fees
+                </p>
               </div>
-              <ul className="space-y-2 text-xs text-[#554E4A] pt-2">
-                <li className="flex items-start gap-2">
-                  <CheckCircle2 className="w-3.5 h-3.5 text-[#B9827B] shrink-0 mt-0.5" />
-                  <span>BlueNotary biometric KBA verification</span>
-                </li>
-                <li className="flex items-start gap-2">
-                  <CheckCircle2 className="w-3.5 h-3.5 text-[#B9827B] shrink-0 mt-0.5" />
-                  <span>Instant tamper-evident digital download</span>
-                </li>
-                <li className="flex items-start gap-2">
-                  <CheckCircle2 className="w-3.5 h-3.5 text-[#B9827B] shrink-0 mt-0.5" />
-                  <span>After-hours evening slots available (+$25)</span>
-                </li>
-              </ul>
             </div>
-            <button
-              onClick={() => onOpenBooking('Remote Online Notarization (RON)', '$25 platform fee + $10/signature', '[RON CALENDLY LINK]')}
-              className="mt-6 w-full py-2.5 px-4 rounded-xl bg-[#FAF7F2] hover:bg-[#B9827B] text-[#1E1B18] hover:text-white font-semibold text-xs transition-all border border-[#D8CEC7] hover:border-[#B9827B] flex items-center justify-center gap-1.5"
-            >
-              <Video className="w-3.5 h-3.5" />
-              <span>Book Online (RON)</span>
-            </button>
+
+            <div className="pt-4 mt-3 border-t border-[#F0EAE6]">
+              <button
+                onClick={() => onNavigateToTab('services')}
+                className="inline-flex items-center gap-1 text-xs font-semibold text-[#1E1B18] hover:text-[#B9827B] transition-colors"
+              >
+                <span>Learn More</span>
+                <ChevronRight className="w-3.5 h-3.5" />
+              </button>
+            </div>
           </div>
 
-          {/* 4. Loan Signing & Real Estate Closings */}
-          <div className="bg-white rounded-2xl border border-[#D8CEC7] p-6 flex flex-col justify-between hover:border-[#B9827B] hover:shadow-md transition-all">
-            <div className="space-y-4">
-              <div className="flex items-center justify-between">
-                <span className="p-2.5 rounded-xl bg-[#FAF7F2] text-[#B9827B] border border-[#E3D9CE]">
-                  <FileText className="w-5 h-5" />
-                </span>
-                <span className="text-[11px] font-semibold uppercase px-2.5 py-1 rounded-full bg-[#FAF7F2] text-[#554E4A] border border-[#D8CEC7]">
-                  Title &amp; Escrow
-                </span>
+          {/* Card 4: Business & Extended Mobile */}
+          <div className="bg-white rounded-2xl border border-[#F0EAE6] p-5 flex flex-col justify-between hover:border-[#E8C9C5] transition-all">
+            <div className="space-y-3">
+              <div className="w-9 h-9 rounded-xl bg-[#FAF6F5] flex items-center justify-center text-[#B9827B]">
+                <Briefcase className="w-4 h-4" />
               </div>
+
               <div>
-                <h3 className="text-lg font-bold text-[#1E1B18] font-heading">Loan Signing (LSA)</h3>
-                <p className="text-xs text-[#554E4A] mt-1">Purchases, Refinances, HELOCs &amp; Sellers</p>
+                <h3 className="text-sm font-bold uppercase tracking-wider text-[#1E1B18] font-heading">
+                  BUSINESS &amp; EXTENDED MOBILE
+                </h3>
+                <p className="text-xs font-medium text-[#786F6A] mt-0.5">
+                  Commercial &amp; Extended
+                </p>
               </div>
-              <div className="pt-2 border-t border-[#FAF7F2]">
-                <div className="flex items-baseline gap-1">
-                  <span className="text-3xl font-extrabold text-[#1E1B18] font-heading">$50+</span>
-                  <span className="text-xs text-[#786F6A]">tailored quote</span>
+
+              <div className="text-xs text-[#554E4A] space-y-1">
+                <p className="text-[#786F6A]">Ideal for:</p>
+                <p className="font-semibold text-[#1E1B18]">Larger assignments, multiple signers, and extended travel.</p>
+              </div>
+
+              <div className="pt-2 border-t border-[#F0EAE6]">
+                <div className="text-base font-extrabold text-[#1E1B18]">
+                  Starting at $50
                 </div>
-                <p className="text-[11px] text-[#B9827B] font-medium mt-1">Based on package volume &amp; mileage</p>
+                <p className="text-[11px] text-[#B9827B] font-medium mt-0.5">
+                  + applicable Texas notarial fees
+                </p>
               </div>
-              <ul className="space-y-2 text-xs text-[#554E4A] pt-2">
-                <li className="flex items-start gap-2">
-                  <CheckCircle2 className="w-3.5 h-3.5 text-[#B9827B] shrink-0 mt-0.5" />
-                  <span>Dual-tray laser printing &amp; full prep</span>
-                </li>
-                <li className="flex items-start gap-2">
-                  <CheckCircle2 className="w-3.5 h-3.5 text-[#B9827B] shrink-0 mt-0.5" />
-                  <span>Same-day scanbacks &amp; carrier dropoff</span>
-                </li>
-                <li className="flex items-start gap-2">
-                  <CheckCircle2 className="w-3.5 h-3.5 text-[#B9827B] shrink-0 mt-0.5" />
-                  <span>Background screened &amp; certified</span>
-                </li>
-              </ul>
             </div>
-            <button
-              onClick={onOpenQuote}
-              className="mt-6 w-full py-2.5 px-4 rounded-xl bg-[#1E1B18] hover:bg-[#35302C] text-white font-semibold text-xs transition-all flex items-center justify-center gap-1.5"
-            >
-              <FileText className="w-3.5 h-3.5 text-[#E8C9C5]" />
-              <span>Request LSA Quote</span>
-            </button>
+
+            <div className="pt-4 mt-3 border-t border-[#F0EAE6]">
+              <button
+                onClick={() => onNavigateToTab('services')}
+                className="inline-flex items-center gap-1 text-xs font-semibold text-[#1E1B18] hover:text-[#B9827B] transition-colors"
+              >
+                <span>Learn More</span>
+                <ChevronRight className="w-3.5 h-3.5" />
+              </button>
+            </div>
           </div>
 
         </div>
 
-        {/* Straightforward Pricing Comparison Table */}
-        <div className="mt-12 bg-white rounded-2xl border border-[#D8CEC7] overflow-hidden shadow-xs">
-          <div className="px-6 py-4 bg-[#FAF7F2] border-b border-[#D8CEC7] flex flex-wrap items-center justify-between gap-4">
-            <div>
-              <h3 className="text-base font-bold text-[#1E1B18] font-heading">
-                Comprehensive Fee Schedule &amp; Line-Item Summary
+      </section>
+
+      {/* =========================================================================
+          3. SIMPLE, TRANSPARENT PRICING
+          ========================================================================= */}
+      <section id="pricing" className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div className="bg-white rounded-2xl border border-[#F0EAE6] p-6 sm:p-8 space-y-6">
+          
+          <div className="text-center space-y-1">
+            <h2 className="text-xl sm:text-2xl font-extrabold text-[#1E1B18] tracking-tight font-heading uppercase">
+              SIMPLE, TRANSPARENT PRICING
+            </h2>
+          </div>
+
+          {/* Pricing Grid */}
+          <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
+            
+            <div className="p-3.5 rounded-xl bg-white border border-[#F0EAE6] flex items-center justify-between">
+              <span className="text-xs font-semibold text-[#1E1B18]">You Come to Me</span>
+              <span className="text-sm font-extrabold text-[#1E1B18]">$15</span>
+            </div>
+
+            <div className="p-3.5 rounded-xl bg-white border border-[#F0EAE6] flex items-center justify-between">
+              <span className="text-xs font-semibold text-[#1E1B18]">Local Mobile</span>
+              <span className="text-sm font-extrabold text-[#1E1B18]">$35</span>
+            </div>
+
+            <div className="p-3.5 rounded-xl bg-white border border-[#F0EAE6] flex items-center justify-between">
+              <span className="text-xs font-semibold text-[#1E1B18]">RON (Remote Online Notary)</span>
+              <span className="text-sm font-extrabold text-[#1E1B18]">$25</span>
+            </div>
+
+            <div className="p-3.5 rounded-xl bg-white border border-[#F0EAE6] flex items-center justify-between">
+              <span className="text-xs font-semibold text-[#1E1B18]">Business / Extended Mobile</span>
+              <span className="text-sm font-extrabold text-[#1E1B18]">$50+</span>
+            </div>
+
+            <div className="p-3.5 rounded-xl bg-white border border-[#F0EAE6] flex items-center justify-between">
+              <span className="text-xs font-semibold text-[#1E1B18]">After-Hours RON</span>
+              <span className="text-sm font-extrabold text-[#1E1B18]">+$25</span>
+            </div>
+
+            <div className="p-3.5 rounded-xl bg-white border border-[#F0EAE6] flex items-center justify-between">
+              <span className="text-xs font-semibold text-[#1E1B18]">Loan Signing &amp; Closing</span>
+              <span className="text-sm font-extrabold text-[#1E1B18]">Custom Quote</span>
+            </div>
+
+          </div>
+
+          <div className="pt-2 text-center text-xs text-[#786F6A]">
+            Applicable Texas notarial fees are added separately.
+          </div>
+
+        </div>
+      </section>
+
+      {/* =========================================================================
+          4. NOTARY SERVICES MADE SIMPLE
+          ========================================================================= */}
+      <section id="notary-services-made-simple" className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
+        
+        <div className="text-center max-w-2xl mx-auto space-y-2 mb-8">
+          <h2 className="text-xl sm:text-2xl font-extrabold text-[#1E1B18] tracking-tight font-heading uppercase">
+            NOTARY SERVICES MADE SIMPLE
+          </h2>
+        </div>
+
+        {/* Exactly Two Boxes */}
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+          
+          {/* Box 1: Traditional Notary */}
+          <div className="bg-white rounded-2xl border border-[#F0EAE6] p-6 space-y-4">
+            <div className="space-y-1 pb-3 border-b border-[#F0EAE6]">
+              <h3 className="font-bold text-sm text-[#1E1B18] uppercase tracking-wide font-heading">
+                TRADITIONAL NOTARY
               </h3>
-              <p className="text-xs text-[#554E4A]">
-                Governed under Texas Government Code § 406.024
+              <p className="text-xs text-[#786F6A]">
+                In-Person (Wylie) or Local Mobile
               </p>
             </div>
-            <button
-              onClick={() => onNavigateToTab('how-it-works')}
-              className="inline-flex items-center gap-1 text-xs font-semibold text-[#B9827B] hover:text-[#1E1B18] transition-colors"
-            >
-              <Sparkles className="w-3.5 h-3.5" />
-              <span>Launch Interactive Fee Estimator &rarr;</span>
-            </button>
+
+            <ol className="space-y-3 text-xs text-[#554E4A]">
+              <li className="flex items-start gap-2.5">
+                <span className="w-5 h-5 rounded-full bg-[#FAF6F5] text-[#B9827B] font-bold text-[11px] flex items-center justify-center shrink-0">
+                  1
+                </span>
+                <div>
+                  <strong className="text-[#1E1B18]">Choose your service:</strong> Select in-person meeting in Wylie or mobile travel to your location.
+                </div>
+              </li>
+
+              <li className="flex items-start gap-2.5">
+                <span className="w-5 h-5 rounded-full bg-[#FAF6F5] text-[#B9827B] font-bold text-[11px] flex items-center justify-center shrink-0">
+                  2
+                </span>
+                <div>
+                  <strong className="text-[#1E1B18]">Book your appointment:</strong> Reserve your date and time with our simple $10 deposit.
+                </div>
+              </li>
+
+              <li className="flex items-start gap-2.5">
+                <span className="w-5 h-5 rounded-full bg-[#FAF6F5] text-[#B9827B] font-bold text-[11px] flex items-center justify-center shrink-0">
+                  3
+                </span>
+                <div>
+                  <strong className="text-[#1E1B18]">Bring document &amp; photo ID:</strong> Have an unexpired government-issued photo ID ready.
+                </div>
+              </li>
+
+              <li className="flex items-start gap-2.5">
+                <span className="w-5 h-5 rounded-full bg-[#FAF6F5] text-[#B9827B] font-bold text-[11px] flex items-center justify-center shrink-0">
+                  4
+                </span>
+                <div>
+                  <strong className="text-[#1E1B18]">Meet notary &amp; sign:</strong> Identity is verified, signatures are witnessed, and the official seal is applied.
+                </div>
+              </li>
+            </ol>
           </div>
 
-          <div className="overflow-x-auto">
-            <table className="w-full text-left text-xs sm:text-sm">
-              <thead className="bg-[#FAF7F2]/60 text-[#1E1B18] font-semibold border-b border-[#D8CEC7]">
-                <tr>
-                  <th className="py-3.5 px-4 sm:px-6">Service Category</th>
-                  <th className="py-3.5 px-4 sm:px-6">Convenience / Base Fee</th>
-                  <th className="py-3.5 px-4 sm:px-6">Per-Signature Rate</th>
-                  <th className="py-3.5 px-4 sm:px-6">Required Deposit</th>
-                  <th className="py-3.5 px-4 sm:px-6">Action</th>
-                </tr>
-              </thead>
-              <tbody className="divide-y divide-[#EAE2D8] text-[#554E4A]">
-                <tr className="hover:bg-[#FAF7F2]/40 transition-colors">
-                  <td className="py-3.5 px-4 sm:px-6 font-medium text-[#1E1B18]">
-                    In-Person ("You Come to Me")
-                    <span className="block text-xs text-[#786F6A]">Lavon, TX 75166 meeting location</span>
-                  </td>
-                  <td className="py-3.5 px-4 sm:px-6 font-semibold text-[#1E1B18]">$15.00</td>
-                  <td className="py-3.5 px-4 sm:px-6">$10.00 / certificate</td>
-                  <td className="py-3.5 px-4 sm:px-6 text-[#B9827B] font-medium">$10.00 (credited)</td>
-                  <td className="py-3.5 px-4 sm:px-6">
-                    <button
-                      onClick={() => onOpenBooking('In-Person Notary', '$15 + $10/sig', '[IN PERSON CALENDLY LINK]')}
-                      className="text-xs font-semibold text-[#B9827B] hover:underline"
-                    >
-                      Book Now
-                    </button>
-                  </td>
-                </tr>
-                <tr className="hover:bg-[#FAF7F2]/40 transition-colors">
-                  <td className="py-3.5 px-4 sm:px-6 font-medium text-[#1E1B18]">
-                    Local Mobile Notary ("I Come to You")
-                    <span className="block text-xs text-[#786F6A]">Up to 12-mile radius from Lavon</span>
-                  </td>
-                  <td className="py-3.5 px-4 sm:px-6 font-semibold text-[#1E1B18]">$35.00</td>
-                  <td className="py-3.5 px-4 sm:px-6">$10.00 / certificate</td>
-                  <td className="py-3.5 px-4 sm:px-6 text-[#B9827B] font-medium">$10.00 (credited)</td>
-                  <td className="py-3.5 px-4 sm:px-6">
-                    <button
-                      onClick={() => onOpenBooking('Local Mobile Notary', '$35 + $10/sig', '[MOBILE NOTARY CALENDLY LINK]')}
-                      className="text-xs font-semibold text-[#B9827B] hover:underline"
-                    >
-                      Book Now
-                    </button>
-                  </td>
-                </tr>
-                <tr className="hover:bg-[#FAF7F2]/40 transition-colors">
-                  <td className="py-3.5 px-4 sm:px-6 font-medium text-[#1E1B18]">
-                    Remote Online Notarization (RON)
-                    <span className="block text-xs text-[#786F6A]">BlueNotary secure audio-video session</span>
-                  </td>
-                  <td className="py-3.5 px-4 sm:px-6 font-semibold text-[#1E1B18]">$25.00</td>
-                  <td className="py-3.5 px-4 sm:px-6">$10.00 / certificate</td>
-                  <td className="py-3.5 px-4 sm:px-6 text-[#B9827B] font-medium">$10.00 (credited)</td>
-                  <td className="py-3.5 px-4 sm:px-6">
-                    <button
-                      onClick={() => onOpenBooking('Remote Online Notarization (RON)', '$25 + $10/sig', '[RON CALENDLY LINK]')}
-                      className="text-xs font-semibold text-[#B9827B] hover:underline"
-                    >
-                      Book Now
-                    </button>
-                  </td>
-                </tr>
-                <tr className="hover:bg-[#FAF7F2]/40 transition-colors">
-                  <td className="py-3.5 px-4 sm:px-6 font-medium text-[#1E1B18]">
-                    After-Hours RON (Evening Sessions)
-                    <span className="block text-xs text-[#786F6A]">Evenings until 9:00 PM CT (Mon–Sun)</span>
-                  </td>
-                  <td className="py-3.5 px-4 sm:px-6 font-semibold text-[#1E1B18]">$50.00 ($25 + $25 evening)</td>
-                  <td className="py-3.5 px-4 sm:px-6">$10.00 / certificate</td>
-                  <td className="py-3.5 px-4 sm:px-6 text-[#B9827B] font-medium">$10.00 (credited)</td>
-                  <td className="py-3.5 px-4 sm:px-6">
-                    <button
-                      onClick={() => onOpenBooking('After-Hours Remote Online Notary', '$50 base + $10/sig', '[AFTER HOURS CALENDLY LINK]')}
-                      className="text-xs font-semibold text-[#B9827B] hover:underline"
-                    >
-                      Book Now
-                    </button>
-                  </td>
-                </tr>
-                <tr className="hover:bg-[#FAF7F2]/40 transition-colors">
-                  <td className="py-3.5 px-4 sm:px-6 font-medium text-[#1E1B18]">
-                    Loan Signing &amp; Real Estate Closings
-                    <span className="block text-xs text-[#786F6A]">Purchases, Refis, HELOCs, Sellers</span>
-                  </td>
-                  <td className="py-3.5 px-4 sm:px-6 font-semibold text-[#1E1B18]">Starting at $50.00</td>
-                  <td className="py-3.5 px-4 sm:px-6">Included in Package</td>
-                  <td className="py-3.5 px-4 sm:px-6 text-[#786F6A]">Quote based</td>
-                  <td className="py-3.5 px-4 sm:px-6">
-                    <button
-                      onClick={onOpenQuote}
-                      className="text-xs font-semibold text-[#1E1B18] hover:underline"
-                    >
-                      Get Quote
-                    </button>
-                  </td>
-                </tr>
-              </tbody>
-            </table>
+          {/* Box 2: RON (Remote Online Notary) */}
+          <div className="bg-white rounded-2xl border border-[#F0EAE6] p-6 space-y-4">
+            <div className="space-y-1 pb-3 border-b border-[#F0EAE6]">
+              <h3 className="font-bold text-sm text-[#1E1B18] uppercase tracking-wide font-heading">
+                RON (REMOTE ONLINE NOTARY)
+              </h3>
+              <p className="text-xs text-[#786F6A]">
+                Secure online notarization by video.
+              </p>
+            </div>
+
+            <ol className="space-y-3 text-xs text-[#554E4A]">
+              <li className="flex items-start gap-2.5">
+                <span className="w-5 h-5 rounded-full bg-[#FAF6F5] text-[#B9827B] font-bold text-[11px] flex items-center justify-center shrink-0">
+                  1
+                </span>
+                <div>
+                  <strong className="text-[#1E1B18]">Book your online session:</strong> Select a convenient video time slot.
+                </div>
+              </li>
+
+              <li className="flex items-start gap-2.5">
+                <span className="w-5 h-5 rounded-full bg-[#FAF6F5] text-[#B9827B] font-bold text-[11px] flex items-center justify-center shrink-0">
+                  2
+                </span>
+                <div>
+                  <strong className="text-[#1E1B18]">Verify identity online:</strong> Upload photo ID and complete identity verification.
+                </div>
+              </li>
+
+              <li className="flex items-start gap-2.5">
+                <span className="w-5 h-5 rounded-full bg-[#FAF6F5] text-[#B9827B] font-bold text-[11px] flex items-center justify-center shrink-0">
+                  3
+                </span>
+                <div>
+                  <strong className="text-[#1E1B18]">Meet securely by video:</strong> Review document and sign electronically with the notary.
+                </div>
+              </li>
+
+              <li className="flex items-start gap-2.5">
+                <span className="w-5 h-5 rounded-full bg-[#FAF6F5] text-[#B9827B] font-bold text-[11px] flex items-center justify-center shrink-0">
+                  4
+                </span>
+                <div>
+                  <strong className="text-[#1E1B18]">Download notarized document:</strong> Receive your tamper-evident digital document immediately.
+                </div>
+              </li>
+            </ol>
           </div>
 
-          <div className="p-4 bg-[#FAF7F2]/40 border-t border-[#D8CEC7] flex items-center justify-between text-xs text-[#786F6A]">
-            <span className="flex items-center gap-1.5">
-              <Info className="w-4 h-4 text-[#B9827B]" />
-              The $10 deposit secures your appointment and is deducted from your final bill.
-            </span>
-            <button 
-              onClick={() => onNavigateToTab('policies')}
-              className="text-[#B9827B] font-medium hover:underline shrink-0"
-            >
-              View 48-Hour Cancellation Policy &rarr;
-            </button>
-          </div>
         </div>
 
-      </section>
-
-      {/* Quick Navigation Cards to Explore Full Pages */}
-      <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-6">
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-          
-          <div 
-            onClick={() => onNavigateToTab('services')}
-            className="p-6 bg-white rounded-2xl border border-[#D8CEC7] hover:border-[#B9827B] cursor-pointer transition-all hover:shadow-md group"
-          >
-            <div className="w-10 h-10 rounded-xl bg-[#FAF7F2] text-[#B9827B] flex items-center justify-center mb-4 group-hover:bg-[#E8C9C5]/40 transition-colors">
-              <Sparkles className="w-5 h-5" />
-            </div>
-            <h3 className="text-base font-bold text-[#1E1B18] font-heading group-hover:text-[#B9827B] transition-colors flex items-center justify-between">
-              <span>Explore All Services</span>
-              <ArrowRight className="w-4 h-4 transform group-hover:translate-x-1 transition-transform" />
-            </h3>
-            <p className="text-xs text-[#554E4A] mt-2">
-              View accepted document types, after-hours RON details, and the 12-mile local travel radius.
-            </p>
-          </div>
-
-          <div 
-            onClick={() => onNavigateToTab('loan-signing')}
-            className="p-6 bg-white rounded-2xl border border-[#D8CEC7] hover:border-[#B9827B] cursor-pointer transition-all hover:shadow-md group"
-          >
-            <div className="w-10 h-10 rounded-xl bg-[#FAF7F2] text-[#B9827B] flex items-center justify-center mb-4 group-hover:bg-[#E8C9C5]/40 transition-colors">
-              <FileText className="w-5 h-5" />
-            </div>
-            <h3 className="text-base font-bold text-[#1E1B18] font-heading group-hover:text-[#B9827B] transition-colors flex items-center justify-between">
-              <span>Loan Signing Services</span>
-              <ArrowRight className="w-4 h-4 transform group-hover:translate-x-1 transition-transform" />
-            </h3>
-            <p className="text-xs text-[#554E4A] mt-2">
-              Dedicated closing solutions for Title Agencies, Escrow Officers, Lenders, and Borrowers.
-            </p>
-          </div>
-
-          <div 
+        {/* Bottom Link Only */}
+        <div className="pt-6 text-center">
+          <button
             onClick={() => onNavigateToTab('how-it-works')}
-            className="p-6 bg-white rounded-2xl border border-[#D8CEC7] hover:border-[#B9827B] cursor-pointer transition-all hover:shadow-md group"
+            className="inline-flex items-center gap-1.5 text-xs font-semibold text-[#1E1B18] hover:text-[#B9827B] transition-colors"
           >
-            <div className="w-10 h-10 rounded-xl bg-[#FAF7F2] text-[#B9827B] flex items-center justify-center mb-4 group-hover:bg-[#E8C9C5]/40 transition-colors">
-              <Zap className="w-5 h-5" />
+            <span>How It Works →</span>
+          </button>
+        </div>
+
+      </section>
+
+      {/* =========================================================================
+          5. HOURS • SERVICE AREA • CONTACT
+          ========================================================================= */}
+      <section id="hours-service-area-contact" className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
+        
+        <div className="text-center space-y-1 mb-8">
+          <h2 className="text-xl sm:text-2xl font-extrabold text-[#1E1B18] tracking-tight font-heading uppercase">
+            HOURS • SERVICE AREA • CONTACT
+          </h2>
+        </div>
+
+        {/* 3 Clean Boxes */}
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-5">
+          
+          {/* BOX 1: HOURS */}
+          <div className="bg-white rounded-2xl border border-[#F0EAE6] p-5 space-y-3">
+            <div className="flex items-center gap-2 text-[#1E1B18] pb-2 border-b border-[#F0EAE6]">
+              <Clock className="w-4 h-4 text-[#B9827B]" />
+              <h3 className="font-bold text-sm uppercase tracking-wide font-heading">HOURS</h3>
             </div>
-            <h3 className="text-base font-bold text-[#1E1B18] font-heading group-hover:text-[#B9827B] transition-colors flex items-center justify-between">
-              <span>How It Works &amp; Estimator</span>
-              <ArrowRight className="w-4 h-4 transform group-hover:translate-x-1 transition-transform" />
-            </h3>
-            <p className="text-xs text-[#554E4A] mt-2">
-              4-step appointment roadmap, ID requirements, and instant interactive fee calculator.
-            </p>
+
+            <div className="space-y-2.5 text-xs text-[#554E4A]">
+              <div>
+                <strong className="text-[#1E1B18] block">In-Person &amp; Mobile</strong>
+                <p className="text-[#786F6A]">Mon–Wed: 1:00 PM–6:30 PM CT</p>
+                <p className="text-[#786F6A]">Saturday: 10:00 AM–1:00 PM CT</p>
+              </div>
+
+              <div className="pt-2 border-t border-[#F0EAE6]">
+                <strong className="text-[#1E1B18] block">RON (Remote Online Notary)</strong>
+                <p className="text-[#786F6A]">Mon–Fri: 10:00 AM–7:00 PM CT</p>
+                <p className="text-[#786F6A]">Sat–Sun: 11:00 AM–5:00 PM CT</p>
+              </div>
+
+              <p className="text-[11px] text-[#B9827B] pt-1">
+                After-hours RON available by appointment through 9:00 PM CT.
+              </p>
+            </div>
+          </div>
+
+          {/* BOX 2: SERVICE AREA */}
+          <div className="bg-white rounded-2xl border border-[#F0EAE6] p-5 space-y-3">
+            <div className="flex items-center gap-2 text-[#1E1B18] pb-2 border-b border-[#F0EAE6]">
+              <MapPin className="w-4 h-4 text-[#B9827B]" />
+              <h3 className="font-bold text-sm uppercase tracking-wide font-heading">SERVICE AREA</h3>
+            </div>
+
+            <div className="space-y-2.5 text-xs text-[#554E4A]">
+              <div>
+                <strong className="text-[#1E1B18] block">Based in:</strong>
+                <p className="text-[#786F6A]">Lavon, TX 75166</p>
+              </div>
+
+              <div className="pt-2 border-t border-[#F0EAE6]">
+                <strong className="text-[#1E1B18] block">Local Mobile:</strong>
+                <p className="text-[#786F6A]">Within 12 miles of ZIP 75166</p>
+              </div>
+
+              <div className="pt-2 border-t border-[#F0EAE6]">
+                <strong className="text-[#1E1B18] block">You Come to Me:</strong>
+                <p className="text-[#786F6A]">Wylie, TX 75098</p>
+              </div>
+            </div>
+          </div>
+
+          {/* BOX 3: CONTACT */}
+          <div className="bg-white rounded-2xl border border-[#F0EAE6] p-5 space-y-3">
+            <div className="flex items-center gap-2 text-[#1E1B18] pb-2 border-b border-[#F0EAE6]">
+              <Phone className="w-4 h-4 text-[#B9827B]" />
+              <h3 className="font-bold text-sm uppercase tracking-wide font-heading">CONTACT</h3>
+            </div>
+
+            <div className="space-y-3 text-xs text-[#554E4A]">
+              <div>
+                <span className="text-[#786F6A] block">Phone:</span>
+                <a
+                  href="tel:+19728531513"
+                  className="font-bold text-sm text-[#1E1B18] hover:text-[#B9827B] transition-colors"
+                >
+                  (972) 853-1513
+                </a>
+              </div>
+
+              <div className="pt-2 border-t border-[#F0EAE6]">
+                <span className="text-[#786F6A] block">Email:</span>
+                <a
+                  href={`mailto:${BRAND_INFO.email}`}
+                  className="font-medium text-[#1E1B18] hover:text-[#B9827B] transition-colors break-all"
+                >
+                  {BRAND_INFO.email}
+                </a>
+              </div>
+            </div>
           </div>
 
         </div>
+
       </section>
 
-      {/* Mandatory Texas Notice Banner */}
-      <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-4">
-        <div className="p-5 rounded-2xl bg-[#FAF7F2] border border-[#D8CEC7] text-xs text-[#554E4A] text-center space-y-1">
-          <p className="font-semibold text-[#1E1B18]">
-            TEXAS NOTARY PUBLIC LEGAL NOTICE (TEX. GOV. CODE § 406.017)
+      {/* =========================================================================
+          6. READY TO GET STARTED?
+          ========================================================================= */}
+      <section id="ready-to-get-started" className="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+        <div className="bg-white rounded-2xl border border-[#F0EAE6] p-8 sm:p-10 space-y-4">
+          
+          <div className="space-y-1">
+            <h2 className="text-xl sm:text-2xl font-extrabold text-[#1E1B18] tracking-tight font-heading uppercase">
+              READY TO GET STARTED?
+            </h2>
+            <p className="text-xs sm:text-sm text-[#554E4A]">
+              Book your appointment online or give us a call.
+            </p>
+          </div>
+
+          <div className="pt-2 flex flex-col items-center justify-center gap-2">
+            <button
+              id="final-book-appointment-btn"
+              onClick={() => onOpenBooking('Select Notary Service', '$15–$35 + notarial fees', '[GENERAL NOTARY CALENDLY LINK]')}
+              className="py-3.5 px-8 bg-[#B9827B] hover:bg-[#a56f68] active:scale-[0.98] text-white font-semibold text-xs sm:text-sm tracking-wider uppercase rounded-xl transition-all shadow-xs flex items-center justify-center gap-2"
+            >
+              <Calendar className="w-4 h-4" />
+              <span>BOOK AN APPOINTMENT</span>
+            </button>
+
+            <a
+              href="tel:+19728531513"
+              className="font-semibold text-xs text-[#1E1B18] hover:text-[#B9827B] transition-colors pt-1"
+            >
+              (972) 853-1513
+            </a>
+          </div>
+
+          <p className="text-[11px] text-[#786F6A] pt-2 border-t border-[#F0EAE6]">
+            All services are by appointment only. Walk-ins are not accepted.
           </p>
-          <p>
-            I am not an attorney licensed to practice law in Texas and may not give legal advice or accept fees for legal advice.
-          </p>
+
         </div>
       </section>
+
     </div>
   );
 };

@@ -92,7 +92,12 @@ export const ContactModal: React.FC<ContactModalProps> = ({ isOpen, onClose }) =
                   <Phone className="w-4 h-4 text-[#B9827B] shrink-0" />
                   <div>
                     <span className="block text-[10px] text-[#786F6A] uppercase font-semibold">Phone</span>
-                    <span className="font-medium">{BRAND_INFO.phonePlaceholder}</span>
+                    <a
+                      href="tel:+19728531513"
+                      className="font-medium text-[#1E1B18] hover:text-[#B9827B] hover:underline"
+                    >
+                      {BRAND_INFO.phone}
+                    </a>
                   </div>
                 </div>
                 <div className="flex items-center gap-2 text-[#292727]">

@@ -2,14 +2,15 @@ import { FAQItem, ServiceItem } from '../types';
 
 export const BRAND_INFO = {
   name: 'SignatureOne Mobile Notary',
-  tagline: 'Trusted. Professional. Convenience.',
+  tagline: 'Trusted. Professional. Convenient.',
   slogan: 'Bringing Notary Services To You',
   established: '2016',
   zipCode: '75166',
   city: 'Lavon, Texas',
-  phone: '(469) 555-0192',
+  phone: '(972) 853-1513',
+  phoneTel: 'tel:+19728531513',
   email: 'appointments@signatureonenotary.com',
-  phonePlaceholder: '(469) 555-0192',
+  phonePlaceholder: '(972) 853-1513',
   emailPlaceholder: 'appointments@signatureonenotary.com',
   facebookPlaceholder: 'facebook.com/SignatureOneNotary',
   appointmentNotice: 'All SignatureOne services are available by appointment only. Walk-ins are not accepted.',
@@ -44,12 +45,12 @@ export const SERVICES: ServiceDetail[] = [
     id: 'in-person',
     type: 'In-Person',
     title: 'You Come to Me (In-Person)',
-    subtitle: 'Lavon Designated Meeting Location',
+    subtitle: 'Designated Meeting Location: Wylie, TX 75098',
     baseFee: '$15.00',
     feeNote: '+ $10/signature',
-    description: 'Convenient in-person notary appointments at our designated local meeting location in Lavon, TX 75166.',
+    description: 'Convenient in-person notary appointments at our designated local meeting location in Wylie, TX 75098.',
     highlights: [
-      'Dedicated private meeting table in Lavon area',
+      'Designated meeting location in Wylie, TX 75098',
       'Ideal for single documents or quick affidavits',
       '15-to-30 minute reserved time block',
       '$10 deposit credited toward final balance',
@@ -226,11 +227,11 @@ export const POLICY_TERMS = [
 ];
 
 export const OPERATING_HOURS = [
-  { days: 'Monday – Wednesday', hours: '1:00 PM – 6:30 PM CT (In-Person & Mobile)' },
-  { days: 'Thursday – Friday', hours: 'Remote Online (RON) & Scheduled LSA Closings' },
-  { days: 'Saturday', hours: '10:00 AM – 1:00 PM CT (By Appointment)' },
-  { days: 'Sunday', hours: 'Evening RON by Advance Appointment Only' },
-  { days: 'Evening RON (7 Days)', hours: 'Available up to 9:00 PM CT (+$25 after-hours fee)' }
+  { days: 'In-Person & Mobile (Mon–Wed)', hours: '1:00 PM – 6:30 PM CT' },
+  { days: 'In-Person & Mobile (Saturday)', hours: '10:00 AM – 1:00 PM CT' },
+  { days: 'RON Online Notary (Mon–Fri)', hours: '10:00 AM – 7:00 PM CT' },
+  { days: 'RON Online Notary (Sat–Sun)', hours: '11:00 AM – 5:00 PM CT' },
+  { days: 'After-Hours Evening RON (7 Days)', hours: 'Available by appointment through 9:00 PM CT (+$25)' }
 ];
 
 export const SERVICE_AREA_COMMUNITIES = [

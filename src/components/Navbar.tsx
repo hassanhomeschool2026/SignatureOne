@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { Menu, X, Calendar, Phone, Clock, ShieldCheck, ChevronRight, FileText } from 'lucide-react';
+import { Menu, X, Calendar, Phone } from 'lucide-react';
 import { BRAND_INFO } from '../data/notaryData';
 import { Logo } from './Logo';
 
@@ -29,13 +29,13 @@ export const Navbar: React.FC<NavbarProps> = ({
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
-  const navPages = [
-    { id: 'pricing', label: 'Pricing Sheet' },
-    { id: 'services', label: 'Services' },
-    { id: 'loan-signing', label: 'Loan Signing' },
-    { id: 'how-it-works', label: 'How It Works' },
-    { id: 'policies', label: 'Policies & Deposit' },
-    { id: 'faqs', label: 'FAQs' },
+  const navItems = [
+    { id: 'pricing', label: 'Home', action: () => handleNavClick('pricing') },
+    { id: 'services', label: 'Services', action: () => handleNavClick('services') },
+    { id: 'fee-estimator', label: 'Fee Estimator', action: () => handleNavClick('how-it-works') },
+    { id: 'loan-signing', label: 'Loan Signings', action: () => handleNavClick('loan-signing') },
+    { id: 'how-it-works', label: 'How It Works', action: () => handleNavClick('how-it-works') },
+    { id: 'contact', label: 'Contact', action: () => { setMobileMenuOpen(false); onOpenContact(); } },
   ];
 
   const handleNavClick = (pageId: string) => {
@@ -46,20 +46,18 @@ export const Navbar: React.FC<NavbarProps> = ({
 
   return (
     <header className="sticky top-0 z-40 w-full transition-all">
-      {/* Top Appointment-Only Notice Bar */}
-      <div className="bg-[#1E1B18] text-[#FAF7F2] py-1.5 px-4 text-xs font-medium tracking-wide text-center border-b border-[#332E2B] flex items-center justify-center gap-2">
-        <span className="inline-block w-1.5 h-1.5 rounded-full bg-[#E8C9C5] animate-pulse"></span>
-        <span>
-          <strong>All SignatureOne services are by appointment only.</strong> Walk-ins are not accepted.
-        </span>
+      {/* 1. Top Appointment-Only Notice Bar (Clean Black Bar) */}
+      <div className="bg-[#1E1B18] text-white py-2 px-4 text-xs font-medium tracking-wide text-center border-b border-black flex items-center justify-center gap-2">
+        <span className="inline-block w-1.5 h-1.5 rounded-full bg-[#E8C9C5]"></span>
+        <span>All SignatureOne services are by appointment only. Walk-ins are not accepted.</span>
       </div>
 
       {/* Main Navbar */}
       <nav
-        className={`w-full transition-all duration-200 ${
+        className={`w-full transition-all duration-200 bg-white ${
           isScrolled
-            ? 'bg-[#FAF7F2]/95 backdrop-blur-md shadow-xs border-b border-[#D8CEC7]'
-            : 'bg-[#FAF7F2] border-b border-[#D8CEC7]/70'
+            ? 'shadow-xs border-b border-[#F0EAE6]'
+            : 'border-b border-[#F0EAE6]'
         }`}
       >
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -76,34 +74,39 @@ export const Navbar: React.FC<NavbarProps> = ({
 
             {/* Desktop Navigation Links */}
             <div className="hidden lg:flex items-center space-x-1 font-heading">
-              {navPages.map((page) => {
-                const isActive = currentTab === page.id;
+              {navItems.map((item) => {
+                const isActive = 
+                  (item.id === 'pricing' && currentTab === 'pricing') ||
+                  (item.id === 'services' && currentTab === 'services') ||
+                  (item.id === 'loan-signing' && currentTab === 'loan-signing') ||
+                  (item.id === 'how-it-works' && currentTab === 'how-it-works');
+
                 return (
                   <button
-                    key={page.id}
-                    onClick={() => handleNavClick(page.id)}
+                    key={item.label}
+                    onClick={item.action}
                     className={`px-3.5 py-2 rounded-xl text-xs font-semibold tracking-wide transition-all ${
                       isActive
-                        ? 'bg-white text-[#1E1B18] shadow-xs border border-[#D8CEC7]'
-                        : 'text-[#554E4A] hover:text-[#1E1B18] hover:bg-white/60'
+                        ? 'text-[#B9827B] font-bold bg-[#FAF6F5]'
+                        : 'text-[#1E1B18] hover:text-[#B9827B] hover:bg-[#FAF6F5]'
                     }`}
                   >
-                    {page.label}
+                    {item.label}
                   </button>
                 );
               })}
             </div>
 
-            {/* Desktop Action Buttons */}
-            <div className="hidden md:flex items-center gap-2.5">
-              <button
-                id="nav-quote-btn"
-                onClick={onOpenQuote}
-                className="px-3.5 py-2 text-xs font-semibold tracking-wide uppercase text-[#1E1B18] hover:bg-white rounded-xl border border-[#D8CEC7] transition-all flex items-center gap-1.5"
+            {/* Desktop Action Area: Direct Phone & Book Button */}
+            <div className="hidden md:flex items-center gap-4">
+              <a
+                href="tel:+19728531513"
+                className="flex items-center gap-1.5 text-xs font-semibold text-[#1E1B18] hover:text-[#B9827B] transition-colors py-2 px-1"
+                aria-label="Call SignatureOne Mobile Notary at (972) 853-1513"
               >
-                <FileText className="w-3.5 h-3.5 text-[#B9827B]" />
-                <span>Quote</span>
-              </button>
+                <Phone className="w-3.5 h-3.5 text-[#B9827B]" />
+                <span>(972) 853-1513</span>
+              </a>
 
               <button
                 id="nav-book-now-btn"
@@ -115,8 +118,16 @@ export const Navbar: React.FC<NavbarProps> = ({
               </button>
             </div>
 
-            {/* Mobile Menu Button */}
+            {/* Mobile Action Controls */}
             <div className="flex lg:hidden items-center gap-2">
+              <a
+                href="tel:+19728531513"
+                className="p-2 text-[#1E1B18] hover:text-[#B9827B] rounded-lg"
+                aria-label="Call business phone"
+              >
+                <Phone className="w-4 h-4 text-[#B9827B]" />
+              </a>
+
               <button
                 id="mobile-book-now-quick-btn"
                 onClick={() => onOpenBooking('Standard Appointment', '$15–$35 + notarial fees', '[GENERAL NOTARY CALENDLY LINK]')}
@@ -124,11 +135,12 @@ export const Navbar: React.FC<NavbarProps> = ({
               >
                 Book
               </button>
+
               <button
                 id="mobile-nav-toggle-btn"
                 onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
                 aria-label="Toggle navigation menu"
-                className="p-2 rounded-xl text-[#1E1B18] hover:bg-[#D8CEC7]/40 focus:outline-none"
+                className="p-2 rounded-xl text-[#1E1B18] hover:bg-[#FAF6F5] focus:outline-none"
               >
                 {mobileMenuOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
               </button>
@@ -139,27 +151,28 @@ export const Navbar: React.FC<NavbarProps> = ({
 
         {/* Mobile Dropdown Menu */}
         {mobileMenuOpen && (
-          <div className="lg:hidden bg-white border-b border-[#D8CEC7] px-4 pt-3 pb-6 space-y-3 shadow-lg">
+          <div className="lg:hidden bg-white border-b border-[#F0EAE6] px-4 pt-3 pb-6 space-y-3 shadow-lg">
             <div className="space-y-1">
-              {navPages.map((page) => {
-                const isActive = currentTab === page.id;
-                return (
-                  <button
-                    key={page.id}
-                    onClick={() => handleNavClick(page.id)}
-                    className={`w-full text-left px-4 py-2.5 text-sm font-semibold rounded-xl transition-colors ${
-                      isActive
-                        ? 'bg-[#FAF7F2] text-[#B9827B] font-bold'
-                        : 'text-[#554E4A] hover:bg-[#FAF7F2] hover:text-[#1E1B18]'
-                    }`}
-                  >
-                    {page.label}
-                  </button>
-                );
-              })}
+              {navItems.map((item) => (
+                <button
+                  key={item.label}
+                  onClick={item.action}
+                  className="w-full text-left px-4 py-2.5 text-sm font-semibold rounded-xl transition-colors text-[#1E1B18] hover:bg-[#FAF6F5] hover:text-[#B9827B]"
+                >
+                  {item.label}
+                </button>
+              ))}
             </div>
 
-            <div className="pt-3 border-t border-[#D8CEC7] space-y-2">
+            <div className="pt-3 border-t border-[#F0EAE6] space-y-2">
+              <a
+                href="tel:+19728531513"
+                className="w-full py-2.5 bg-[#FAF6F5] text-[#1E1B18] border border-[#F0EAE6] font-semibold text-xs rounded-xl flex items-center justify-center gap-2"
+              >
+                <Phone className="w-3.5 h-3.5 text-[#B9827B]" />
+                <span>Call (972) 853-1513</span>
+              </a>
+
               <button
                 id="mobile-menu-book-btn"
                 onClick={() => {
@@ -169,31 +182,7 @@ export const Navbar: React.FC<NavbarProps> = ({
                 className="w-full py-3 bg-[#B9827B] text-white font-semibold text-xs tracking-wider uppercase rounded-xl flex items-center justify-center gap-2 shadow-xs"
               >
                 <Calendar className="w-4 h-4" />
-                <span>Book Appointment ($10 Deposit)</span>
-              </button>
-
-              <button
-                id="mobile-menu-quote-btn"
-                onClick={() => {
-                  setMobileMenuOpen(false);
-                  onOpenQuote();
-                }}
-                className="w-full py-2.5 bg-[#1E1B18] text-white font-semibold text-xs tracking-wider uppercase rounded-xl flex items-center justify-center gap-2"
-              >
-                <FileText className="w-3.5 h-3.5 text-[#E8C9C5]" />
-                <span>Request a Signing Quote</span>
-              </button>
-
-              <button
-                id="mobile-menu-contact-btn"
-                onClick={() => {
-                  setMobileMenuOpen(false);
-                  onOpenContact();
-                }}
-                className="w-full py-2.5 bg-[#FAF7F2] text-[#1E1B18] border border-[#D8CEC7] font-medium text-xs rounded-xl flex items-center justify-center gap-2"
-              >
-                <Phone className="w-3.5 h-3.5 text-[#B9827B]" />
-                <span>Contact Notary</span>
+                <span>Book Appointment</span>
               </button>
             </div>
           </div>
@@ -202,4 +191,3 @@ export const Navbar: React.FC<NavbarProps> = ({
     </header>
   );
 };
-
