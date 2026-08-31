@@ -15,6 +15,33 @@
   </head>
   <body class="bg-[#F8F4EF] text-[#292727] font-sans antialiased selection:bg-[#E8C9C5] selection:text-[#292727]">
     <div id="root"></div>
+    <!-- Netlify Forms detection for static SPA builds -->
+    <form name="contact-inquiry" method="POST" action="/" data-netlify="true" netlify data-netlify-honeypot="bot-field" hidden>
+      <input type="hidden" name="form-name" value="contact-inquiry" />
+      <input type="hidden" name="bot-field" />
+      <input type="text" name="name" />
+      <input type="email" name="email" />
+      <input type="tel" name="phone" />
+      <input type="text" name="serviceInterest" />
+      <textarea name="message"></textarea>
+    </form>
+
+    <form name="loan-signing-quote" method="POST" action="/" data-netlify="true" netlify data-netlify-honeypot="bot-field" hidden>
+      <input type="hidden" name="form-name" value="loan-signing-quote" />
+      <input type="hidden" name="bot-field" />
+      <input type="text" name="fullName" />
+      <input type="text" name="companyName" />
+      <input type="email" name="email" />
+      <input type="tel" name="phone" />
+      <input type="text" name="serviceType" />
+      <input type="text" name="signerCount" />
+      <input type="text" name="pageCountApprox" />
+      <input type="text" name="signingLocation" />
+      <input type="text" name="preferredDate" />
+      <input type="text" name="preferredTime" />
+      <input type="text" name="requiresScanbacks" />
+      <textarea name="specialInstructions"></textarea>
+    </form>
     <script type="module" src="/src/main.tsx"></script>
   </body>
 </html>

@@ -7,18 +7,25 @@ export const BRAND_INFO = {
   established: '2016',
   zipCode: '75166',
   city: 'Lavon, Texas',
+  addressFormatted: 'Lavon, TX 75166',
   phone: '(972) 853-1513',
   phoneTel: 'tel:+19728531513',
-  email: 'appointments@signatureonenotary.com',
+  email: 'booking@sonotary.com',
+  bookingEmail: 'booking@sonotary.com',
+  uploadEmail: 'upload@sonotary.com',
+  infoEmail: 'info@sonotary.com',
+  legalEmail: 'legal@sonotary.com',
   phonePlaceholder: '(972) 853-1513',
-  emailPlaceholder: 'appointments@signatureonenotary.com',
+  emailPlaceholder: 'booking@sonotary.com',
   facebookPlaceholder: 'facebook.com/SignatureOneNotary',
   appointmentNotice: 'All SignatureOne services are available by appointment only. Walk-ins are not accepted.',
   disclaimer: 'SignatureOne Mobile Notary is not an attorney licensed to practice law in Texas and may not give legal advice or accept fees for legal advice.',
-  feeTransparencyStatement: 'SignatureOne service and convenience fees are separate from applicable Texas statutory notarial fees. All applicable charges are disclosed before the appointment and itemized on the final receipt.'
+  feeTransparencyStatement: 'SignatureOne business and convenience service fees are separate from applicable Texas statutory notarial fees. All applicable charges are disclosed before booking and itemized on the final receipt.'
 };
 
 export const PRICING_DATA = {
+  depositGeneral: 10,
+  depositLoanClosing: 20,
   depositAmount: 10,
   statutoryNotaryFee: 10,
   inPersonFee: 15,
@@ -26,6 +33,7 @@ export const PRICING_DATA = {
   ronFee: 25,
   afterHoursFee: 25,
   loanSigningBaseFee: 50,
+  printingFeePerPage: 1,
 };
 
 export interface ServiceDetail {
@@ -44,194 +52,141 @@ export const SERVICES: ServiceDetail[] = [
   {
     id: 'in-person',
     type: 'In-Person',
-    title: 'You Come to Me (In-Person)',
+    title: 'In-Person Notary',
     subtitle: 'Designated Meeting Location: Wylie, TX 75098',
     baseFee: '$15.00',
-    feeNote: '+ $10/signature',
-    description: 'Convenient in-person notary appointments at our designated local meeting location in Wylie, TX 75098.',
+    feeNote: 'Convenience Fee + statutory notarial fees',
+    description: 'Meet at our designated local location in Wylie, TX 75098 for prompt in-person document notarization.',
     highlights: [
-      'Designated meeting location in Wylie, TX 75098',
-      'Ideal for single documents or quick affidavits',
-      '15-to-30 minute reserved time block',
-      '$10 deposit credited toward final balance',
+      'Designated local meeting location in Wylie, TX 75098',
+      'Ideal for single documents, vehicle transfers, or affidavits',
+      'Reserved 15–30 minute appointment slot',
+      '$10 booking deposit reserves your time'
     ],
-    calendlyPlaceholder: '[IN PERSON CALENDLY LINK]'
+    calendlyPlaceholder: ''
   },
   {
     id: 'local-mobile',
-    type: 'Mobile Travel',
-    title: 'Local Mobile Notary (I Come to You)',
-    subtitle: 'Up to 12-Mile Travel Radius',
+    type: 'Mobile Notary',
+    title: 'Mobile Notary',
+    subtitle: '12-Mile Travel Radius from Lavon, TX',
     baseFee: '$35.00',
-    feeNote: '+ $10/signature',
-    description: 'We travel directly to your home, workplace, coffee shop, healthcare facility, or senior living residence.',
+    feeNote: 'Mobile Service Fee + statutory notarial fees',
+    description: 'We travel directly to your home, office, hospital, nursing facility, or public meeting place.',
     highlights: [
-      '12-mile radius from Lavon ZIP 75166',
-      'Servicing Wylie, Nevada, Josephine, Royse City, Fate & more',
-      'Punctual mobile arrival with verified ETA',
-      '$10 deposit credited toward final balance',
+      'Travel up to 12 miles from Lavon (ZIP 75166)',
+      'Serving Lavon, Wylie, Nevada, Josephine, Royse City, Fate & more',
+      'Reliable, punctual mobile arrival with verified ETA',
+      '$10 booking deposit reserves your time'
     ],
-    calendlyPlaceholder: '[MOBILE NOTARY CALENDLY LINK]'
+    calendlyPlaceholder: ''
   },
   {
     id: 'ron',
-    type: 'Remote Online',
-    title: 'Remote Online Notarization (RON)',
-    subtitle: 'BlueNotary Video Platform',
+    type: 'Remote Online (RON)',
+    title: 'Remote Online Notarization',
+    subtitle: 'Anywhere within the United States',
     baseFee: '$25.00',
-    feeNote: '+ $10/signature',
-    description: 'Legally notarize documents online from your smartphone, tablet, or laptop from anywhere in Texas or worldwide.',
+    feeNote: 'RON Service Fee + statutory notarial fees',
+    description: 'Connect securely from your smartphone, tablet, or computer via BlueNotary for legal online notarization anywhere in the country.',
     highlights: [
-      'Biometric credential analysis & KBA identity proofing',
-      'Instant tamper-evident digital PDF download',
-      '10-year encrypted audio-video record storage',
-      '$10 deposit credited toward final balance',
+      'Remote Online Notarization is available anywhere in the U.S.',
+      'No additional travel fee',
+      'Secure ID credential analysis & identity proofing',
+      'Instant tamper-evident digital document download',
+      '$10 booking deposit reserves your time'
     ],
-    calendlyPlaceholder: '[RON CALENDLY LINK]'
+    calendlyPlaceholder: ''
   },
   {
     id: 'loan-signing',
-    type: 'Title & Escrow',
-    title: 'Loan Signing & Real Estate Closings',
-    subtitle: 'Purchases, Refinances & Sellers',
-    baseFee: 'Starting at $50.00',
-    feeNote: 'Tailored Quote',
-    description: 'Complete real estate closing package execution for title companies, escrow officers, lenders, and signers.',
+    type: 'Loan Closings / Large Packages',
+    title: 'Loan Signing / Closings',
+    subtitle: 'Title, Escrow & Private Clients',
+    baseFee: 'Starting at $50+',
+    feeNote: 'Custom quote required',
+    description: 'Professional signing execution for real estate purchases, refinances, seller packages, and large document sets.',
     highlights: [
-      'Commercial dual-tray laser printing (Letter/Legal)',
-      'Same-day scanbacks & FedEx/UPS carrier dropoff',
-      'Background-screened & E&O insured LSA',
-      'Quote based on page count and travel distance',
+      'Purchases, refinances, HELOCs, and seller packages',
+      'Document printing, package preparation & scanbacks',
+      'Document drop-off & delivery coordination',
+      '$20 booking deposit for loan closings'
     ],
-    calendlyPlaceholder: '[LSA QUOTE FORM LINK]'
+    calendlyPlaceholder: ''
   }
 ];
 
 export const AFTER_HOURS_DATA = {
   title: 'After-Hours Remote Online Notarization',
-  hours: 'Evenings up to 9:00 PM Central Time (7 Days a Week)',
-  fee: '+$25.00 Evening Convenience Fee ($50.00 base platform total)',
-  advanceNotice: 'Must be booked at least 2 hours in advance'
+  hours: 'Evenings up to 10:00 PM Central Time',
+  fee: '+$25.00 Evening Convenience Fee',
+  advanceNotice: 'By advance reservation'
 };
-
-export const HOW_IT_WORKS_STEPS = [
-  {
-    step: 1,
-    title: 'Choose Service & Book',
-    description: 'Select In-Person ($15), Local Mobile ($35), or Online RON ($25). Place your $10 booking deposit to guarantee your reserved slot.',
-    highlight: '$10 deposit applies directly to your final bill'
-  },
-  {
-    step: 2,
-    title: 'Prepare Valid Photo ID',
-    description: 'Have an unexpired, government-issued photo ID (Texas Driver License, US Passport, Military ID). Do NOT sign your document before the appointment.',
-    highlight: 'Signer must appear in person or on video'
-  },
-  {
-    step: 3,
-    title: 'Verify & Execute Signing',
-    description: 'The notary verifies your identity, confirms willingness, witnesses your signature, administers oaths if required, and applies the official seal.',
-    highlight: 'Strict Texas notarial compliance'
-  },
-  {
-    step: 4,
-    title: 'Receive Sealed Document & Receipt',
-    description: 'Take your embossed or digitally signed document. Settle the remaining balance and receive an instant, itemized invoice receipt.',
-    highlight: 'Itemized receipt issued instantly'
-  }
-];
-
-export const APPOINTMENT_DURATIONS = [
-  {
-    service: 'In-Person Notary',
-    duration: '15–30 Minutes',
-    details: 'Single document or 1–2 signatures with valid photo ID ready.',
-    note: 'Single document or 1–2 signatures with valid photo ID ready.'
-  },
-  {
-    service: 'Local Mobile Notary',
-    duration: '30–45 Minutes',
-    details: 'Travel to your location within 12 miles of Lavon.',
-    note: 'Travel to your location within 12 miles of Lavon.'
-  },
-  {
-    service: 'Remote Online (RON)',
-    duration: '15–20 Minutes',
-    details: 'KBA authentication and live audio-video signing session.',
-    note: 'KBA authentication and live audio-video signing session.'
-  },
-  {
-    service: 'Loan Signings & Closings',
-    duration: '60–90 Minutes',
-    details: 'Full purchase, refinance, HELOC, or seller package execution.',
-    note: 'Full purchase, refinance, HELOC, or seller package execution.'
-  }
-];
 
 export const LOAN_SIGNING_DATA = {
   workflow: [
     {
       step: 1,
-      title: 'Package Prep & Verification',
-      description: 'Download closing docs, review for special lender stipulations, and verify all signer names and critical dates.'
+      title: 'Send Assignment',
+      description: 'Receive closing package and assignment instructions from title company, escrow officer, or lender.'
     },
     {
       step: 2,
-      title: 'Dual-Tray Laser Printing',
-      description: 'Print on high-speed laser equipment with exact letter and legal size paper separation as required by title.'
+      title: 'Review / Prepare',
+      description: 'Verify documents, check stipulations, prepare document package, and coordinate appointment timing.'
     },
     {
       step: 3,
-      title: 'Punctual Mobile Execution',
-      description: 'Guide signers systematically through the stack, ensuring complete signatures, initials, and Texas certificates.'
+      title: 'Sign & Notarize',
+      description: 'Execute signing systematically with signers, ensuring all required signatures, initials, and Texas notarial certificates are complete.'
     },
     {
       step: 4,
-      title: 'Scanbacks & Tracked Shipping',
-      description: 'Perform immediate high-resolution scanbacks for escrow review and drop packages before daily carrier cutoffs.'
+      title: 'Scanbacks / Return',
+      description: 'Complete prompt scanbacks for escrow review and deliver/ship documents according to instructions.'
     }
   ],
   packages: [
-    'Purchase Closings (Buyer / Borrower)',
-    'Seller Conveyance & Deed Sets',
-    'Refinance Loans (Rate/Term & Cash-Out)',
-    'HELOCs & Second Mortgages',
-    'Reverse Mortgage Applications & Closings',
-    'Commercial Real Estate Loan Packages',
-    'Deed of Trust Modifications & Releases',
-    'Title Company Signing Assignments'
+    'Loan Signing Services',
+    'Real Estate Closing Signings',
+    'Large Document Packages',
+    'Document Printing',
+    'Package Preparation',
+    'Scanbacks',
+    'Travel / Mobile Signing',
+    'Document Drop-Off / Delivery',
+    'Other assignment-specific signing support'
   ]
 };
 
 export const POLICY_TERMS = [
   {
-    title: '$10 Booking Deposit',
-    detail: 'A $10 deposit is required at booking to reserve your dedicated appointment time. This deposit is credited 100% to your final invoice.',
-    emphasis: 'Credited directly to final balance'
+    title: 'Booking Deposits',
+    detail: 'A booking deposit is required for certain appointments to reserve your requested time ($10 for General Notary, $20 for Loan Closings/Large Package).',
+    emphasis: 'Reserves appointment time'
   },
   {
-    title: '48-Hour Cancellation Refund',
-    detail: 'Cancel at least 48 hours before your appointment for a 100% full refund of your $10 deposit. Cancellations with less than 48 hours notice forfeit the deposit.',
-    emphasis: '100% refund if 48+ hrs ahead'
+    title: '48 Hours or More Notice',
+    detail: 'When cancelled at least 48 hours before the scheduled appointment, you may be eligible for cancellation accommodation stated during booking.',
+    emphasis: 'Eligible for cancellation terms'
   },
   {
-    title: '24-Hour Free Reschedule',
-    detail: 'Need a new time? Reschedule with at least 24 hours advance notice and your $10 deposit transfers automatically to your new appointment.',
-    emphasis: 'Deposit transfers to new date'
+    title: 'Less Than 48 Hours Notice',
+    detail: 'Cancellations made less than 48 hours before the appointment may result in forfeiture of the booking deposit and/or applicable charges.',
+    emphasis: 'Deposit forfeiture applies'
   },
   {
-    title: 'No-Show & Late Policy',
-    detail: 'To respect all clients, appointments delayed by more than 15 minutes without contact will be cancelled and forfeit the booking deposit.',
-    emphasis: '15-minute grace period'
+    title: 'No-Shows & Completed Services',
+    detail: 'Failure to appear may be treated as a no-show. Once completed, service fees are non-refundable. For service errors, contact info@sonotary.com.',
+    emphasis: 'Error correction at info@sonotary.com'
   }
 ];
 
 export const OPERATING_HOURS = [
-  { days: 'In-Person & Mobile (Mon–Wed)', hours: '1:00 PM – 6:30 PM CT' },
-  { days: 'In-Person & Mobile (Saturday)', hours: '10:00 AM – 1:00 PM CT' },
-  { days: 'RON Online Notary (Mon–Fri)', hours: '10:00 AM – 7:00 PM CT' },
-  { days: 'RON Online Notary (Sat–Sun)', hours: '11:00 AM – 5:00 PM CT' },
-  { days: 'After-Hours Evening RON (7 Days)', hours: 'Available by appointment through 9:00 PM CT (+$25)' }
+  { days: 'In Person', hours: 'Mon–Wed: 1:00 PM – 6:00 PM CT · Saturday: 10:00 AM – 1:00 PM CT' },
+  { days: 'Mobile', hours: 'Tue & Thu: 10:00 AM – 2:00 PM CT · Friday: 12:00 PM – 2:00 PM CT' },
+  { days: 'RON (Remote Online Notary)', hours: 'Mon–Fri: 10:00 AM – 7:00 PM CT · Saturday: 11:00 AM – 1:00 PM CT' },
+  { days: 'RON (Remote Online Notary) - After Hours', hours: 'Mon–Fri: 7:00 PM – 10:00 PM CT · Saturday: 1:00 PM – 10:00 PM CT · Sunday: 10:30 AM – 8:00 PM CT' }
 ];
 
 export const SERVICE_AREA_COMMUNITIES = [
@@ -338,8 +293,8 @@ export const LOAN_SIGNING_SPECIALTIES = [
 export const SERVICE_AREAS = [
   {
     name: 'You Come to Me (In-Person)',
-    area: 'Designated Local Meeting Location',
-    description: 'Convenient local meeting location in the Lavon area (coordinates shared upon booking).',
+    area: 'Designated Local Meeting Location: Wylie, TX 75098',
+    description: 'Convenient local in-person meeting in Wylie, TX 75098.',
     fee: '$15 Convenience Fee + notarial fees'
   },
   {
@@ -356,8 +311,8 @@ export const SERVICE_AREAS = [
   },
   {
     name: 'Remote Online Notary (RON)',
-    area: 'Statewide & Remote Access',
-    description: 'Connect securely from anywhere online via BlueNotary platform.',
+    area: 'Anywhere within the United States',
+    description: 'Connect securely from anywhere in the United States online via certified video platform.',
     fee: '$25 RON Fee + notarial fees (+$25 after-hours)'
   }
 ];
@@ -456,9 +411,9 @@ export const FAQ_ITEMS: FAQItemDetail[] = [
     id: 11,
     category: 'General & Mobile',
     q: 'Do you handle real estate and loan signings?',
-    a: 'Yes. As a certified Loan Signing Agent (LSA), SignatureOne works with title companies, escrow officers, lenders, and borrowers for purchases, refinances, HELOCs, and seller packages with dual-tray printing and same-day scanbacks.',
+    a: 'Yes. As a certified Loan Signing Agent (LSA), SignatureOne works with title companies, escrow officers, lenders, and borrowers for purchases, refinances, HELOCs, and seller packages with professional package preparation, mobile signing, and scanbacks.',
     question: 'Do you handle real estate and loan signings?',
-    answer: 'Yes. As a certified Loan Signing Agent (LSA), SignatureOne works with title companies, escrow officers, lenders, and borrowers for purchases, refinances, HELOCs, and seller packages with dual-tray printing and same-day scanbacks.'
+    answer: 'Yes. As a certified Loan Signing Agent (LSA), SignatureOne works with title companies, escrow officers, lenders, and borrowers for purchases, refinances, HELOCs, and seller packages with professional package preparation, mobile signing, and scanbacks.'
   },
   {
     id: 12,
@@ -483,6 +438,29 @@ export const FAQ_ITEMS: FAQItemDetail[] = [
     a: 'If your document requires disinterested witnesses (such as certain medical directives or wills), you may provide your own adult witnesses with valid photo IDs, or notify us during booking so witness arrangements can be coordinated.',
     question: 'What if my document requires witnesses?',
     answer: 'If your document requires disinterested witnesses (such as certain medical directives or wills), you may provide your own adult witnesses with valid photo IDs, or notify us during booking so witness arrangements can be coordinated.'
+  }
+];
+
+export const APPOINTMENT_DURATIONS = [
+  {
+    duration: '15-20 Min',
+    service: 'In-Person Notary',
+    details: '1-3 documents with standard notarization at our designated Wylie location.'
+  },
+  {
+    duration: '30-45 Min',
+    service: 'Mobile Notary',
+    details: 'Travel to your residence, business, hospital, or public meeting place.'
+  },
+  {
+    duration: '15-30 Min',
+    service: 'Remote Online (RON)',
+    details: 'Encrypted ID verification and digital signature session on BlueNotary.'
+  },
+  {
+    duration: '45-90 Min',
+    service: 'Loan Closings / Large Packages',
+    details: 'Full closing execution, document verification, and scanback preparation.'
   }
 ];
 

@@ -1,5 +1,5 @@
 import React from 'react';
-import { Building2, FileCheck, Printer, Navigation, Stamp, Send, CheckCircle2, ShieldCheck, ArrowRight } from 'lucide-react';
+import { Building2, FileCheck, Navigation, Stamp, Send, CheckCircle2, ArrowRight } from 'lucide-react';
 import { LOAN_SIGNING_SPECIALTIES } from '../data/notaryData';
 
 interface LoanSigningSectionProps {
@@ -9,9 +9,9 @@ interface LoanSigningSectionProps {
 export const LoanSigningSection: React.FC<LoanSigningSectionProps> = ({ onOpenQuote }) => {
   const lsaSteps = [
     {
-      icon: Printer,
+      icon: FileCheck,
       title: 'Package Preparation',
-      desc: 'Dual-tray printing on laser paper, meticulous pre-signing review, and signer instruction tagging.'
+      desc: 'Complete document package review, signer instruction verification, and organized file preparation.'
     },
     {
       icon: Navigation,
@@ -26,7 +26,7 @@ export const LoanSigningSection: React.FC<LoanSigningSectionProps> = ({ onOpenQu
     {
       icon: Send,
       title: 'Scanbacks & Timely Return',
-      desc: 'High-resolution scanbacks for escrow review and prompt delivery to FedEx/UPS courier drops.'
+      desc: 'Prompt scanbacks for escrow review and reliable drop-off to designated courier services.'
     }
   ];
 
@@ -55,7 +55,7 @@ export const LoanSigningSection: React.FC<LoanSigningSectionProps> = ({ onOpenQu
                 LSA Fee Structure
               </span>
               <span className="font-serif text-xl font-bold text-[#292727] block mt-0.5">
-                Quote-Based / Starting Rates TBD
+                Starting at $50+
               </span>
               <span className="text-[11px] text-[#786F6A] block mt-1">
                 Customized by document volume &amp; travel
@@ -128,7 +128,7 @@ export const LoanSigningSection: React.FC<LoanSigningSectionProps> = ({ onOpenQu
           {/* CTA Box */}
           <div className="mt-8 pt-6 border-t border-[#D8CEC7] flex flex-col sm:flex-row items-center justify-between gap-4">
             <div className="text-xs text-[#554E4A] text-center sm:text-left">
-              <strong>Need a signing scheduled?</strong> Loan signing packages are not booked via the standard public calendar to ensure proper file review and travel buffer times.
+              <strong>Need a signing scheduled?</strong> Loan signing packages are custom-quoted to ensure proper file review and travel buffer times.
             </div>
             <button
               id="request-signing-quote-main-btn"

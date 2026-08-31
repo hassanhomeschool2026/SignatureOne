@@ -1,9 +1,10 @@
 import React, { useState } from 'react';
 import { DollarSign, Check, Info, ShieldCheck, ArrowRight, Calculator } from 'lucide-react';
 import { BRAND_INFO } from '../data/notaryData';
+import { CALENDLY_LINKS, openBookingLink } from '../config/booking';
 
 interface PricingSectionProps {
-  onOpenBooking: (serviceTitle?: string, fee?: string, placeholder?: string) => void;
+  onOpenBooking?: (serviceTitle?: string, fee?: string, placeholder?: string) => void;
   onOpenQuote: () => void;
 }
 
@@ -90,8 +91,8 @@ export const PricingSection: React.FC<PricingSectionProps> = ({
             </div>
             <div className="mt-6 pt-4 border-t border-[#D8CEC7]">
               <button
-                onClick={() => onOpenBooking('You Come to Me', '$15 Convenience Fee + notarial fees', '[GENERAL NOTARY CALENDLY LINK]')}
-                className="w-full py-2.5 bg-[#B9827B] hover:bg-[#a66f68] text-white text-xs font-semibold tracking-wider uppercase rounded-xl transition-all"
+                onClick={() => openBookingLink(CALENDLY_LINKS.inPerson)}
+                className="w-full py-2.5 bg-[#B9827B] hover:bg-[#a66f68] text-white text-xs font-semibold tracking-wider uppercase rounded-xl transition-all cursor-pointer"
               >
                 Book In-Person
               </button>
@@ -131,8 +132,8 @@ export const PricingSection: React.FC<PricingSectionProps> = ({
             </div>
             <div className="mt-6 pt-4 border-t border-[#D8CEC7]">
               <button
-                onClick={() => onOpenBooking('I Come to You — Local Mobile', '$35 Mobile Fee + notarial fees', '[MOBILE NOTARY CALENDLY LINK]')}
-                className="w-full py-2.5 bg-[#B9827B] hover:bg-[#a66f68] text-white text-xs font-semibold tracking-wider uppercase rounded-xl transition-all"
+                onClick={() => openBookingLink(CALENDLY_LINKS.mobile)}
+                className="w-full py-2.5 bg-[#B9827B] hover:bg-[#a66f68] text-white text-xs font-semibold tracking-wider uppercase rounded-xl transition-all cursor-pointer"
               >
                 Book Local Mobile
               </button>
@@ -169,8 +170,8 @@ export const PricingSection: React.FC<PricingSectionProps> = ({
             </div>
             <div className="mt-6 pt-4 border-t border-[#D8CEC7]">
               <button
-                onClick={() => onOpenBooking('Remote Online Notary (RON)', '$25 RON Fee + notarial fees', '[RON CALENDLY LINK]')}
-                className="w-full py-2.5 bg-[#B9827B] hover:bg-[#a66f68] text-white text-xs font-semibold tracking-wider uppercase rounded-xl transition-all"
+                onClick={() => openBookingLink(CALENDLY_LINKS.ron)}
+                className="w-full py-2.5 bg-[#B9827B] hover:bg-[#a66f68] text-white text-xs font-semibold tracking-wider uppercase rounded-xl transition-all cursor-pointer"
               >
                 Book Online RON
               </button>
@@ -324,8 +325,17 @@ export const PricingSection: React.FC<PricingSectionProps> = ({
 
               <div className="pt-4">
                 <button
-                  onClick={() => onOpenBooking(serviceNames[selectedService], `$${totalEstimated} estimated total`, '[CALENDLY BOOKING LINK]')}
-                  className="w-full py-2.5 px-4 bg-[#B9827B] hover:bg-[#a66f68] text-white text-xs font-semibold tracking-wider uppercase rounded-xl transition-all shadow-xs flex items-center justify-center gap-1.5"
+                  onClick={() => {
+                    const link = selectedService === 'meet-me' 
+                      ? CALENDLY_LINKS.inPerson 
+                      : selectedService === 'mobile' 
+                      ? CALENDLY_LINKS.mobile 
+                      : selectedService === 'ron-after' 
+                      ? CALENDLY_LINKS.ronAfterHours 
+                      : CALENDLY_LINKS.ron;
+                    openBookingLink(link);
+                  }}
+                  className="w-full py-2.5 px-4 bg-[#B9827B] hover:bg-[#a66f68] text-white text-xs font-semibold tracking-wider uppercase rounded-xl transition-all shadow-xs flex items-center justify-center gap-1.5 cursor-pointer"
                 >
                   <span>Book This Service ($10 Deposit)</span>
                   <ArrowRight className="w-3.5 h-3.5" />

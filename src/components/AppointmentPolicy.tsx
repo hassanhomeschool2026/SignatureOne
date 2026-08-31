@@ -40,79 +40,88 @@ export const AppointmentPolicy: React.FC = () => {
           </p>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-5">
           
-          {/* Card 1: In-Person & Mobile */}
-          <div className="bg-[#F8F4EF] p-6 rounded-2xl border border-[#D8CEC7] space-y-4">
-            <div className="flex items-center justify-between pb-3 border-b border-[#D8CEC7]">
-              <span className="font-serif font-bold text-base text-[#292727]">In-Person &amp; Mobile</span>
+          {/* Card 1: In Person */}
+          <div className="bg-[#F8F4EF] p-5 rounded-2xl border border-[#D8CEC7] space-y-3">
+            <div className="flex items-center justify-between pb-2 border-b border-[#D8CEC7]">
+              <span className="font-serif font-bold text-sm text-[#292727]">In Person</span>
               <span className="text-[10px] uppercase font-bold tracking-wider px-2 py-0.5 rounded bg-white text-[#786F6A] border border-[#D8CEC7]">
-                Local
+                Wylie
               </span>
             </div>
-            <div className="space-y-3 text-xs">
-              <div className="flex justify-between py-1 border-b border-[#D8CEC7]/60">
-                <span className="font-semibold text-[#292727]">Monday–Wednesday</span>
-                <span className="text-[#554E4A]">1:00 PM – 6:30 PM CT</span>
+            <div className="space-y-2 text-xs">
+              <div className="py-1 border-b border-[#D8CEC7]/60">
+                <span className="font-semibold text-[#292727] block">Mon–Wed</span>
+                <span className="text-[#554E4A]">1:00 PM – 6:00 PM CT</span>
               </div>
-              <div className="flex justify-between py-1 border-b border-[#D8CEC7]/60">
-                <span className="font-semibold text-[#292727]">Thursday–Friday</span>
-                <span className="text-[#786F6A] italic">Closed / Prior Bookings</span>
-              </div>
-              <div className="flex justify-between py-1 border-b border-[#D8CEC7]/60">
-                <span className="font-semibold text-[#292727]">Saturday</span>
+              <div className="py-1">
+                <span className="font-semibold text-[#292727] block">Saturday</span>
                 <span className="text-[#554E4A]">10:00 AM – 1:00 PM CT</span>
               </div>
-              <div className="flex justify-between py-1">
-                <span className="font-semibold text-[#292727]">Sunday</span>
-                <span className="text-[#786F6A] italic">Closed</span>
-              </div>
             </div>
           </div>
 
-          {/* Card 2: RON Online */}
-          <div className="bg-[#F8F4EF] p-6 rounded-2xl border-2 border-[#B9827B] space-y-4 shadow-xs">
-            <div className="flex items-center justify-between pb-3 border-b border-[#D8CEC7]">
-              <span className="font-serif font-bold text-base text-[#292727]">Remote Online (RON)</span>
-              <span className="text-[10px] uppercase font-bold tracking-wider px-2 py-0.5 rounded bg-[#B9827B] text-white">
-                7 Days
+          {/* Card 2: Mobile */}
+          <div className="bg-[#F8F4EF] p-5 rounded-2xl border border-[#D8CEC7] space-y-3">
+            <div className="flex items-center justify-between pb-2 border-b border-[#D8CEC7]">
+              <span className="font-serif font-bold text-sm text-[#292727]">Mobile</span>
+              <span className="text-[10px] uppercase font-bold tracking-wider px-2 py-0.5 rounded bg-white text-[#786F6A] border border-[#D8CEC7]">
+                Travel
               </span>
             </div>
-            <div className="space-y-3 text-xs">
-              <div className="flex justify-between py-1 border-b border-[#D8CEC7]/60">
-                <span className="font-semibold text-[#292727]">Monday–Friday</span>
-                <span className="text-[#554E4A]">10:00 AM – 7:00 PM CT</span>
+            <div className="space-y-2 text-xs">
+              <div className="py-1 border-b border-[#D8CEC7]/60">
+                <span className="font-semibold text-[#292727] block">Tuesday &amp; Thursday</span>
+                <span className="text-[#554E4A]">10:00 AM – 2:00 PM CT</span>
               </div>
-              <div className="flex justify-between py-1 border-b border-[#D8CEC7]/60">
-                <span className="font-semibold text-[#292727]">Saturday–Sunday</span>
-                <span className="text-[#554E4A]">11:00 AM – 5:00 PM CT</span>
-              </div>
-              <div className="pt-2 text-[11px] text-[#B9827B] font-medium flex items-center gap-1.5">
-                <CheckCircle className="w-3.5 h-3.5 shrink-0" />
-                <span>BlueNotary platform digital sessions</span>
+              <div className="py-1">
+                <span className="font-semibold text-[#292727] block">Friday</span>
+                <span className="text-[#554E4A]">12:00 PM – 2:00 PM CT</span>
               </div>
             </div>
           </div>
 
-          {/* Card 3: After-Hours RON */}
-          <div className="bg-[#F8F4EF] p-6 rounded-2xl border border-[#D8CEC7] space-y-4">
-            <div className="flex items-center justify-between pb-3 border-b border-[#D8CEC7]">
-              <span className="font-serif font-bold text-base text-[#292727]">After-Hours RON</span>
+          {/* Card 3: RON Online */}
+          <div className="bg-[#F8F4EF] p-5 rounded-2xl border-2 border-[#B9827B] space-y-3 shadow-xs">
+            <div className="flex items-center justify-between pb-2 border-b border-[#D8CEC7]">
+              <span className="font-serif font-bold text-sm text-[#292727]">RON (Remote Online)</span>
+              <span className="text-[10px] uppercase font-bold tracking-wider px-2 py-0.5 rounded bg-[#B9827B] text-white">
+                US-Wide
+              </span>
+            </div>
+            <div className="space-y-2 text-xs">
+              <div className="py-1 border-b border-[#D8CEC7]/60">
+                <span className="font-semibold text-[#292727] block">Monday–Friday</span>
+                <span className="text-[#554E4A]">10:00 AM – 7:00 PM CT</span>
+              </div>
+              <div className="py-1">
+                <span className="font-semibold text-[#292727] block">Saturday</span>
+                <span className="text-[#554E4A]">11:00 AM – 1:00 PM CT</span>
+              </div>
+            </div>
+          </div>
+
+          {/* Card 4: RON After-Hours */}
+          <div className="bg-[#F8F4EF] p-5 rounded-2xl border border-[#D8CEC7] space-y-3">
+            <div className="flex items-center justify-between pb-2 border-b border-[#D8CEC7]">
+              <span className="font-serif font-bold text-sm text-[#292727]">RON After-Hours</span>
               <span className="text-[10px] uppercase font-bold tracking-wider px-2 py-0.5 rounded bg-[#292727] text-white">
                 +$25 Fee
               </span>
             </div>
-            <div className="space-y-3 text-xs">
-              <div className="flex justify-between py-1 border-b border-[#D8CEC7]/60">
-                <span className="font-semibold text-[#292727]">Evening Availability</span>
-                <span className="text-[#554E4A]">Through 9:00 PM CT</span>
+            <div className="space-y-2 text-xs">
+              <div className="py-1 border-b border-[#D8CEC7]/60">
+                <span className="font-semibold text-[#292727] block">Mon–Fri</span>
+                <span className="text-[#554E4A]">7:00 PM – 10:00 PM CT</span>
               </div>
-              <div className="flex justify-between py-1 border-b border-[#D8CEC7]/60">
-                <span className="font-semibold text-[#292727]">Booking Window</span>
-                <span className="text-[#554E4A]">By advance reservation</span>
+              <div className="py-1 border-b border-[#D8CEC7]/60">
+                <span className="font-semibold text-[#292727] block">Saturday</span>
+                <span className="text-[#554E4A]">1:00 PM – 10:00 PM CT</span>
               </div>
-              <div className="pt-2 text-[11px] text-[#786F6A]">
-                <span>Subject to calendar opening. Separate +$25 service fee applies.</span>
+              <div className="py-1">
+                <span className="font-semibold text-[#292727] block">Sunday</span>
+                <span className="text-[#554E4A]">10:30 AM – 8:00 PM CT</span>
               </div>
             </div>
           </div>

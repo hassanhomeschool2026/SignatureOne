@@ -79,8 +79,8 @@ export const Hero: React.FC<HeroProps> = ({
             <div className="pt-3 flex flex-col sm:flex-row items-stretch sm:items-center justify-center lg:justify-start gap-3.5">
               <button
                 id="hero-book-primary-btn"
-                onClick={() => onOpenBooking('Select Notary Service', '$15–$35 + notarial fees', '[GENERAL NOTARY CALENDLY LINK]')}
-                className="py-3.5 px-7 bg-[#B9827B] hover:bg-[#a66f68] active:scale-[0.98] text-white font-semibold text-sm tracking-wider uppercase rounded-xl shadow-md transition-all flex items-center justify-center gap-2 group"
+                onClick={() => onOpenBooking()}
+                className="py-3.5 px-7 bg-[#B9827B] hover:bg-[#a66f68] active:scale-[0.98] text-white font-semibold text-sm tracking-wider uppercase rounded-xl shadow-md transition-all flex items-center justify-center gap-2 group cursor-pointer"
               >
                 <Calendar className="w-4 h-4" />
                 <span>BOOK A NOTARY</span>

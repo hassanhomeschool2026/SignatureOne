@@ -1,6 +1,7 @@
 import React from 'react';
-import { MapPin, Car, Globe, Briefcase, Calendar, ArrowRight, Clock, ShieldCheck, Check, Sparkles } from 'lucide-react';
-import { SERVICES, BRAND_INFO } from '../data/notaryData';
+import { MapPin, Car, Globe, Briefcase, ArrowRight, Clock, ShieldCheck, Check, Sparkles } from 'lucide-react';
+import { BRAND_INFO } from '../data/notaryData';
+import { CALENDLY_LINKS, openBookingLink } from '../config/booking';
 
 interface ServiceCardsProps {
   onOpenBooking: (serviceTitle?: string, fee?: string, placeholder?: string) => void;
@@ -65,14 +66,14 @@ export const ServiceCards: React.FC<ServiceCardsProps> = ({
               </div>
 
               <p className="text-xs text-[#554E4A] mt-4 leading-relaxed">
-                Convenient in-person notary appointments at our designated local meeting location in the Lavon area.
+                Convenient in-person notary appointments at our designated local meeting location in the Lavon/Wylie area.
               </p>
 
               {/* Specs */}
               <div className="mt-4 space-y-2 text-[11px] text-[#786F6A] bg-white/70 p-3 rounded-xl border border-[#D8CEC7]/50">
                 <div className="flex items-start gap-1.5">
                   <Clock className="w-3.5 h-3.5 text-[#B9827B] shrink-0 mt-0.5" />
-                  <span>Mon–Wed 1–6:30 PM · Sat 10 AM–1 PM CT</span>
+                  <span>Mon–Wed 1:00–6:00 PM · Sat 10:00 AM–1:00 PM CT</span>
                 </div>
                 <div className="flex items-start gap-1.5">
                   <ShieldCheck className="w-3.5 h-3.5 text-[#B9827B] shrink-0 mt-0.5" />
@@ -85,15 +86,12 @@ export const ServiceCards: React.FC<ServiceCardsProps> = ({
             <div className="mt-6 pt-4 border-t border-[#D8CEC7]/70">
               <button
                 id="book-meet-me-btn"
-                onClick={() => onOpenBooking('You Come to Me — In-Person', '$15 Convenience Fee + notarial fees', '[GENERAL NOTARY CALENDLY LINK]')}
-                className="w-full py-2.5 px-4 bg-[#B9827B] hover:bg-[#a66f68] active:scale-[0.98] text-white text-xs font-semibold tracking-wider uppercase rounded-xl transition-all shadow-xs flex items-center justify-center gap-1.5"
+                onClick={() => openBookingLink(CALENDLY_LINKS.inPerson)}
+                className="w-full py-2.5 px-4 bg-[#B9827B] hover:bg-[#a66f68] active:scale-[0.98] text-white text-xs font-semibold tracking-wider uppercase rounded-xl transition-all shadow-xs flex items-center justify-center gap-1.5 cursor-pointer"
               >
                 <span>BOOK NOW</span>
                 <ArrowRight className="w-3.5 h-3.5" />
               </button>
-              <p className="text-[10px] text-center text-[#786F6A] mt-1.5 font-mono">
-                [GENERAL NOTARY CALENDLY LINK]
-              </p>
             </div>
           </div>
 
@@ -136,11 +134,11 @@ export const ServiceCards: React.FC<ServiceCardsProps> = ({
               <div className="mt-4 space-y-2 text-[11px] text-[#786F6A] bg-white/70 p-3 rounded-xl border border-[#D8CEC7]/50">
                 <div className="flex items-start gap-1.5">
                   <Clock className="w-3.5 h-3.5 text-[#B9827B] shrink-0 mt-0.5" />
-                  <span>Mon–Wed 1–6:30 PM · Sat 10 AM–1 PM CT</span>
+                  <span>Tue &amp; Thu 10:00 AM–2:00 PM · Fri 12:00–2:00 PM CT</span>
                 </div>
                 <div className="flex items-start gap-1.5">
                   <MapPin className="w-3.5 h-3.5 text-[#B9827B] shrink-0 mt-0.5" />
-                  <span>Lavon &amp; 12-mile surrounding communities</span>
+                  <span>Lavon, Wylie &amp; 12-mile surrounding area</span>
                 </div>
               </div>
             </div>
@@ -149,15 +147,12 @@ export const ServiceCards: React.FC<ServiceCardsProps> = ({
             <div className="mt-6 pt-4 border-t border-[#D8CEC7]/70">
               <button
                 id="book-mobile-btn"
-                onClick={() => onOpenBooking('I Come to You — Local Mobile Notary', '$35 Mobile Fee + notarial fees', '[MOBILE NOTARY CALENDLY LINK]')}
-                className="w-full py-2.5 px-4 bg-[#B9827B] hover:bg-[#a66f68] active:scale-[0.98] text-white text-xs font-semibold tracking-wider uppercase rounded-xl transition-all shadow-xs flex items-center justify-center gap-1.5"
+                onClick={() => openBookingLink(CALENDLY_LINKS.mobile)}
+                className="w-full py-2.5 px-4 bg-[#B9827B] hover:bg-[#a66f68] active:scale-[0.98] text-white text-xs font-semibold tracking-wider uppercase rounded-xl transition-all shadow-xs flex items-center justify-center gap-1.5 cursor-pointer"
               >
                 <span>BOOK NOW</span>
                 <ArrowRight className="w-3.5 h-3.5" />
               </button>
-              <p className="text-[10px] text-center text-[#786F6A] mt-1.5 font-mono">
-                [MOBILE NOTARY CALENDLY LINK]
-              </p>
             </div>
           </div>
 
@@ -168,7 +163,7 @@ export const ServiceCards: React.FC<ServiceCardsProps> = ({
           >
             {/* Top highlight bar */}
             <div className="absolute top-0 inset-x-0 bg-[#B9827B] py-1 text-center text-[10px] uppercase font-bold tracking-widest text-white">
-              ★ BlueNotary Platform · 7 Days a Week
+              ★ BlueNotary Platform · Nationwide in the U.S.
             </div>
 
             <div className="pt-3">
@@ -198,18 +193,18 @@ export const ServiceCards: React.FC<ServiceCardsProps> = ({
               </div>
 
               <p className="text-xs text-[#554E4A] mt-4 leading-relaxed">
-                Connect live via encrypted audio-video on BlueNotary from your phone, laptop, or desktop anywhere with ID verification.
+                Connect live via encrypted audio-video on BlueNotary from your phone, tablet, or computer anywhere in the United States. No travel fee.
               </p>
 
               {/* Specs */}
               <div className="mt-4 space-y-2 text-[11px] text-[#786F6A] bg-[#F8F4EF] p-3 rounded-xl border border-[#D8CEC7]/50">
                 <div className="flex items-start gap-1.5">
                   <Clock className="w-3.5 h-3.5 text-[#B9827B] shrink-0 mt-0.5" />
-                  <span>Mon–Fri 10 AM–7 PM · Sat–Sun 11 AM–5 PM CT</span>
+                  <span>Mon–Fri 10:00 AM–7:00 PM · Sat 11:00 AM–1:00 PM CT</span>
                 </div>
                 <div className="flex items-start gap-1.5">
                   <Sparkles className="w-3.5 h-3.5 text-[#B9827B] shrink-0 mt-0.5" />
-                  <span>After-Hours available until 9:00 PM CT</span>
+                  <span>After-Hours available evenings &amp; weekends</span>
                 </div>
               </div>
             </div>
@@ -218,15 +213,12 @@ export const ServiceCards: React.FC<ServiceCardsProps> = ({
             <div className="mt-6 pt-4 border-t border-[#D8CEC7]/70">
               <button
                 id="book-ron-btn"
-                onClick={() => onOpenBooking('Online Notary — Remote Online (RON)', '$25 RON Fee + notarial fees', '[RON CALENDLY LINK]')}
-                className="w-full py-2.5 px-4 bg-[#B9827B] hover:bg-[#a66f68] active:scale-[0.98] text-white text-xs font-semibold tracking-wider uppercase rounded-xl transition-all shadow-sm flex items-center justify-center gap-1.5 font-bold"
+                onClick={() => openBookingLink(CALENDLY_LINKS.ron)}
+                className="w-full py-2.5 px-4 bg-[#B9827B] hover:bg-[#a66f68] active:scale-[0.98] text-white text-xs font-semibold tracking-wider uppercase rounded-xl transition-all shadow-sm flex items-center justify-center gap-1.5 font-bold cursor-pointer"
               >
                 <span>BOOK ONLINE RON</span>
                 <ArrowRight className="w-3.5 h-3.5" />
               </button>
-              <p className="text-[10px] text-center text-[#786F6A] mt-1.5 font-mono">
-                [RON CALENDLY LINK]
-              </p>
             </div>
           </div>
 
@@ -257,7 +249,7 @@ export const ServiceCards: React.FC<ServiceCardsProps> = ({
                   Starting at $50
                 </div>
                 <p className="text-[11px] text-[#786F6A] leading-tight">
-                  Quote-based / custom pricing per assignment.
+                  Itemized / custom quote based on assignment details.
                 </p>
               </div>
 
@@ -283,14 +275,11 @@ export const ServiceCards: React.FC<ServiceCardsProps> = ({
               <button
                 id="request-lsa-quote-card-btn"
                 onClick={onOpenQuote}
-                className="w-full py-2.5 px-4 bg-[#292727] hover:bg-[#3d3a3a] active:scale-[0.98] text-white text-xs font-semibold tracking-wider uppercase rounded-xl transition-all shadow-xs flex items-center justify-center gap-1.5"
+                className="w-full py-2.5 px-4 bg-[#292727] hover:bg-[#3d3a3a] active:scale-[0.98] text-white text-xs font-semibold tracking-wider uppercase rounded-xl transition-all shadow-xs flex items-center justify-center gap-1.5 cursor-pointer"
               >
                 <span>REQUEST A QUOTE</span>
                 <ArrowRight className="w-3.5 h-3.5" />
               </button>
-              <p className="text-[10px] text-center text-[#786F6A] mt-1.5 font-mono">
-                [LSA QUOTE FORM LINK]
-              </p>
             </div>
           </div>
 

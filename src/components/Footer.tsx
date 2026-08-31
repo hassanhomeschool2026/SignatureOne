@@ -38,7 +38,7 @@ export const Footer: React.FC<FooterProps> = ({
             <p className="text-xs text-[#A89F9A] pt-1">
               Lavon, TX 75166
             </p>
-            <div className="pt-2 space-y-1 text-xs">
+            <div className="pt-2 space-y-1.5 text-xs">
               <p>
                 <a
                   href="tel:+19728531513"
@@ -47,24 +47,60 @@ export const Footer: React.FC<FooterProps> = ({
                   (972) 853-1513
                 </a>
               </p>
-              <p>
-                <a
-                  href={`mailto:${BRAND_INFO.email}`}
-                  className="text-[#A89F9A] hover:text-white transition-colors"
-                >
-                  {BRAND_INFO.email}
-                </a>
-              </p>
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-x-4 gap-y-1 pt-1 text-[11px]">
+                <p>
+                  <span className="text-[#8C8480]">Booking: </span>
+                  <a
+                    href="mailto:booking@sonotary.com"
+                    className="text-[#E0DAD5] hover:text-[#E8C9C5] transition-colors"
+                  >
+                    booking@sonotary.com
+                  </a>
+                </p>
+                <p>
+                  <span className="text-[#8C8480]">Info: </span>
+                  <a
+                    href="mailto:info@sonotary.com"
+                    className="text-[#A89F9A] hover:text-white transition-colors"
+                  >
+                    info@sonotary.com
+                  </a>
+                </p>
+                <p>
+                  <span className="text-[#8C8480]">Upload: </span>
+                  <a
+                    href="mailto:upload@sonotary.com"
+                    className="text-[#A89F9A] hover:text-white transition-colors"
+                  >
+                    upload@sonotary.com
+                  </a>
+                </p>
+                <p>
+                  <span className="text-[#8C8480]">Legal: </span>
+                  <a
+                    href="mailto:legal@sonotary.com"
+                    className="text-[#A89F9A] hover:text-white transition-colors"
+                  >
+                    legal@sonotary.com
+                  </a>
+                </p>
+              </div>
             </div>
           </div>
 
           {/* Navigation Links */}
           <div className="md:col-span-7 flex flex-wrap gap-x-6 gap-y-3 items-center md:justify-end text-xs font-medium text-[#A89F9A] pt-2">
             <button
-              onClick={() => handleNav('pricing')}
+              onClick={() => handleNav('home')}
               className="hover:text-white transition-colors"
             >
               Home
+            </button>
+            <button
+              onClick={() => handleNav('pricing')}
+              className="hover:text-white transition-colors"
+            >
+              Pricing
             </button>
             <button
               onClick={() => handleNav('services')}
@@ -76,7 +112,7 @@ export const Footer: React.FC<FooterProps> = ({
               onClick={() => handleNav('how-it-works')}
               className="hover:text-white transition-colors"
             >
-              Fee Estimator
+              How It Works
             </button>
             <button
               onClick={() => handleNav('loan-signing')}
@@ -85,13 +121,7 @@ export const Footer: React.FC<FooterProps> = ({
               Loan Signings
             </button>
             <button
-              onClick={() => handleNav('how-it-works')}
-              className="hover:text-white transition-colors"
-            >
-              How It Works
-            </button>
-            <button
-              onClick={onOpenContact}
+              onClick={() => handleNav('contact')}
               className="hover:text-white transition-colors"
             >
               Contact
@@ -103,7 +133,7 @@ export const Footer: React.FC<FooterProps> = ({
         {/* Bottom Minimal Copyright & Policies */}
         <div className="pt-6 flex flex-col sm:flex-row items-center justify-between gap-4 text-xs text-[#8C8480]">
           <div>
-            © 2026 SignatureOne Mobile Notary
+            © 2026 SignatureOne Mobile Notary · All services by appointment only.
           </div>
 
           <div className="flex items-center gap-4 text-xs">
@@ -111,21 +141,21 @@ export const Footer: React.FC<FooterProps> = ({
               onClick={() => handleNav('policies')}
               className="hover:text-white transition-colors"
             >
-              Policies
+              Cancellation &amp; Refund
             </button>
             <span>·</span>
             <button
-              onClick={() => setActiveLegalModal('privacy')}
+              onClick={() => handleNav('policies')}
               className="hover:text-white transition-colors"
             >
-              Privacy
+              Terms &amp; Notary Policy
             </button>
             <span>·</span>
             <button
-              onClick={() => setActiveLegalModal('terms')}
+              onClick={() => handleNav('policies')}
               className="hover:text-white transition-colors"
             >
-              Terms
+              Privacy Policy
             </button>
           </div>
         </div>

@@ -30,12 +30,12 @@ export const Navbar: React.FC<NavbarProps> = ({
   }, []);
 
   const navItems = [
-    { id: 'pricing', label: 'Home', action: () => handleNavClick('pricing') },
+    { id: 'home', label: 'Home', action: () => handleNavClick('home') },
+    { id: 'pricing', label: 'Pricing', action: () => handleNavClick('pricing') },
     { id: 'services', label: 'Services', action: () => handleNavClick('services') },
-    { id: 'fee-estimator', label: 'Fee Estimator', action: () => handleNavClick('how-it-works') },
-    { id: 'loan-signing', label: 'Loan Signings', action: () => handleNavClick('loan-signing') },
     { id: 'how-it-works', label: 'How It Works', action: () => handleNavClick('how-it-works') },
-    { id: 'contact', label: 'Contact', action: () => { setMobileMenuOpen(false); onOpenContact(); } },
+    { id: 'loan-signing', label: 'Loan Signings', action: () => handleNavClick('loan-signing') },
+    { id: 'contact', label: 'Contact', action: () => handleNavClick('contact') },
   ];
 
   const handleNavClick = (pageId: string) => {
@@ -65,7 +65,7 @@ export const Navbar: React.FC<NavbarProps> = ({
             
             {/* Brand Logo & Name */}
             <button
-              onClick={() => handleNavClick('pricing')}
+              onClick={() => handleNavClick('home')}
               className="flex items-center gap-3 group focus:outline-none rounded-xl p-1 text-left"
               aria-label="SignatureOne Mobile Notary Home"
             >
@@ -75,11 +75,7 @@ export const Navbar: React.FC<NavbarProps> = ({
             {/* Desktop Navigation Links */}
             <div className="hidden lg:flex items-center space-x-1 font-heading">
               {navItems.map((item) => {
-                const isActive = 
-                  (item.id === 'pricing' && currentTab === 'pricing') ||
-                  (item.id === 'services' && currentTab === 'services') ||
-                  (item.id === 'loan-signing' && currentTab === 'loan-signing') ||
-                  (item.id === 'how-it-works' && currentTab === 'how-it-works');
+                const isActive = currentTab === item.id;
 
                 return (
                   <button
@@ -110,8 +106,8 @@ export const Navbar: React.FC<NavbarProps> = ({
 
               <button
                 id="nav-book-now-btn"
-                onClick={() => onOpenBooking('Select Notary Service', '$15–$35 + notarial fees', '[GENERAL NOTARY CALENDLY LINK]')}
-                className="px-4 py-2 text-xs font-semibold tracking-wider uppercase bg-[#B9827B] hover:bg-[#a56f68] active:scale-[0.98] text-white rounded-xl transition-all shadow-xs flex items-center gap-1.5"
+                onClick={() => onOpenBooking()}
+                className="px-4 py-2 text-xs font-semibold tracking-wider uppercase bg-[#B9827B] hover:bg-[#a56f68] active:scale-[0.98] text-white rounded-xl transition-all shadow-xs flex items-center gap-1.5 cursor-pointer"
               >
                 <Calendar className="w-3.5 h-3.5" />
                 <span>Book Appointment</span>
@@ -130,8 +126,8 @@ export const Navbar: React.FC<NavbarProps> = ({
 
               <button
                 id="mobile-book-now-quick-btn"
-                onClick={() => onOpenBooking('Standard Appointment', '$15–$35 + notarial fees', '[GENERAL NOTARY CALENDLY LINK]')}
-                className="px-3 py-1.5 text-xs font-semibold tracking-wider uppercase bg-[#B9827B] text-white rounded-lg shadow-xs"
+                onClick={() => onOpenBooking()}
+                className="px-3 py-1.5 text-xs font-semibold tracking-wider uppercase bg-[#B9827B] text-white rounded-lg shadow-xs cursor-pointer"
               >
                 Book
               </button>
@@ -177,9 +173,9 @@ export const Navbar: React.FC<NavbarProps> = ({
                 id="mobile-menu-book-btn"
                 onClick={() => {
                   setMobileMenuOpen(false);
-                  onOpenBooking('Standard Appointment', '$15–$35 + notarial fees', '[GENERAL NOTARY CALENDLY LINK]');
+                  onOpenBooking();
                 }}
-                className="w-full py-3 bg-[#B9827B] text-white font-semibold text-xs tracking-wider uppercase rounded-xl flex items-center justify-center gap-2 shadow-xs"
+                className="w-full py-3 bg-[#B9827B] text-white font-semibold text-xs tracking-wider uppercase rounded-xl flex items-center justify-center gap-2 shadow-xs cursor-pointer"
               >
                 <Calendar className="w-4 h-4" />
                 <span>Book Appointment</span>

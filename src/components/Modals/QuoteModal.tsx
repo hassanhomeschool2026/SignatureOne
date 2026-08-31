@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
-import { X, FileText, Send, CheckCircle2, Building, Clock, MapPin, Users, Info } from 'lucide-react';
+import { X, FileText, Send, CheckCircle2, AlertCircle, Loader2 } from 'lucide-react';
 import { QuoteFormData } from '../../types';
-import { BRAND_INFO } from '../../data/notaryData';
+import { submitQuoteRequest } from '../../lib/api';
 
 interface QuoteModalProps {
   isOpen: boolean;
@@ -29,18 +29,44 @@ export const QuoteModal: React.FC<QuoteModalProps> = ({
     specialInstructions: '',
   });
 
+  const [isSubmitting, setIsSubmitting] = useState(false);
   const [isSubmitted, setIsSubmitted] = useState(false);
+  const [errorMessage, setErrorMessage] = useState<string | null>(null);
 
   if (!isOpen) return null;
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    // Simulate submission flow
-    setIsSubmitted(true);
+    setIsSubmitting(true);
+    setErrorMessage(null);
+
+    try {
+      await submitQuoteRequest({
+        fullName: formData.fullName,
+        companyName: formData.companyName,
+        email: formData.email,
+        phone: formData.phone,
+        serviceType: formData.serviceType,
+        signerCount: formData.signerCount,
+        pageCountApprox: formData.pageCountApprox,
+        signingLocation: formData.signingLocation,
+        preferredDate: formData.preferredDate,
+        preferredTime: formData.preferredTime,
+        requiresScanbacks: formData.requiresScanbacks,
+        specialInstructions: formData.specialInstructions,
+      });
+
+      setIsSubmitted(true);
+    } catch (err: any) {
+      setErrorMessage("We couldn't submit your quote request. Please try again or call (972) 853-1513.");
+    } finally {
+      setIsSubmitting(false);
+    }
   };
 
   const handleReset = () => {
     setIsSubmitted(false);
+    setErrorMessage(null);
     onClose();
   };
 
@@ -62,8 +88,8 @@ export const QuoteModal: React.FC<QuoteModalProps> = ({
             <h3 className="font-serif text-2xl font-bold text-[#292727]">
               Request a Signing &amp; Closing Quote
             </h3>
-            <p className="text-sm text-[#786F6A] mt-1">
-              For title companies, lenders, attorneys, and complex multi-document mobile packages
+            <p className="text-xs sm:text-sm text-[#786F6A] mt-1">
+              For title companies, lenders, escrow officers, and specialized loan signing packages
             </p>
           </div>
           <button
@@ -80,33 +106,47 @@ export const QuoteModal: React.FC<QuoteModalProps> = ({
         <div className="p-6 max-h-[75vh] overflow-y-auto">
           {isSubmitted ? (
             <div className="text-center py-8 px-4 space-y-4">
-              <div className="w-16 h-16 bg-[#E8C9C5]/50 text-[#B9827B] rounded-full flex items-center justify-center mx-auto mb-2">
+              <div className="w-16 h-16 bg-[#FAF6F5] text-[#B9827B] border border-[#E8C9C5] rounded-full flex items-center justify-center mx-auto mb-2">
                 <CheckCircle2 className="w-10 h-10" />
               </div>
               <h4 className="font-serif text-2xl font-semibold text-[#292727]">
                 Quote Request Received
               </h4>
-              <p className="text-sm text-[#786F6A] max-w-md mx-auto leading-relaxed">
-                Thank you for contacting SignatureOne Mobile Notary. We review assignment specifications promptly and will contact you at <strong>{formData.email || 'your email'}</strong> with a detailed, itemized quote and availability confirmation.
+              <p className="text-sm text-[#554E4A] max-w-md mx-auto leading-relaxed">
+                Thank you. We've received your request and will review the details and contact you at the email provided.
               </p>
               <div className="pt-4">
                 <button
                   id="quote-success-done-btn"
                   onClick={handleReset}
-                  className="px-6 py-2.5 bg-[#292727] text-white font-medium rounded-lg hover:bg-[#3d3a3a] transition-colors"
+                  className="px-6 py-2.5 bg-[#292727] text-white text-xs font-semibold uppercase tracking-wider rounded-xl hover:bg-[#3d3a3a] transition-colors"
                 >
                   Done
                 </button>
               </div>
             </div>
           ) : (
-            <form onSubmit={handleSubmit} className="space-y-4">
-              <div className="p-3.5 bg-[#F8F4EF] rounded-xl border border-[#D8CEC7] text-xs text-[#786F6A] flex items-start gap-2.5">
-                <Info className="w-4 h-4 text-[#B9827B] shrink-0 mt-0.5" />
-                <p>
-                  Larger assignments, loan signings, and extended-area appointments are quoted based on travel distance, document volume, number of signers, appointment duration, scanback requirements, and specific title/closing directives.
-                </p>
-              </div>
+            <form
+              name="loan-signing-quote"
+              method="POST"
+              data-netlify="true"
+              data-netlify-honeypot="bot-field"
+              onSubmit={handleSubmit}
+              className="space-y-4"
+            >
+              <input type="hidden" name="form-name" value="loan-signing-quote" />
+              <p className="hidden" aria-hidden="true">
+                <label>
+                  Don't fill this out if you're human: <input name="bot-field" tabIndex={-1} autoComplete="off" />
+                </label>
+              </p>
+
+              {errorMessage && (
+                <div className="p-3 bg-red-50 border border-red-200 rounded-xl text-xs text-red-700 flex items-center gap-2">
+                  <AlertCircle className="w-4 h-4 shrink-0" />
+                  <span>{errorMessage}</span>
+                </div>
+              )}
 
               {/* Contact Info Row */}
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
@@ -116,11 +156,12 @@ export const QuoteModal: React.FC<QuoteModalProps> = ({
                   </label>
                   <input
                     type="text"
+                    name="fullName"
                     required
-                    placeholder="Jane Doe / Escrow Officer"
+                    placeholder="Full name"
                     value={formData.fullName}
                     onChange={(e) => setFormData({ ...formData, fullName: e.target.value })}
-                    className="w-full px-3.5 py-2 text-sm bg-[#F8F4EF]/50 border border-[#D8CEC7] rounded-lg focus:outline-none focus:border-[#B9827B] text-[#292727]"
+                    className="w-full px-3.5 py-2 text-xs bg-white border border-[#D8CEC7] rounded-xl focus:outline-none focus:border-[#B9827B] text-[#292727]"
                   />
                 </div>
                 <div>
@@ -129,10 +170,11 @@ export const QuoteModal: React.FC<QuoteModalProps> = ({
                   </label>
                   <input
                     type="text"
-                    placeholder="e.g. Lone Star Title Co."
+                    name="companyName"
+                    placeholder="Company or agency name"
                     value={formData.companyName}
                     onChange={(e) => setFormData({ ...formData, companyName: e.target.value })}
-                    className="w-full px-3.5 py-2 text-sm bg-[#F8F4EF]/50 border border-[#D8CEC7] rounded-lg focus:outline-none focus:border-[#B9827B] text-[#292727]"
+                    className="w-full px-3.5 py-2 text-xs bg-white border border-[#D8CEC7] rounded-xl focus:outline-none focus:border-[#B9827B] text-[#292727]"
                   />
                 </div>
               </div>
@@ -145,11 +187,12 @@ export const QuoteModal: React.FC<QuoteModalProps> = ({
                   </label>
                   <input
                     type="email"
+                    name="email"
                     required
                     placeholder="name@example.com"
                     value={formData.email}
                     onChange={(e) => setFormData({ ...formData, email: e.target.value })}
-                    className="w-full px-3.5 py-2 text-sm bg-[#F8F4EF]/50 border border-[#D8CEC7] rounded-lg focus:outline-none focus:border-[#B9827B] text-[#292727]"
+                    className="w-full px-3.5 py-2 text-xs bg-white border border-[#D8CEC7] rounded-xl focus:outline-none focus:border-[#B9827B] text-[#292727]"
                   />
                 </div>
                 <div>
@@ -158,11 +201,12 @@ export const QuoteModal: React.FC<QuoteModalProps> = ({
                   </label>
                   <input
                     type="tel"
+                    name="phone"
                     required
-                    placeholder="(214) 555-0199"
+                    placeholder="(972) 000-0000"
                     value={formData.phone}
                     onChange={(e) => setFormData({ ...formData, phone: e.target.value })}
-                    className="w-full px-3.5 py-2 text-sm bg-[#F8F4EF]/50 border border-[#D8CEC7] rounded-lg focus:outline-none focus:border-[#B9827B] text-[#292727]"
+                    className="w-full px-3.5 py-2 text-xs bg-white border border-[#D8CEC7] rounded-xl focus:outline-none focus:border-[#B9827B] text-[#292727]"
                   />
                 </div>
               </div>
@@ -174,9 +218,10 @@ export const QuoteModal: React.FC<QuoteModalProps> = ({
                     Assignment / Transaction Type *
                   </label>
                   <select
+                    name="serviceType"
                     value={formData.serviceType}
                     onChange={(e) => setFormData({ ...formData, serviceType: e.target.value as any })}
-                    className="w-full px-3.5 py-2 text-sm bg-[#F8F4EF]/50 border border-[#D8CEC7] rounded-lg focus:outline-none focus:border-[#B9827B] text-[#292727]"
+                    className="w-full px-3.5 py-2 text-xs bg-white border border-[#D8CEC7] rounded-xl focus:outline-none focus:border-[#B9827B] text-[#292727]"
                   >
                     <option value="purchase">Purchase Closing (Buyer / Seller)</option>
                     <option value="refinance">Refinance (Conventional, FHA, VA)</option>
@@ -193,9 +238,10 @@ export const QuoteModal: React.FC<QuoteModalProps> = ({
                     No. of Signers
                   </label>
                   <select
+                    name="signerCount"
                     value={formData.signerCount}
                     onChange={(e) => setFormData({ ...formData, signerCount: e.target.value })}
-                    className="w-full px-3.5 py-2 text-sm bg-[#F8F4EF]/50 border border-[#D8CEC7] rounded-lg focus:outline-none focus:border-[#B9827B] text-[#292727]"
+                    className="w-full px-3.5 py-2 text-xs bg-white border border-[#D8CEC7] rounded-xl focus:outline-none focus:border-[#B9827B] text-[#292727]"
                   >
                     <option value="1">1 Signer</option>
                     <option value="2">2 Signers</option>
@@ -213,11 +259,12 @@ export const QuoteModal: React.FC<QuoteModalProps> = ({
                   </label>
                   <input
                     type="text"
+                    name="signingLocation"
                     required
                     placeholder="e.g. Lavon, Wylie, Rockwall (ZIP 75166)"
                     value={formData.signingLocation}
                     onChange={(e) => setFormData({ ...formData, signingLocation: e.target.value })}
-                    className="w-full px-3.5 py-2 text-sm bg-[#F8F4EF]/50 border border-[#D8CEC7] rounded-lg focus:outline-none focus:border-[#B9827B] text-[#292727]"
+                    className="w-full px-3.5 py-2 text-xs bg-white border border-[#D8CEC7] rounded-xl focus:outline-none focus:border-[#B9827B] text-[#292727]"
                   />
                 </div>
                 <div>
@@ -225,9 +272,10 @@ export const QuoteModal: React.FC<QuoteModalProps> = ({
                     Est. Page Count
                   </label>
                   <select
+                    name="pageCountApprox"
                     value={formData.pageCountApprox}
                     onChange={(e) => setFormData({ ...formData, pageCountApprox: e.target.value })}
-                    className="w-full px-3.5 py-2 text-sm bg-[#F8F4EF]/50 border border-[#D8CEC7] rounded-lg focus:outline-none focus:border-[#B9827B] text-[#292727]"
+                    className="w-full px-3.5 py-2 text-xs bg-white border border-[#D8CEC7] rounded-xl focus:outline-none focus:border-[#B9827B] text-[#292727]"
                   >
                     <option value="1-50 pages">1–50 pages</option>
                     <option value="50-100 pages">50–100 pages</option>
@@ -245,9 +293,10 @@ export const QuoteModal: React.FC<QuoteModalProps> = ({
                   </label>
                   <input
                     type="date"
+                    name="preferredDate"
                     value={formData.preferredDate}
                     onChange={(e) => setFormData({ ...formData, preferredDate: e.target.value })}
-                    className="w-full px-3.5 py-2 text-sm bg-[#F8F4EF]/50 border border-[#D8CEC7] rounded-lg focus:outline-none focus:border-[#B9827B] text-[#292727]"
+                    className="w-full px-3.5 py-2 text-xs bg-white border border-[#D8CEC7] rounded-xl focus:outline-none focus:border-[#B9827B] text-[#292727]"
                   />
                 </div>
                 <div>
@@ -256,10 +305,11 @@ export const QuoteModal: React.FC<QuoteModalProps> = ({
                   </label>
                   <input
                     type="text"
+                    name="preferredTime"
                     placeholder="e.g. Afternoon 2:00 PM - 4:00 PM"
                     value={formData.preferredTime}
                     onChange={(e) => setFormData({ ...formData, preferredTime: e.target.value })}
-                    className="w-full px-3.5 py-2 text-sm bg-[#F8F4EF]/50 border border-[#D8CEC7] rounded-lg focus:outline-none focus:border-[#B9827B] text-[#292727]"
+                    className="w-full px-3.5 py-2 text-xs bg-white border border-[#D8CEC7] rounded-xl focus:outline-none focus:border-[#B9827B] text-[#292727]"
                   />
                 </div>
               </div>
@@ -268,6 +318,7 @@ export const QuoteModal: React.FC<QuoteModalProps> = ({
               <div className="flex items-center gap-2 pt-1">
                 <input
                   type="checkbox"
+                  name="requiresScanbacks"
                   id="scanbacks-check"
                   checked={formData.requiresScanbacks}
                   onChange={(e) => setFormData({ ...formData, requiresScanbacks: e.target.checked })}
@@ -281,30 +332,38 @@ export const QuoteModal: React.FC<QuoteModalProps> = ({
               {/* Special Instructions */}
               <div>
                 <label className="block text-xs font-semibold uppercase tracking-wider text-[#292727] mb-1">
-                  Additional Notes or Specific Lender Requirements
+                  Additional Notes or Specific Instructions
                 </label>
                 <textarea
                   rows={3}
-                  placeholder="Provide any relevant details, borrower preferences, courier drop deadlines, or specific title contact instructions..."
+                  name="specialInstructions"
+                  placeholder="Provide any relevant details, borrower preferences, courier drop deadlines, or specific title instructions..."
                   value={formData.specialInstructions}
                   onChange={(e) => setFormData({ ...formData, specialInstructions: e.target.value })}
-                  className="w-full px-3.5 py-2 text-sm bg-[#F8F4EF]/50 border border-[#D8CEC7] rounded-lg focus:outline-none focus:border-[#B9827B] text-[#292727]"
+                  className="w-full px-3.5 py-2 text-xs bg-white border border-[#D8CEC7] rounded-xl focus:outline-none focus:border-[#B9827B] text-[#292727]"
                 />
               </div>
 
               {/* Submit Button */}
-              <div className="pt-3">
+              <div className="pt-2">
                 <button
                   type="submit"
+                  disabled={isSubmitting}
                   id="submit-lsa-quote-btn"
-                  className="w-full py-3.5 px-6 bg-[#292727] hover:bg-[#3d3a3a] active:scale-[0.99] text-white font-semibold rounded-xl shadow-md transition-all flex items-center justify-center gap-2"
+                  className="w-full py-3 px-6 bg-[#292727] hover:bg-[#3d3a3a] active:scale-[0.99] disabled:opacity-60 text-white text-xs font-bold uppercase tracking-wider rounded-xl shadow-md transition-all flex items-center justify-center gap-2"
                 >
-                  <Send className="w-4 h-4" />
-                  <span>Submit Signing Quote Request</span>
+                  {isSubmitting ? (
+                    <>
+                      <Loader2 className="w-4 h-4 animate-spin" />
+                      <span>Submitting Request...</span>
+                    </>
+                  ) : (
+                    <>
+                      <Send className="w-4 h-4" />
+                      <span>Submit Signing Quote Request</span>
+                    </>
+                  )}
                 </button>
-                <p className="text-center text-xs text-[#786F6A] mt-2 font-mono">
-                  Forms link placeholder: [LSA QUOTE FORM LINK]
-                </p>
               </div>
             </form>
           )}

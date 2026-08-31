@@ -34,7 +34,7 @@ export const ServiceAreaMap: React.FC = () => {
             Where We Serve You
           </h2>
           <p className="text-base text-[#554E4A] leading-relaxed">
-            Based in Lavon, Texas (ZIP 75166), SignatureOne provides flexible in-person, local mobile, extended business travel, and statewide remote online coverage.
+            Based in Lavon, Texas (ZIP 75166), SignatureOne provides flexible in-person and local mobile services locally, alongside nationwide Remote Online Notary (RON) coverage anywhere within the United States.
           </p>
         </div>
 

@@ -1,7 +1,8 @@
 import React, { useState } from 'react';
-import { X, Phone, Mail, MapPin, Send, CheckCircle2, MessageSquare, Clock } from 'lucide-react';
-import { BRAND_INFO } from '../../data/notaryData';
+import { X, Phone, Mail, Clock, Send, CheckCircle2, MessageSquare, AlertCircle, Loader2 } from 'lucide-react';
+import { BRAND_INFO, OPERATING_HOURS } from '../../data/notaryData';
 import { ContactFormData } from '../../types';
+import { submitContactInquiry } from '../../lib/api';
 
 interface ContactModalProps {
   isOpen: boolean;
@@ -16,17 +17,38 @@ export const ContactModal: React.FC<ContactModalProps> = ({ isOpen, onClose }) =
     serviceInterest: 'Mobile Notary',
     message: '',
   });
+
+  const [isSubmitting, setIsSubmitting] = useState(false);
   const [submitted, setSubmitted] = useState(false);
+  const [errorMessage, setErrorMessage] = useState<string | null>(null);
 
   if (!isOpen) return null;
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    setSubmitted(true);
+    setIsSubmitting(true);
+    setErrorMessage(null);
+
+    try {
+      await submitContactInquiry({
+        name: formData.name,
+        email: formData.email,
+        phone: formData.phone,
+        serviceInterest: formData.serviceInterest,
+        message: formData.message,
+      });
+
+      setSubmitted(true);
+    } catch (err: any) {
+      setErrorMessage("We couldn't send your message. Please try again or call us at (972) 853-1513.");
+    } finally {
+      setIsSubmitting(false);
+    }
   };
 
   const handleReset = () => {
     setSubmitted(false);
+    setErrorMessage(null);
     onClose();
   };
 
@@ -65,20 +87,20 @@ export const ContactModal: React.FC<ContactModalProps> = ({ isOpen, onClose }) =
         <div className="p-6 max-h-[75vh] overflow-y-auto">
           {submitted ? (
             <div className="text-center py-8 px-4 space-y-4">
-              <div className="w-16 h-16 bg-[#E8C9C5]/50 text-[#B9827B] rounded-full flex items-center justify-center mx-auto mb-2">
+              <div className="w-16 h-16 bg-[#FAF6F5] text-[#B9827B] border border-[#E8C9C5] rounded-full flex items-center justify-center mx-auto mb-2">
                 <CheckCircle2 className="w-10 h-10" />
               </div>
               <h4 className="font-serif text-2xl font-semibold text-[#292727]">
                 Message Sent
               </h4>
-              <p className="text-sm text-[#786F6A] max-w-md mx-auto leading-relaxed">
-                Thank you for reaching out. We will get back to you promptly during our operating hours.
+              <p className="text-sm text-[#554E4A] max-w-md mx-auto leading-relaxed">
+                Thank you for reaching out. We'll get back to you as soon as possible.
               </p>
               <div className="pt-4">
                 <button
                   id="contact-success-done-btn"
                   onClick={handleReset}
-                  className="px-6 py-2.5 bg-[#292727] text-white font-medium rounded-lg hover:bg-[#3d3a3a] transition-colors"
+                  className="px-6 py-2.5 bg-[#292727] text-white text-xs font-semibold uppercase tracking-wider rounded-xl hover:bg-[#3d3a3a] transition-colors"
                 >
                   Close
                 </button>
@@ -86,7 +108,7 @@ export const ContactModal: React.FC<ContactModalProps> = ({ isOpen, onClose }) =
             </div>
           ) : (
             <div className="space-y-5">
-              {/* Direct Info Placeholders */}
+              {/* Direct Info */}
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 p-3.5 bg-[#F8F4EF] rounded-xl border border-[#D8CEC7] text-xs">
                 <div className="flex items-center gap-2 text-[#292727]">
                   <Phone className="w-4 h-4 text-[#B9827B] shrink-0" />
@@ -96,41 +118,54 @@ export const ContactModal: React.FC<ContactModalProps> = ({ isOpen, onClose }) =
                       href="tel:+19728531513"
                       className="font-medium text-[#1E1B18] hover:text-[#B9827B] hover:underline"
                     >
-                      {BRAND_INFO.phone}
+                      (972) 853-1513
                     </a>
                   </div>
                 </div>
-                <div className="flex items-center gap-2 text-[#292727]">
-                  <Mail className="w-4 h-4 text-[#B9827B] shrink-0" />
-                  <div>
-                    <span className="block text-[10px] text-[#786F6A] uppercase font-semibold">Email</span>
-                    <span className="font-medium">{BRAND_INFO.emailPlaceholder}</span>
-                  </div>
-                </div>
-                <div className="flex items-center gap-2 text-[#292727] sm:col-span-2 pt-1 border-t border-[#D8CEC7]/60">
-                  <Clock className="w-4 h-4 text-[#B9827B] shrink-0" />
-                  <div>
-                    <span className="block text-[10px] text-[#786F6A] uppercase font-semibold">Service Hours</span>
-                    <span className="font-medium text-[11px]">
-                      In-Person &amp; Mobile: Mon–Wed 1–6:30 PM, Sat 10 AM–1 PM CT · RON: Mon–Fri 10 AM–7 PM, Sat–Sun 11 AM–5 PM CT
-                    </span>
+                <div className="flex items-start gap-2 text-[#292727]">
+                  <Mail className="w-4 h-4 text-[#B9827B] shrink-0 mt-0.5" />
+                  <div className="space-y-0.5">
+                    <span className="block text-[10px] text-[#786F6A] uppercase font-semibold">Inquiries</span>
+                    <a href="mailto:info@sonotary.com" className="block font-medium hover:text-[#B9827B] text-[11px]">info@sonotary.com</a>
                   </div>
                 </div>
               </div>
 
               {/* Form */}
-              <form onSubmit={handleSubmit} className="space-y-3.5">
+              <form
+                name="contact-inquiry"
+                method="POST"
+                data-netlify="true"
+                data-netlify-honeypot="bot-field"
+                onSubmit={handleSubmit}
+                className="space-y-3.5"
+              >
+                <input type="hidden" name="form-name" value="contact-inquiry" />
+                <p className="hidden" aria-hidden="true">
+                  <label>
+                    Don't fill this out if you're human: <input name="bot-field" tabIndex={-1} autoComplete="off" />
+                  </label>
+                </p>
+
+                {errorMessage && (
+                  <div className="p-3 bg-red-50 border border-red-200 rounded-xl text-xs text-red-700 flex items-center gap-2">
+                    <AlertCircle className="w-4 h-4 shrink-0" />
+                    <span>{errorMessage}</span>
+                  </div>
+                )}
+
                 <div>
                   <label className="block text-xs font-semibold uppercase tracking-wider text-[#292727] mb-1">
                     Your Name *
                   </label>
                   <input
                     type="text"
+                    name="name"
                     required
                     placeholder="Full name"
                     value={formData.name}
                     onChange={(e) => setFormData({ ...formData, name: e.target.value })}
-                    className="w-full px-3.5 py-2 text-sm bg-[#F8F4EF]/50 border border-[#D8CEC7] rounded-lg focus:outline-none focus:border-[#B9827B] text-[#292727]"
+                    className="w-full px-3.5 py-2 text-xs bg-white border border-[#D8CEC7] rounded-xl focus:outline-none focus:border-[#B9827B] text-[#292727]"
                   />
                 </div>
 
@@ -141,24 +176,25 @@ export const ContactModal: React.FC<ContactModalProps> = ({ isOpen, onClose }) =
                     </label>
                     <input
                       type="email"
+                      name="email"
                       required
                       placeholder="name@example.com"
                       value={formData.email}
                       onChange={(e) => setFormData({ ...formData, email: e.target.value })}
-                      className="w-full px-3.5 py-2 text-sm bg-[#F8F4EF]/50 border border-[#D8CEC7] rounded-lg focus:outline-none focus:border-[#B9827B] text-[#292727]"
+                      className="w-full px-3.5 py-2 text-xs bg-white border border-[#D8CEC7] rounded-xl focus:outline-none focus:border-[#B9827B] text-[#292727]"
                     />
                   </div>
                   <div>
                     <label className="block text-xs font-semibold uppercase tracking-wider text-[#292727] mb-1">
-                      Phone Number *
+                      Phone Number
                     </label>
                     <input
                       type="tel"
-                      required
-                      placeholder="(214) 555-0100"
+                      name="phone"
+                      placeholder="(972) 000-0000"
                       value={formData.phone}
                       onChange={(e) => setFormData({ ...formData, phone: e.target.value })}
-                      className="w-full px-3.5 py-2 text-sm bg-[#F8F4EF]/50 border border-[#D8CEC7] rounded-lg focus:outline-none focus:border-[#B9827B] text-[#292727]"
+                      className="w-full px-3.5 py-2 text-xs bg-white border border-[#D8CEC7] rounded-xl focus:outline-none focus:border-[#B9827B] text-[#292727]"
                     />
                   </div>
                 </div>
@@ -168,41 +204,53 @@ export const ContactModal: React.FC<ContactModalProps> = ({ isOpen, onClose }) =
                     Service of Interest
                   </label>
                   <select
+                    name="serviceInterest"
                     value={formData.serviceInterest}
                     onChange={(e) => setFormData({ ...formData, serviceInterest: e.target.value })}
-                    className="w-full px-3.5 py-2 text-sm bg-[#F8F4EF]/50 border border-[#D8CEC7] rounded-lg focus:outline-none focus:border-[#B9827B] text-[#292727]"
+                    className="w-full px-3.5 py-2 text-xs bg-white border border-[#D8CEC7] rounded-xl focus:outline-none focus:border-[#B9827B] text-[#292727]"
                   >
-                    <option value="Meet Me (In-Person Notary)">You Come to Me (In-Person)</option>
-                    <option value="Mobile Notary">I Come to You (Local Mobile Notary)</option>
-                    <option value="Online Notary (RON)">Online Notary (Remote Online Notarization)</option>
+                    <option value="In-Person Notary">In-Person Notary (Wylie, TX)</option>
+                    <option value="Mobile Notary">Local Mobile Notary (We Travel)</option>
+                    <option value="Remote Online Notary (RON)">Remote Online Notary (RON)</option>
                     <option value="After-Hours RON">After-Hours Online Notary</option>
                     <option value="Loan Signing Agent">Loan Signing / Title Closing</option>
-                    <option value="Other">General Inquiries / Question</option>
+                    <option value="General Question">General Inquiry / Question</option>
                   </select>
                 </div>
 
                 <div>
                   <label className="block text-xs font-semibold uppercase tracking-wider text-[#292727] mb-1">
-                    How can we help? *
+                    Message *
                   </label>
                   <textarea
                     rows={3}
+                    name="message"
                     required
-                    placeholder="Tell us about your document type or scheduling questions..."
+                    placeholder="Describe your document type, number of signatures, timing, or questions..."
                     value={formData.message}
                     onChange={(e) => setFormData({ ...formData, message: e.target.value })}
-                    className="w-full px-3.5 py-2 text-sm bg-[#F8F4EF]/50 border border-[#D8CEC7] rounded-lg focus:outline-none focus:border-[#B9827B] text-[#292727]"
+                    className="w-full px-3.5 py-2 text-xs bg-white border border-[#D8CEC7] rounded-xl focus:outline-none focus:border-[#B9827B] text-[#292727]"
                   />
                 </div>
 
                 <div className="pt-2">
                   <button
                     type="submit"
+                    disabled={isSubmitting}
                     id="submit-contact-form-btn"
-                    className="w-full py-3 px-6 bg-[#B9827B] hover:bg-[#a66f68] active:scale-[0.99] text-white font-semibold rounded-xl shadow-md transition-all flex items-center justify-center gap-2"
+                    className="w-full py-3 px-6 bg-[#B9827B] hover:bg-[#a66f68] active:scale-[0.99] disabled:opacity-60 text-white text-xs font-bold uppercase tracking-wider rounded-xl shadow-md transition-all flex items-center justify-center gap-2"
                   >
-                    <Send className="w-4 h-4" />
-                    <span>Send Message</span>
+                    {isSubmitting ? (
+                      <>
+                        <Loader2 className="w-4 h-4 animate-spin" />
+                        <span>Sending Message...</span>
+                      </>
+                    ) : (
+                      <>
+                        <Send className="w-4 h-4" />
+                        <span>Send Message</span>
+                      </>
+                    )}
                   </button>
                 </div>
               </form>

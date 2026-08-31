@@ -71,8 +71,8 @@ export const HeroBanner: React.FC<HeroBannerProps> = ({
               <div className="pt-2 flex flex-wrap items-center justify-center lg:justify-start gap-3">
                 <button
                   id="hero-book-btn"
-                  onClick={() => onOpenBooking('Select Notary Service', '$15–$35 Convenience Fee + notarial fees', '[GENERAL NOTARY CALENDLY LINK]')}
-                  className="py-3 px-6 bg-[#B9827B] hover:bg-[#a56f68] active:scale-[0.98] text-white text-xs sm:text-sm font-semibold tracking-wider uppercase rounded-xl transition-all shadow-md flex items-center gap-2"
+                  onClick={() => onOpenBooking()}
+                  className="py-3 px-6 bg-[#B9827B] hover:bg-[#a56f68] active:scale-[0.98] text-white text-xs sm:text-sm font-semibold tracking-wider uppercase rounded-xl transition-all shadow-md flex items-center gap-2 cursor-pointer"
                 >
                   <Calendar className="w-4 h-4" />
                   <span>Book Appointment</span>

@@ -45,8 +45,8 @@ export const FinalCTA: React.FC<FinalCTAProps> = ({
             {/* Primary CTA */}
             <button
               id="final-cta-book-btn"
-              onClick={() => onOpenBooking('General Notary Appointment', '$15–$35 + notarial fees', '[GENERAL NOTARY CALENDLY LINK]')}
-              className="w-full sm:w-auto py-3.5 px-7 bg-[#B9827B] hover:bg-[#a66f68] active:scale-[0.98] text-white font-semibold text-xs tracking-wider uppercase rounded-xl shadow-md transition-all flex items-center justify-center gap-2"
+              onClick={() => onOpenBooking()}
+              className="w-full sm:w-auto py-3.5 px-7 bg-[#B9827B] hover:bg-[#a66f68] active:scale-[0.98] text-white font-semibold text-xs tracking-wider uppercase rounded-xl shadow-md transition-all flex items-center justify-center gap-2 cursor-pointer"
             >
               <Calendar className="w-4 h-4" />
               <span>BOOK A NOTARY</span>
