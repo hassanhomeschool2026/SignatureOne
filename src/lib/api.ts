@@ -31,14 +31,21 @@ export interface ApiResponse {
 
 function encodeFormData(data: Record<string, string>): string {
   const params = new URLSearchParams();
-  Object.entries(data).forEach(([key, value]) => {
-    params.append(key, value ?? '');
-  });
+  for (const [key, value] of Object.entries(data)) {
+    if (value !== undefined && value !== null) {
+      params.append(key, String(value));
+    }
+  }
   return params.toString();
 }
 
 /**
  * Submits form data via Netlify Forms URL-encoded POST
+ * Following Netlify's documented AJAX submission pattern for SPAs:
+ * - Method: POST
+ * - Endpoint: '/' (or active site URL)
+ * - Header: 'Content-Type': 'application/x-www-form-urlencoded'
+ * - Body: URL-encoded payload including 'form-name' and 'bot-field'
  */
 export async function submitNetlifyForm(
   formName: string,
@@ -51,16 +58,18 @@ export async function submitNetlifyForm(
       ...formData,
     };
 
+    const encodedBody = encodeFormData(payload);
+
     const response = await fetch('/', {
       method: 'POST',
       headers: {
         'Content-Type': 'application/x-www-form-urlencoded',
       },
-      body: encodeFormData(payload),
+      body: encodedBody,
     });
 
     if (!response.ok) {
-      throw new Error(`Netlify form submission returned status: ${response.status}`);
+      throw new Error(`Netlify form submission returned HTTP ${response.status}`);
     }
 
     return { success: true, message: 'Form submitted successfully.' };
