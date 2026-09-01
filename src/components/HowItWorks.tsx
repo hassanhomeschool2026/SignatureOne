@@ -44,14 +44,14 @@ export const HowItWorks: React.FC<HowItWorksProps> = ({ onOpenBooking }) => {
         
         {/* Section Header */}
         <div className="text-center max-w-3xl mx-auto mb-14 space-y-3">
-          <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-xs font-semibold uppercase tracking-wider bg-[#F8F4EF] text-[#292727] border border-[#D8CEC7]">
+          <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-xs font-semibold uppercase tracking-wider bg-[#FAF8F9] text-[#27272A] border border-[#E4E4E7]">
             <Clock className="w-3.5 h-3.5 text-[#B9827B]" />
             Seamless Process
           </div>
-          <h2 className="font-serif text-3xl sm:text-4xl font-bold text-[#292727]">
+          <h2 className="font-serif text-3xl sm:text-4xl font-bold text-[#27272A]">
             How It Works
           </h2>
-          <p className="text-base text-[#554E4A] leading-relaxed">
+          <p className="text-base text-[#52525B] leading-relaxed">
             Four simple steps from scheduling to officially notarized documents. Simple, transparent, and completely organized.
           </p>
         </div>
@@ -63,7 +63,7 @@ export const HowItWorks: React.FC<HowItWorksProps> = ({ onOpenBooking }) => {
             return (
               <div
                 key={idx}
-                className="bg-[#F8F4EF] rounded-2xl p-6 border border-[#D8CEC7] hover:border-[#B9827B] transition-all hover:shadow-md relative flex flex-col justify-between"
+                className="bg-[#FAF8F9] rounded-2xl p-6 border border-[#E4E4E7] hover:border-[#B9827B] transition-all hover:shadow-md relative flex flex-col justify-between"
               >
                 <div>
                   {/* Step Number & Icon */}
@@ -71,24 +71,24 @@ export const HowItWorks: React.FC<HowItWorksProps> = ({ onOpenBooking }) => {
                     <span className="font-serif text-3xl font-bold text-[#B9827B]/60">
                       {item.step}
                     </span>
-                    <div className="w-10 h-10 rounded-xl bg-white border border-[#D8CEC7] flex items-center justify-center text-[#292727]">
+                    <div className="w-10 h-10 rounded-xl bg-white border border-[#E4E4E7] flex items-center justify-center text-[#27272A]">
                       <Icon className="w-5 h-5" />
                     </div>
                   </div>
 
-                  <h3 className="font-serif text-xl font-bold text-[#292727]">
+                  <h3 className="font-serif text-xl font-bold text-[#27272A]">
                     {item.title}
                   </h3>
                   <p className="text-xs font-semibold text-[#B9827B] uppercase tracking-wider mt-0.5">
                     {item.subtitle}
                   </p>
 
-                  <p className="text-xs text-[#554E4A] mt-3 leading-relaxed">
+                  <p className="text-xs text-[#52525B] mt-3 leading-relaxed">
                     {item.desc}
                   </p>
                 </div>
 
-                <div className="mt-4 pt-3 border-t border-[#D8CEC7]/60 text-[11px] text-[#786F6A]">
+                <div className="mt-4 pt-3 border-t border-[#E4E4E7]/60 text-[11px] text-[#71717A]">
                   {idx === 0 && 'Secured with a $10 deposit'}
                   {idx === 1 && 'Keep documents unsigned until arrival'}
                   {idx === 2 && 'Identity verified in person or video'}
@@ -100,26 +100,26 @@ export const HowItWorks: React.FC<HowItWorksProps> = ({ onOpenBooking }) => {
         </div>
 
         {/* Suggested Appointment Durations Table */}
-        <div className="mt-14 bg-[#F8F4EF] rounded-3xl p-6 sm:p-8 border border-[#D8CEC7]">
+        <div className="mt-14 bg-[#FAF8F9] rounded-3xl p-6 sm:p-8 border border-[#E4E4E7]">
           <div className="max-w-2xl mb-6">
-            <h3 className="font-serif text-xl font-bold text-[#292727]">
+            <h3 className="font-serif text-xl font-bold text-[#27272A]">
               Appointment Durations &amp; Buffer Time
             </h3>
-            <p className="text-xs text-[#554E4A] mt-1">
+            <p className="text-xs text-[#52525B] mt-1">
               Our booking system automatically reserves sufficient time so your appointment is unhurried and precise:
             </p>
           </div>
 
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
             {APPOINTMENT_DURATIONS.map((dur, i) => (
-              <div key={i} className="bg-white p-4 rounded-xl border border-[#D8CEC7]/70 space-y-1">
+              <div key={i} className="bg-white p-4 rounded-xl border border-[#E4E4E7]/70 space-y-1">
                 <span className="text-[10px] uppercase font-bold text-[#B9827B] tracking-wider block">
                   {dur.duration}
                 </span>
-                <h4 className="font-serif font-bold text-sm text-[#292727]">
+                <h4 className="font-serif font-bold text-sm text-[#27272A]">
                   {dur.service}
                 </h4>
-                <p className="text-[11px] text-[#786F6A] leading-tight pt-1">
+                <p className="text-[11px] text-[#71717A] leading-tight pt-1">
                   {dur.details}
                 </p>
               </div>

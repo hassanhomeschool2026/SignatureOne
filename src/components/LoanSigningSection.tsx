@@ -37,33 +37,33 @@ export const LoanSigningSection: React.FC<LoanSigningSectionProps> = ({ onOpenQu
         {/* Section Top Header */}
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 items-center mb-14">
           <div className="lg:col-span-8 space-y-3">
-            <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-xs font-semibold uppercase tracking-wider bg-[#F8F4EF] text-[#292727] border border-[#D8CEC7]">
+            <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-xs font-semibold uppercase tracking-wider bg-[#FAF8F9] text-[#27272A] border border-[#E4E4E7]">
               <Building2 className="w-3.5 h-3.5 text-[#B9827B]" />
               Title &amp; Mortgage Lending Support
             </div>
-            <h2 className="font-serif text-3xl sm:text-4xl font-bold text-[#292727]">
+            <h2 className="font-serif text-3xl sm:text-4xl font-bold text-[#27272A]">
               Loan Signing &amp; Closing Services
             </h2>
-            <p className="text-base text-[#554E4A] leading-relaxed">
+            <p className="text-base text-[#52525B] leading-relaxed">
               Professional, meticulous Loan Signing Agent (LSA) services tailored for title agencies, lenders, escrow officers, attorneys, and signing services. Experienced with real-world mortgage transactions and seamless execution.
             </p>
           </div>
 
           <div className="lg:col-span-4 flex flex-col items-start lg:items-end justify-center">
-            <div className="bg-[#F8F4EF] p-4 rounded-2xl border border-[#D8CEC7] text-left w-full sm:w-auto">
-              <span className="text-[11px] font-semibold text-[#786F6A] uppercase tracking-wider block">
+            <div className="bg-[#FAF8F9] p-4 rounded-2xl border border-[#E4E4E7] text-left w-full sm:w-auto">
+              <span className="text-[11px] font-semibold text-[#71717A] uppercase tracking-wider block">
                 LSA Fee Structure
               </span>
-              <span className="font-serif text-xl font-bold text-[#292727] block mt-0.5">
+              <span className="font-serif text-xl font-bold text-[#27272A] block mt-0.5">
                 Starting at $50+
               </span>
-              <span className="text-[11px] text-[#786F6A] block mt-1">
+              <span className="text-[11px] text-[#71717A] block mt-1">
                 Customized by document volume &amp; travel
               </span>
               <button
                 id="request-quote-lsa-top-btn"
                 onClick={onOpenQuote}
-                className="mt-3 w-full py-2.5 px-4 bg-[#292727] hover:bg-[#3d3a3a] active:scale-[0.98] text-white text-xs font-semibold tracking-wider uppercase rounded-xl transition-all shadow-xs flex items-center justify-center gap-1.5"
+                className="mt-3 w-full py-2.5 px-4 bg-[#27272A] hover:bg-[#3F3F46] active:scale-[0.98] text-white text-xs font-semibold tracking-wider uppercase rounded-xl transition-all shadow-xs flex items-center justify-center gap-1.5"
               >
                 <span>REQUEST A SIGNING QUOTE</span>
                 <ArrowRight className="w-3.5 h-3.5" />
@@ -79,15 +79,15 @@ export const LoanSigningSection: React.FC<LoanSigningSectionProps> = ({ onOpenQu
             return (
               <div
                 key={idx}
-                className="bg-[#F8F4EF] rounded-2xl p-5 border border-[#D8CEC7] hover:border-[#B9827B] transition-all space-y-3"
+                className="bg-[#FAF8F9] rounded-2xl p-5 border border-[#E4E4E7] hover:border-[#B9827B] transition-all space-y-3"
               >
-                <div className="w-10 h-10 rounded-xl bg-white border border-[#D8CEC7] flex items-center justify-center text-[#B9827B]">
+                <div className="w-10 h-10 rounded-xl bg-white border border-[#E4E4E7] flex items-center justify-center text-[#B9827B]">
                   <Icon className="w-5 h-5" />
                 </div>
-                <h3 className="font-serif text-base font-bold text-[#292727]">
+                <h3 className="font-serif text-base font-bold text-[#27272A]">
                   {step.title}
                 </h3>
-                <p className="text-xs text-[#554E4A] leading-relaxed">
+                <p className="text-xs text-[#52525B] leading-relaxed">
                   {step.desc}
                 </p>
               </div>
@@ -96,12 +96,12 @@ export const LoanSigningSection: React.FC<LoanSigningSectionProps> = ({ onOpenQu
         </div>
 
         {/* Real-World Assignment Specialties */}
-        <div className="bg-[#F8F4EF] rounded-3xl p-6 sm:p-8 border border-[#D8CEC7]">
+        <div className="bg-[#FAF8F9] rounded-3xl p-6 sm:p-8 border border-[#E4E4E7]">
           <div className="max-w-2xl mb-6">
-            <h3 className="font-serif text-xl font-bold text-[#292727]">
+            <h3 className="font-serif text-xl font-bold text-[#27272A]">
               Closing Assignments Handled
             </h3>
-            <p className="text-xs text-[#554E4A] mt-1">
+            <p className="text-xs text-[#52525B] mt-1">
               Accurate, error-free signing execution with strict adherence to lender closing instructions:
             </p>
           </div>
@@ -110,15 +110,15 @@ export const LoanSigningSection: React.FC<LoanSigningSectionProps> = ({ onOpenQu
             {LOAN_SIGNING_SPECIALTIES.map((spec, idx) => (
               <div
                 key={idx}
-                className="bg-white p-4 rounded-xl border border-[#D8CEC7]/70 space-y-1.5 shadow-2xs"
+                className="bg-white p-4 rounded-xl border border-[#E4E4E7]/70 space-y-1.5 shadow-2xs"
               >
                 <div className="flex items-center gap-2">
                   <CheckCircle2 className="w-4 h-4 text-[#B9827B] shrink-0" />
-                  <h4 className="font-semibold text-xs text-[#292727]">
+                  <h4 className="font-semibold text-xs text-[#27272A]">
                     {spec.title}
                   </h4>
                 </div>
-                <p className="text-[11px] text-[#786F6A] pl-6 leading-relaxed">
+                <p className="text-[11px] text-[#71717A] pl-6 leading-relaxed">
                   {spec.desc}
                 </p>
               </div>
@@ -126,14 +126,14 @@ export const LoanSigningSection: React.FC<LoanSigningSectionProps> = ({ onOpenQu
           </div>
 
           {/* CTA Box */}
-          <div className="mt-8 pt-6 border-t border-[#D8CEC7] flex flex-col sm:flex-row items-center justify-between gap-4">
-            <div className="text-xs text-[#554E4A] text-center sm:text-left">
+          <div className="mt-8 pt-6 border-t border-[#E4E4E7] flex flex-col sm:flex-row items-center justify-between gap-4">
+            <div className="text-xs text-[#52525B] text-center sm:text-left">
               <strong>Need a signing scheduled?</strong> Loan signing packages are custom-quoted to ensure proper file review and travel buffer times.
             </div>
             <button
               id="request-signing-quote-main-btn"
               onClick={onOpenQuote}
-              className="py-3 px-6 bg-[#292727] hover:bg-[#3d3a3a] text-white text-xs font-semibold tracking-wider uppercase rounded-xl transition-all shadow-md shrink-0 flex items-center gap-2"
+              className="py-3 px-6 bg-[#27272A] hover:bg-[#3F3F46] text-white text-xs font-semibold tracking-wider uppercase rounded-xl transition-all shadow-md shrink-0 flex items-center gap-2"
             >
               <span>REQUEST A SIGNING QUOTE</span>
               <ArrowRight className="w-4 h-4 text-[#E8C9C5]" />

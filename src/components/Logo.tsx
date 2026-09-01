@@ -49,10 +49,10 @@ export const Logo: React.FC<LogoProps> = ({
           />
         </div>
         <div className="flex flex-col text-left">
-          <span className="font-serif font-bold tracking-wide text-[#1E1B18] text-lg sm:text-xl leading-tight">
+          <span className="font-serif font-bold tracking-wide text-[#18181B] text-lg sm:text-xl leading-tight">
             SignatureOne
           </span>
-          <span className="text-[11px] uppercase tracking-widest text-[#786F6A] font-medium">
+          <span className="text-[11px] uppercase tracking-widest text-[#71717A] font-medium">
             Mobile Notary &amp; Loan Signing
           </span>
         </div>
@@ -73,7 +73,7 @@ export const Logo: React.FC<LogoProps> = ({
 
       {showSubtitle && (
         <div className="mt-2 text-center">
-          <p className="text-xs uppercase tracking-widest text-[#786F6A] font-medium">
+          <p className="text-xs uppercase tracking-widest text-[#71717A] font-medium">
             Lavon, Texas 75166
           </p>
         </div>

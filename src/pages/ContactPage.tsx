@@ -14,7 +14,8 @@ import {
   FileText,
   Calendar,
   AlertCircle,
-  Loader2
+  Loader2,
+  Upload
 } from 'lucide-react';
 import { submitContactInquiry } from '../lib/api';
 
@@ -64,10 +65,10 @@ export const ContactPage: React.FC<ContactPageProps> = ({
       
       {/* PAGE HEADER */}
       <div className="text-center max-w-3xl mx-auto space-y-3">
-        <h1 className="text-3xl sm:text-4xl font-extrabold text-[#1E1B18] tracking-tight font-heading uppercase">
+        <h1 className="text-3xl sm:text-4xl font-extrabold text-[#18181B] tracking-tight font-heading uppercase">
           Contact SignatureOne Notary
         </h1>
-        <p className="text-sm sm:text-base text-[#554E4A] leading-relaxed">
+        <p className="text-sm sm:text-base text-[#52525B] leading-relaxed">
           Reach out for appointment coordination, loan signing quotes, or document inquiries.
         </p>
       </div>
@@ -78,85 +79,77 @@ export const ContactPage: React.FC<ContactPageProps> = ({
         <div className="lg:col-span-6 space-y-6">
           
           {/* Main Info Card */}
-          <div className="bg-white rounded-3xl border border-[#F0EAE6] p-6 sm:p-8 space-y-6 shadow-xs">
-            <div className="border-b border-[#F0EAE6] pb-4">
-              <h2 className="text-xl font-bold text-[#1E1B18] font-heading uppercase">
+          <div className="bg-white rounded-3xl border border-[#F0ECED] p-6 sm:p-8 space-y-6 shadow-xs">
+            <div className="border-b border-[#F0ECED] pb-4">
+              <h2 className="text-xl font-bold text-[#18181B] font-heading uppercase">
                 Direct Contact Information
               </h2>
-              <p className="text-xs text-[#786F6A] mt-1">
+              <p className="text-xs text-[#71717A] mt-1">
                 Appointments required. Walk-ins are not accepted.
               </p>
             </div>
 
             {/* Address */}
             <div className="flex items-start gap-4">
-              <span className="w-10 h-10 rounded-xl bg-[#FAF6F5] flex items-center justify-center text-[#B9827B] shrink-0 mt-0.5">
+              <span className="w-10 h-10 rounded-xl bg-[#FAF8F9] flex items-center justify-center text-[#B9827B] shrink-0 mt-0.5">
                 <MapPin className="w-5 h-5" />
               </span>
               <div>
-                <strong className="block text-sm font-bold text-[#1E1B18]">Location</strong>
-                <p className="text-xs text-[#554E4A]">SignatureOne Notary</p>
-                <p className="text-xs text-[#554E4A]">Lavon, TX 75166</p>
-                <p className="text-[11px] text-[#786F6A] mt-0.5">
+                <strong className="block text-sm font-bold text-[#18181B]">Location</strong>
+                <p className="text-xs text-[#52525B]">SignatureOne Notary</p>
+                <p className="text-xs text-[#52525B]">Lavon, TX 75166</p>
+                <p className="text-[11px] text-[#71717A] mt-0.5">
                   Designated in-person meetings in Wylie, TX · Mobile service across Collin County
                 </p>
               </div>
             </div>
 
             {/* Phone */}
-            <div className="flex items-start gap-4 pt-2 border-t border-[#F0EAE6]">
-              <span className="w-10 h-10 rounded-xl bg-[#FAF6F5] flex items-center justify-center text-[#B9827B] shrink-0 mt-0.5">
+            <div className="flex items-start gap-4 pt-2 border-t border-[#F0ECED]">
+              <span className="w-10 h-10 rounded-xl bg-[#FAF8F9] flex items-center justify-center text-[#B9827B] shrink-0 mt-0.5">
                 <Phone className="w-5 h-5" />
               </span>
               <div>
-                <strong className="block text-sm font-bold text-[#1E1B18]">Telephone</strong>
+                <strong className="block text-sm font-bold text-[#18181B]">Telephone</strong>
                 <a 
                   href={BRAND_INFO.phoneTel} 
-                  className="text-base font-extrabold text-[#1E1B18] hover:text-[#B9827B] transition-colors"
+                  className="text-base font-extrabold text-[#18181B] hover:text-[#B9827B] transition-colors"
                 >
                   (972) 853-1513
                 </a>
-                <p className="text-[11px] text-[#786F6A]">Call or text for questions and scheduling</p>
+                <p className="text-[11px] text-[#71717A]">Call or text for questions and scheduling</p>
               </div>
             </div>
 
             {/* Dedicated Email Addresses */}
-            <div className="space-y-3 pt-4 border-t border-[#F0EAE6]">
-              <strong className="block text-xs font-bold uppercase tracking-wider text-[#1E1B18]">
+            <div className="space-y-3 pt-4 border-t border-[#F0ECED]">
+              <strong className="block text-xs font-bold uppercase tracking-wider text-[#18181B]">
                 Dedicated Email Departments
               </strong>
               
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 text-xs">
                 <a
                   href="mailto:booking@sonotary.com"
-                  className="p-3 rounded-xl bg-[#FAF6F5] hover:bg-[#F0EAE6] border border-[#F0EAE6] transition-all block"
+                  className="p-3 rounded-xl bg-[#FAF8F9] hover:bg-[#F0ECED] border border-[#F0ECED] transition-all block"
                 >
                   <span className="text-[10px] uppercase font-bold text-[#B9827B] block">Appointments &amp; Booking</span>
-                  <span className="font-semibold text-[#1E1B18]">booking@sonotary.com</span>
+                  <span className="font-semibold text-[#18181B]">booking@sonotary.com</span>
                 </a>
 
                 <a
                   href="mailto:info@sonotary.com"
-                  className="p-3 rounded-xl bg-[#FAF6F5] hover:bg-[#F0EAE6] border border-[#F0EAE6] transition-all block"
+                  className="p-3 rounded-xl bg-[#FAF8F9] hover:bg-[#F0ECED] border border-[#F0ECED] transition-all block"
                 >
-                  <span className="text-[10px] uppercase font-bold text-[#B9827B] block">General &amp; Service Errors</span>
-                  <span className="font-semibold text-[#1E1B18]">info@sonotary.com</span>
-                </a>
-
-                <a
-                  href="mailto:upload@sonotary.com"
-                  className="p-3 rounded-xl bg-[#FAF6F5] hover:bg-[#F0EAE6] border border-[#F0EAE6] transition-all block"
-                >
-                  <span className="text-[10px] uppercase font-bold text-[#B9827B] block">Document Printing / Uploads</span>
-                  <span className="font-semibold text-[#1E1B18]">upload@sonotary.com</span>
+                  <span className="text-[10px] uppercase font-bold text-[#B9827B] block">General Inquiries</span>
+                  <span className="font-semibold text-[#18181B]">info@sonotary.com</span>
                 </a>
 
                 <a
                   href="mailto:legal@sonotary.com"
-                  className="p-3 rounded-xl bg-[#FAF6F5] hover:bg-[#F0EAE6] border border-[#F0EAE6] transition-all block"
+                  className="p-3 rounded-xl bg-[#FAF8F9] hover:bg-[#F0ECED] border border-[#F0ECED] transition-all block"
                 >
                   <span className="text-[10px] uppercase font-bold text-[#B9827B] block">Legal &amp; Policy Requests</span>
-                  <span className="font-semibold text-[#1E1B18]">legal@sonotary.com</span>
+                  <span className="font-semibold text-[#18181B]">legal@sonotary.com</span>
                 </a>
               </div>
             </div>
@@ -164,19 +157,19 @@ export const ContactPage: React.FC<ContactPageProps> = ({
           </div>
 
           {/* Operating Hours */}
-          <div className="bg-[#FAF6F5] rounded-3xl border border-[#F0EAE6] p-6 sm:p-8 space-y-4">
+          <div className="bg-[#FAF8F9] rounded-3xl border border-[#F0ECED] p-6 sm:p-8 space-y-4">
             <div className="flex items-center gap-2">
               <Clock className="w-5 h-5 text-[#B9827B]" />
-              <h3 className="text-base font-bold text-[#1E1B18] font-heading uppercase">
+              <h3 className="text-base font-bold text-[#18181B] font-heading uppercase">
                 Hours of Operation
               </h3>
             </div>
 
             <div className="space-y-3 text-xs">
               {OPERATING_HOURS.map((h, i) => (
-                <div key={i} className="bg-white rounded-xl p-3 border border-[#F0EAE6]">
-                  <span className="font-bold text-[#1E1B18] block">{h.days}</span>
-                  <span className="text-[#554E4A]">{h.hours}</span>
+                <div key={i} className="bg-white rounded-xl p-3 border border-[#F0ECED]">
+                  <span className="font-bold text-[#18181B] block">{h.days}</span>
+                  <span className="text-[#52525B]">{h.hours}</span>
                 </div>
               ))}
             </div>
@@ -185,23 +178,23 @@ export const ContactPage: React.FC<ContactPageProps> = ({
         </div>
 
         {/* Send a Message Form */}
-        <div className="lg:col-span-6 bg-white rounded-3xl border border-[#F0EAE6] p-6 sm:p-8 space-y-6 shadow-xs">
+        <div className="lg:col-span-6 bg-white rounded-3xl border border-[#F0ECED] p-6 sm:p-8 space-y-6 shadow-xs">
           <div>
-            <h2 className="text-xl font-bold text-[#1E1B18] font-heading uppercase">
+            <h2 className="text-xl font-bold text-[#18181B] font-heading uppercase">
               Send an Inquiry
             </h2>
-            <p className="text-xs text-[#786F6A] mt-1">
+            <p className="text-xs text-[#71717A] mt-1">
               Have a question before booking? Complete the form below and we will respond promptly.
             </p>
           </div>
 
           {submitted ? (
-            <div className="p-6 bg-[#FAF6F5] border border-[#E8C9C5] rounded-2xl text-center space-y-3">
+            <div className="p-6 bg-[#FAF8F9] border border-[#E8C9C5] rounded-2xl text-center space-y-3">
               <CheckCircle2 className="w-10 h-10 text-[#B9827B] mx-auto" />
-              <h3 className="text-base font-bold text-[#1E1B18] font-heading">
+              <h3 className="text-base font-bold text-[#18181B] font-heading">
                 Message Received
               </h3>
-              <p className="text-xs text-[#554E4A]">
+              <p className="text-xs text-[#52525B]">
                 Thank you for contacting SignatureOne Notary. We have received your inquiry and will follow up with you promptly.
               </p>
               <button
@@ -239,7 +232,7 @@ export const ContactPage: React.FC<ContactPageProps> = ({
               )}
 
               <div className="space-y-1">
-                <label className="block text-xs font-bold text-[#1E1B18] uppercase tracking-wider">
+                <label className="block text-xs font-bold text-[#18181B] uppercase tracking-wider">
                   Full Name *
                 </label>
                 <input
@@ -249,13 +242,13 @@ export const ContactPage: React.FC<ContactPageProps> = ({
                   value={formData.name}
                   onChange={(e) => setFormData({ ...formData, name: e.target.value })}
                   placeholder="Your full name"
-                  className="w-full px-3.5 py-2.5 bg-white rounded-xl border border-[#F0EAE6] text-xs text-[#1E1B18] placeholder-[#786F6A] focus:outline-none focus:border-[#B9827B]"
+                  className="w-full px-3.5 py-2.5 bg-white rounded-xl border border-[#F0ECED] text-xs text-[#18181B] placeholder-[#71717A] focus:outline-none focus:border-[#B9827B]"
                 />
               </div>
 
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                 <div className="space-y-1">
-                  <label className="block text-xs font-bold text-[#1E1B18] uppercase tracking-wider">
+                  <label className="block text-xs font-bold text-[#18181B] uppercase tracking-wider">
                     Email Address *
                   </label>
                   <input
@@ -265,12 +258,12 @@ export const ContactPage: React.FC<ContactPageProps> = ({
                     value={formData.email}
                     onChange={(e) => setFormData({ ...formData, email: e.target.value })}
                     placeholder="email@domain.com"
-                    className="w-full px-3.5 py-2.5 bg-white rounded-xl border border-[#F0EAE6] text-xs text-[#1E1B18] placeholder-[#786F6A] focus:outline-none focus:border-[#B9827B]"
+                    className="w-full px-3.5 py-2.5 bg-white rounded-xl border border-[#F0ECED] text-xs text-[#18181B] placeholder-[#71717A] focus:outline-none focus:border-[#B9827B]"
                   />
                 </div>
 
                 <div className="space-y-1">
-                  <label className="block text-xs font-bold text-[#1E1B18] uppercase tracking-wider">
+                  <label className="block text-xs font-bold text-[#18181B] uppercase tracking-wider">
                     Phone Number
                   </label>
                   <input
@@ -279,20 +272,20 @@ export const ContactPage: React.FC<ContactPageProps> = ({
                     value={formData.phone}
                     onChange={(e) => setFormData({ ...formData, phone: e.target.value })}
                     placeholder="(972) 000-0000"
-                    className="w-full px-3.5 py-2.5 bg-white rounded-xl border border-[#F0EAE6] text-xs text-[#1E1B18] placeholder-[#786F6A] focus:outline-none focus:border-[#B9827B]"
+                    className="w-full px-3.5 py-2.5 bg-white rounded-xl border border-[#F0ECED] text-xs text-[#18181B] placeholder-[#71717A] focus:outline-none focus:border-[#B9827B]"
                   />
                 </div>
               </div>
 
               <div className="space-y-1">
-                <label className="block text-xs font-bold text-[#1E1B18] uppercase tracking-wider">
+                <label className="block text-xs font-bold text-[#18181B] uppercase tracking-wider">
                   Service Format
                 </label>
                 <select
                   name="serviceInterest"
                   value={formData.serviceInterest}
                   onChange={(e) => setFormData({ ...formData, serviceInterest: e.target.value })}
-                  className="w-full px-3.5 py-2.5 bg-white rounded-xl border border-[#F0EAE6] text-xs text-[#1E1B18] focus:outline-none focus:border-[#B9827B]"
+                  className="w-full px-3.5 py-2.5 bg-white rounded-xl border border-[#F0ECED] text-xs text-[#18181B] focus:outline-none focus:border-[#B9827B]"
                 >
                   <option value="In-Person Notary">In-Person Notary (Wylie, TX)</option>
                   <option value="Mobile Notary">Mobile Notary (We Travel to You)</option>
@@ -303,7 +296,7 @@ export const ContactPage: React.FC<ContactPageProps> = ({
               </div>
 
               <div className="space-y-1">
-                <label className="block text-xs font-bold text-[#1E1B18] uppercase tracking-wider">
+                <label className="block text-xs font-bold text-[#18181B] uppercase tracking-wider">
                   Message / Details *
                 </label>
                 <textarea
@@ -313,14 +306,14 @@ export const ContactPage: React.FC<ContactPageProps> = ({
                   value={formData.message}
                   onChange={(e) => setFormData({ ...formData, message: e.target.value })}
                   placeholder="Describe your document type, number of signatures, timing, or questions..."
-                  className="w-full px-3.5 py-2.5 bg-white rounded-xl border border-[#F0EAE6] text-xs text-[#1E1B18] placeholder-[#786F6A] focus:outline-none focus:border-[#B9827B]"
+                  className="w-full px-3.5 py-2.5 bg-white rounded-xl border border-[#F0ECED] text-xs text-[#18181B] placeholder-[#71717A] focus:outline-none focus:border-[#B9827B]"
                 />
               </div>
 
               <button
                 type="submit"
                 disabled={isSubmitting}
-                className="w-full py-3 bg-[#1E1B18] hover:bg-[#35302C] disabled:opacity-60 text-white text-xs font-bold uppercase tracking-wider rounded-xl transition-all shadow-2xs flex items-center justify-center gap-2"
+                className="w-full py-3 bg-[#18181B] hover:bg-[#27272A] disabled:opacity-60 text-white text-xs font-bold uppercase tracking-wider rounded-xl transition-all shadow-2xs flex items-center justify-center gap-2"
               >
                 {isSubmitting ? (
                   <>
@@ -337,13 +330,44 @@ export const ContactPage: React.FC<ContactPageProps> = ({
             </form>
           )}
 
-          <div className="pt-4 border-t border-[#F0EAE6] text-[11px] text-[#786F6A] leading-relaxed">
+          <div className="pt-4 border-t border-[#F0ECED] text-[11px] text-[#71717A] leading-relaxed">
             <p>
               Note: SignatureOne Notary does not provide legal advice. All document notarizations require unexpired, government-issued photo identification.
             </p>
           </div>
         </div>
 
+      </div>
+
+      {/* SECURE DOCUMENT UPLOAD SECTION */}
+      <div className="bg-white rounded-3xl border border-[#F0ECED] p-6 sm:p-8 shadow-xs">
+        <div className="flex flex-col md:flex-row md:items-center justify-between gap-6">
+          <div className="space-y-2 max-w-2xl">
+            <h2 className="text-xl font-bold text-[#18181B] font-heading uppercase">
+              Need Help With Your Documents?
+            </h2>
+            <p className="text-xs sm:text-sm text-[#52525B] leading-relaxed">
+              If you have questions about the notarial requirements or need help preparing for your appointment, you may securely upload your documents for review.
+            </p>
+            <p className="text-[11px] text-[#71717A] italic">
+              SignatureOne Notary does not provide legal advice or interpret documents.
+            </p>
+          </div>
+          <div className="flex flex-col items-center md:items-end gap-1.5 shrink-0">
+            <a
+              href="https://www.dropbox.com/request/mkjmo10p6dtay97gtnbj"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="w-full sm:w-auto px-6 py-3 bg-[#18181B] hover:bg-[#27272A] text-white text-xs font-bold uppercase tracking-wider rounded-xl transition-all shadow-2xs flex items-center justify-center gap-2 shrink-0 cursor-pointer"
+            >
+              <Upload className="w-4 h-4 text-[#B9827B]" />
+              <span>Secure Document Upload</span>
+            </a>
+            <span className="text-[11px] text-[#71717A] text-center md:text-right">
+              Optional - uploading documents is not required to book an appointment.
+            </span>
+          </div>
+        </div>
       </div>
 
     </div>

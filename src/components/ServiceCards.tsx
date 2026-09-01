@@ -18,15 +18,15 @@ export const ServiceCards: React.FC<ServiceCardsProps> = ({
         
         {/* Section Header */}
         <div className="text-center max-w-3xl mx-auto mb-14 space-y-3">
-          <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-xs font-semibold uppercase tracking-wider bg-[#F8F4EF] text-[#292727] border border-[#D8CEC7]">
+          <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-xs font-semibold uppercase tracking-wider bg-[#FAF8F9] text-[#27272A] border border-[#E4E4E7]">
             <Sparkles className="w-3.5 h-3.5 text-[#B9827B]" />
             Notary Solutions
           </div>
-          <h2 className="font-serif text-3xl sm:text-4xl font-bold text-[#292727]">
+          <h2 className="font-serif text-3xl sm:text-4xl font-bold text-[#27272A]">
             Choose Your Service
           </h2>
-          <p className="text-base text-[#554E4A] leading-relaxed">
-            All SignatureOne services are available <strong className="text-[#292727]">strictly by appointment only</strong>. Select the format that best suits your schedule, location, or document requirements.
+          <p className="text-base text-[#52525B] leading-relaxed">
+            All SignatureOne services are available <strong className="text-[#27272A]">strictly by appointment only</strong>. Select the format that best suits your schedule, location, or document requirements.
           </p>
         </div>
 
@@ -36,41 +36,41 @@ export const ServiceCards: React.FC<ServiceCardsProps> = ({
           {/* Service 1: You Come to Me */}
           <div
             id="service-card-meet-me"
-            className="group relative bg-[#F8F4EF] rounded-2xl p-6 border border-[#D8CEC7] hover:border-[#B9827B] transition-all duration-300 flex flex-col justify-between hover:shadow-lg"
+            className="group relative bg-[#FAF8F9] rounded-2xl p-6 border border-[#E4E4E7] hover:border-[#B9827B] transition-all duration-300 flex flex-col justify-between hover:shadow-lg"
           >
             <div>
               {/* Badge & Icon */}
               <div className="flex items-center justify-between mb-4">
-                <div className="w-11 h-11 rounded-xl bg-white border border-[#D8CEC7] flex items-center justify-center text-[#292727] group-hover:text-[#B9827B] transition-colors">
+                <div className="w-11 h-11 rounded-xl bg-white border border-[#E4E4E7] flex items-center justify-center text-[#27272A] group-hover:text-[#B9827B] transition-colors">
                   <MapPin className="w-5 h-5" />
                 </div>
-                <span className="text-[11px] font-semibold tracking-wider uppercase px-2.5 py-1 bg-white rounded-full border border-[#D8CEC7] text-[#786F6A]">
+                <span className="text-[11px] font-semibold tracking-wider uppercase px-2.5 py-1 bg-white rounded-full border border-[#E4E4E7] text-[#71717A]">
                   In-Person
                 </span>
               </div>
 
-              <h3 className="font-serif text-xl font-bold text-[#292727]">
+              <h3 className="font-serif text-xl font-bold text-[#27272A]">
                 YOU COME TO ME
               </h3>
               <p className="text-xs uppercase tracking-wider font-semibold text-[#B9827B] mt-0.5">
                 In-Person Notary
               </p>
 
-              <div className="mt-4 pt-4 border-t border-[#D8CEC7]/70 space-y-2">
-                <div className="font-serif text-2xl font-bold text-[#292727]">
-                  $15 <span className="text-xs font-sans font-normal text-[#786F6A]">Convenience Fee</span>
+              <div className="mt-4 pt-4 border-t border-[#E4E4E7]/70 space-y-2">
+                <div className="font-serif text-2xl font-bold text-[#27272A]">
+                  $15 <span className="text-xs font-sans font-normal text-[#71717A]">Convenience Fee</span>
                 </div>
-                <p className="text-[11px] text-[#786F6A] leading-tight">
+                <p className="text-[11px] text-[#71717A] leading-tight">
                   PLUS applicable Texas statutory notarial fee(s).
                 </p>
               </div>
 
-              <p className="text-xs text-[#554E4A] mt-4 leading-relaxed">
+              <p className="text-xs text-[#52525B] mt-4 leading-relaxed">
                 Convenient in-person notary appointments at our designated local meeting location in the Lavon/Wylie area.
               </p>
 
               {/* Specs */}
-              <div className="mt-4 space-y-2 text-[11px] text-[#786F6A] bg-white/70 p-3 rounded-xl border border-[#D8CEC7]/50">
+              <div className="mt-4 space-y-2 text-[11px] text-[#71717A] bg-white/70 p-3 rounded-xl border border-[#E4E4E7]/50">
                 <div className="flex items-start gap-1.5">
                   <Clock className="w-3.5 h-3.5 text-[#B9827B] shrink-0 mt-0.5" />
                   <span>Mon–Wed 1:00–6:00 PM · Sat 10:00 AM–1:00 PM CT</span>
@@ -83,7 +83,7 @@ export const ServiceCards: React.FC<ServiceCardsProps> = ({
             </div>
 
             {/* CTA */}
-            <div className="mt-6 pt-4 border-t border-[#D8CEC7]/70">
+            <div className="mt-6 pt-4 border-t border-[#E4E4E7]/70">
               <button
                 id="book-meet-me-btn"
                 onClick={() => openBookingLink(CALENDLY_LINKS.inPerson)}
@@ -98,40 +98,40 @@ export const ServiceCards: React.FC<ServiceCardsProps> = ({
           {/* Service 2: I Come to You */}
           <div
             id="service-card-mobile"
-            className="group relative bg-[#F8F4EF] rounded-2xl p-6 border border-[#D8CEC7] hover:border-[#B9827B] transition-all duration-300 flex flex-col justify-between hover:shadow-lg"
+            className="group relative bg-[#FAF8F9] rounded-2xl p-6 border border-[#E4E4E7] hover:border-[#B9827B] transition-all duration-300 flex flex-col justify-between hover:shadow-lg"
           >
             <div>
               <div className="flex items-center justify-between mb-4">
-                <div className="w-11 h-11 rounded-xl bg-white border border-[#D8CEC7] flex items-center justify-center text-[#292727] group-hover:text-[#B9827B] transition-colors">
+                <div className="w-11 h-11 rounded-xl bg-white border border-[#E4E4E7] flex items-center justify-center text-[#27272A] group-hover:text-[#B9827B] transition-colors">
                   <Car className="w-5 h-5" />
                 </div>
-                <span className="text-[11px] font-semibold tracking-wider uppercase px-2.5 py-1 bg-white rounded-full border border-[#D8CEC7] text-[#786F6A]">
+                <span className="text-[11px] font-semibold tracking-wider uppercase px-2.5 py-1 bg-white rounded-full border border-[#E4E4E7] text-[#71717A]">
                   12-Mile Radius
                 </span>
               </div>
 
-              <h3 className="font-serif text-xl font-bold text-[#292727]">
+              <h3 className="font-serif text-xl font-bold text-[#27272A]">
                 I COME TO YOU
               </h3>
               <p className="text-xs uppercase tracking-wider font-semibold text-[#B9827B] mt-0.5">
                 Local Mobile Notary
               </p>
 
-              <div className="mt-4 pt-4 border-t border-[#D8CEC7]/70 space-y-2">
-                <div className="font-serif text-2xl font-bold text-[#292727]">
-                  $35 <span className="text-xs font-sans font-normal text-[#786F6A]">Mobile Convenience Fee</span>
+              <div className="mt-4 pt-4 border-t border-[#E4E4E7]/70 space-y-2">
+                <div className="font-serif text-2xl font-bold text-[#27272A]">
+                  $35 <span className="text-xs font-sans font-normal text-[#71717A]">Mobile Convenience Fee</span>
                 </div>
-                <p className="text-[11px] text-[#786F6A] leading-tight">
+                <p className="text-[11px] text-[#71717A] leading-tight">
                   PLUS applicable Texas statutory notarial fee(s).
                 </p>
               </div>
 
-              <p className="text-xs text-[#554E4A] mt-4 leading-relaxed">
+              <p className="text-xs text-[#52525B] mt-4 leading-relaxed">
                 SignatureOne travels directly to your home, office, business, hospital/care facility, or hotel within 12 miles of ZIP 75166.
               </p>
 
               {/* Specs */}
-              <div className="mt-4 space-y-2 text-[11px] text-[#786F6A] bg-white/70 p-3 rounded-xl border border-[#D8CEC7]/50">
+              <div className="mt-4 space-y-2 text-[11px] text-[#71717A] bg-white/70 p-3 rounded-xl border border-[#E4E4E7]/50">
                 <div className="flex items-start gap-1.5">
                   <Clock className="w-3.5 h-3.5 text-[#B9827B] shrink-0 mt-0.5" />
                   <span>Tue &amp; Thu 10:00 AM–2:00 PM · Fri 12:00–2:00 PM CT</span>
@@ -144,7 +144,7 @@ export const ServiceCards: React.FC<ServiceCardsProps> = ({
             </div>
 
             {/* CTA */}
-            <div className="mt-6 pt-4 border-t border-[#D8CEC7]/70">
+            <div className="mt-6 pt-4 border-t border-[#E4E4E7]/70">
               <button
                 id="book-mobile-btn"
                 onClick={() => openBookingLink(CALENDLY_LINKS.mobile)}
@@ -168,36 +168,36 @@ export const ServiceCards: React.FC<ServiceCardsProps> = ({
 
             <div className="pt-3">
               <div className="flex items-center justify-between mb-3">
-                <div className="w-11 h-11 rounded-xl bg-[#F8F4EF] border border-[#E8C9C5] flex items-center justify-center text-[#B9827B]">
+                <div className="w-11 h-11 rounded-xl bg-[#FAF8F9] border border-[#E8C9C5] flex items-center justify-center text-[#B9827B]">
                   <Globe className="w-5 h-5" />
                 </div>
-                <span className="text-[11px] font-semibold tracking-wider uppercase px-2.5 py-1 bg-[#E8C9C5]/60 rounded-full text-[#292727]">
+                <span className="text-[11px] font-semibold tracking-wider uppercase px-2.5 py-1 bg-[#E8C9C5]/60 rounded-full text-[#27272A]">
                   Remote Online
                 </span>
               </div>
 
-              <h3 className="font-serif text-xl font-bold text-[#292727]">
+              <h3 className="font-serif text-xl font-bold text-[#27272A]">
                 ONLINE NOTARY
               </h3>
               <p className="text-xs uppercase tracking-wider font-semibold text-[#B9827B] mt-0.5">
                 Remote Online Notarization (RON)
               </p>
 
-              <div className="mt-4 pt-4 border-t border-[#D8CEC7]/70 space-y-2">
-                <div className="font-serif text-2xl font-bold text-[#292727]">
-                  $25 <span className="text-xs font-sans font-normal text-[#786F6A]">RON Fee</span>
+              <div className="mt-4 pt-4 border-t border-[#E4E4E7]/70 space-y-2">
+                <div className="font-serif text-2xl font-bold text-[#27272A]">
+                  $25 <span className="text-xs font-sans font-normal text-[#71717A]">RON Fee</span>
                 </div>
-                <p className="text-[11px] text-[#786F6A] leading-tight">
+                <p className="text-[11px] text-[#71717A] leading-tight">
                   PLUS applicable Texas statutory notarial fee(s).
                 </p>
               </div>
 
-              <p className="text-xs text-[#554E4A] mt-4 leading-relaxed">
+              <p className="text-xs text-[#52525B] mt-4 leading-relaxed">
                 Connect live via encrypted audio-video on BlueNotary from your phone, tablet, or computer anywhere in the United States. No travel fee.
               </p>
 
               {/* Specs */}
-              <div className="mt-4 space-y-2 text-[11px] text-[#786F6A] bg-[#F8F4EF] p-3 rounded-xl border border-[#D8CEC7]/50">
+              <div className="mt-4 space-y-2 text-[11px] text-[#71717A] bg-[#FAF8F9] p-3 rounded-xl border border-[#E4E4E7]/50">
                 <div className="flex items-start gap-1.5">
                   <Clock className="w-3.5 h-3.5 text-[#B9827B] shrink-0 mt-0.5" />
                   <span>Mon–Fri 10:00 AM–7:00 PM · Sat 11:00 AM–1:00 PM CT</span>
@@ -210,7 +210,7 @@ export const ServiceCards: React.FC<ServiceCardsProps> = ({
             </div>
 
             {/* CTA */}
-            <div className="mt-6 pt-4 border-t border-[#D8CEC7]/70">
+            <div className="mt-6 pt-4 border-t border-[#E4E4E7]/70">
               <button
                 id="book-ron-btn"
                 onClick={() => openBookingLink(CALENDLY_LINKS.ron)}
@@ -225,40 +225,40 @@ export const ServiceCards: React.FC<ServiceCardsProps> = ({
           {/* Service 4: Business & Closing */}
           <div
             id="service-card-business"
-            className="group relative bg-[#F8F4EF] rounded-2xl p-6 border border-[#D8CEC7] hover:border-[#292727] transition-all duration-300 flex flex-col justify-between hover:shadow-lg"
+            className="group relative bg-[#FAF8F9] rounded-2xl p-6 border border-[#E4E4E7] hover:border-[#27272A] transition-all duration-300 flex flex-col justify-between hover:shadow-lg"
           >
             <div>
               <div className="flex items-center justify-between mb-4">
-                <div className="w-11 h-11 rounded-xl bg-white border border-[#D8CEC7] flex items-center justify-center text-[#292727] group-hover:text-[#B9827B] transition-colors">
+                <div className="w-11 h-11 rounded-xl bg-white border border-[#E4E4E7] flex items-center justify-center text-[#27272A] group-hover:text-[#B9827B] transition-colors">
                   <Briefcase className="w-5 h-5" />
                 </div>
-                <span className="text-[11px] font-semibold tracking-wider uppercase px-2.5 py-1 bg-white rounded-full border border-[#D8CEC7] text-[#786F6A]">
+                <span className="text-[11px] font-semibold tracking-wider uppercase px-2.5 py-1 bg-white rounded-full border border-[#E4E4E7] text-[#71717A]">
                   LSA &amp; Extended
                 </span>
               </div>
 
-              <h3 className="font-serif text-xl font-bold text-[#292727]">
+              <h3 className="font-serif text-xl font-bold text-[#27272A]">
                 BUSINESS &amp; CLOSING
               </h3>
               <p className="text-xs uppercase tracking-wider font-semibold text-[#B9827B] mt-0.5">
                 Loan Signing &amp; Extended Mobile
               </p>
 
-              <div className="mt-4 pt-4 border-t border-[#D8CEC7]/70 space-y-2">
-                <div className="font-serif text-2xl font-bold text-[#292727]">
+              <div className="mt-4 pt-4 border-t border-[#E4E4E7]/70 space-y-2">
+                <div className="font-serif text-2xl font-bold text-[#27272A]">
                   Starting at $50
                 </div>
-                <p className="text-[11px] text-[#786F6A] leading-tight">
+                <p className="text-[11px] text-[#71717A] leading-tight">
                   Itemized / custom quote based on assignment details.
                 </p>
               </div>
 
-              <p className="text-xs text-[#554E4A] mt-4 leading-relaxed">
+              <p className="text-xs text-[#52525B] mt-4 leading-relaxed">
                 Large assignments, loan packages, title company signings, multi-signer corporate sets, and travel up to 20 miles beyond standard radius.
               </p>
 
               {/* Specs */}
-              <div className="mt-4 space-y-2 text-[11px] text-[#786F6A] bg-white/70 p-3 rounded-xl border border-[#D8CEC7]/50">
+              <div className="mt-4 space-y-2 text-[11px] text-[#71717A] bg-white/70 p-3 rounded-xl border border-[#E4E4E7]/50">
                 <div className="flex items-start gap-1.5">
                   <Clock className="w-3.5 h-3.5 text-[#B9827B] shrink-0 mt-0.5" />
                   <span>90+ min / custom appointment blocks</span>
@@ -271,11 +271,11 @@ export const ServiceCards: React.FC<ServiceCardsProps> = ({
             </div>
 
             {/* CTA */}
-            <div className="mt-6 pt-4 border-t border-[#D8CEC7]/70">
+            <div className="mt-6 pt-4 border-t border-[#E4E4E7]/70">
               <button
                 id="request-lsa-quote-card-btn"
                 onClick={onOpenQuote}
-                className="w-full py-2.5 px-4 bg-[#292727] hover:bg-[#3d3a3a] active:scale-[0.98] text-white text-xs font-semibold tracking-wider uppercase rounded-xl transition-all shadow-xs flex items-center justify-center gap-1.5 cursor-pointer"
+                className="w-full py-2.5 px-4 bg-[#27272A] hover:bg-[#3F3F46] active:scale-[0.98] text-white text-xs font-semibold tracking-wider uppercase rounded-xl transition-all shadow-xs flex items-center justify-center gap-1.5 cursor-pointer"
               >
                 <span>REQUEST A QUOTE</span>
                 <ArrowRight className="w-3.5 h-3.5" />
@@ -286,9 +286,9 @@ export const ServiceCards: React.FC<ServiceCardsProps> = ({
         </div>
 
         {/* Footnote on Notarial vs Convenience fees */}
-        <div className="mt-10 p-4 bg-[#F8F4EF] rounded-xl border border-[#D8CEC7] text-center max-w-2xl mx-auto text-xs text-[#786F6A]">
+        <div className="mt-10 p-4 bg-[#FAF8F9] rounded-xl border border-[#E4E4E7] text-center max-w-2xl mx-auto text-xs text-[#71717A]">
           <p>
-            <strong className="text-[#292727]">Fee Transparency:</strong> {BRAND_INFO.feeTransparencyStatement}
+            <strong className="text-[#27272A]">Fee Transparency:</strong> {BRAND_INFO.feeTransparencyStatement}
           </p>
         </div>
 

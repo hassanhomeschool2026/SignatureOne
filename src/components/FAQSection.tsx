@@ -31,14 +31,14 @@ export const FAQSection: React.FC<FAQSectionProps> = ({ onOpenContact }) => {
         
         {/* Section Header */}
         <div className="text-center max-w-3xl mx-auto mb-12 space-y-3">
-          <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-xs font-semibold uppercase tracking-wider bg-[#F8F4EF] text-[#292727] border border-[#D8CEC7]">
+          <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-xs font-semibold uppercase tracking-wider bg-[#FAF8F9] text-[#27272A] border border-[#E4E4E7]">
             <HelpCircle className="w-3.5 h-3.5 text-[#B9827B]" />
             Frequently Asked Questions
           </div>
-          <h2 className="font-serif text-3xl sm:text-4xl font-bold text-[#292727]">
+          <h2 className="font-serif text-3xl sm:text-4xl font-bold text-[#27272A]">
             Got Questions? We’ve Got Answers.
           </h2>
-          <p className="text-base text-[#554E4A] leading-relaxed">
+          <p className="text-base text-[#52525B] leading-relaxed">
             Everything you need to know about our appointment policies, mobile coverage, fees, and notarization process.
           </p>
         </div>
@@ -46,13 +46,13 @@ export const FAQSection: React.FC<FAQSectionProps> = ({ onOpenContact }) => {
         {/* Search & Filter Bar */}
         <div className="mb-8 space-y-4">
           <div className="relative">
-            <Search className="w-4 h-4 text-[#786F6A] absolute left-3.5 top-1/2 -translate-y-1/2" />
+            <Search className="w-4 h-4 text-[#71717A] absolute left-3.5 top-1/2 -translate-y-1/2" />
             <input
               type="text"
               placeholder="Search questions (e.g. ID requirements, deposit, mobile radius, after hours)..."
               value={searchQuery}
               onChange={(e) => setSearchQuery(e.target.value)}
-              className="w-full pl-10 pr-4 py-2.5 text-xs sm:text-sm bg-[#F8F4EF] border border-[#D8CEC7] rounded-xl focus:outline-none focus:border-[#B9827B] text-[#292727]"
+              className="w-full pl-10 pr-4 py-2.5 text-xs sm:text-sm bg-[#FAF8F9] border border-[#E4E4E7] rounded-xl focus:outline-none focus:border-[#B9827B] text-[#27272A]"
             />
           </div>
 
@@ -69,8 +69,8 @@ export const FAQSection: React.FC<FAQSectionProps> = ({ onOpenContact }) => {
                 onClick={() => setActiveCategory(cat.id)}
                 className={`text-xs px-3 py-1.5 rounded-lg border transition-all ${
                   activeCategory === cat.id
-                    ? 'bg-[#292727] text-white border-[#292727]'
-                    : 'bg-[#F8F4EF] text-[#554E4A] border-[#D8CEC7] hover:bg-white'
+                    ? 'bg-[#27272A] text-white border-[#27272A]'
+                    : 'bg-[#FAF8F9] text-[#52525B] border-[#E4E4E7] hover:bg-white'
                 }`}
               >
                 {cat.label}
@@ -82,7 +82,7 @@ export const FAQSection: React.FC<FAQSectionProps> = ({ onOpenContact }) => {
         {/* FAQ Accordion List */}
         <div className="space-y-3">
           {filteredFAQs.length === 0 ? (
-            <div className="text-center py-10 bg-[#F8F4EF] rounded-2xl border border-[#D8CEC7] text-xs text-[#786F6A]">
+            <div className="text-center py-10 bg-[#FAF8F9] rounded-2xl border border-[#E4E4E7] text-xs text-[#71717A]">
               No questions found matching your search. Try another keyword or contact us directly.
             </div>
           ) : (
@@ -94,8 +94,8 @@ export const FAQSection: React.FC<FAQSectionProps> = ({ onOpenContact }) => {
                   key={faq.id}
                   className={`rounded-2xl border transition-all overflow-hidden ${
                     isOpen
-                      ? 'bg-[#F8F4EF] border-[#B9827B]/60 shadow-xs'
-                      : 'bg-white border-[#D8CEC7] hover:border-[#D8CEC7]'
+                      ? 'bg-[#FAF8F9] border-[#B9827B]/60 shadow-xs'
+                      : 'bg-white border-[#E4E4E7] hover:border-[#E4E4E7]'
                   }`}
                 >
                   <button
@@ -103,12 +103,12 @@ export const FAQSection: React.FC<FAQSectionProps> = ({ onOpenContact }) => {
                     className="w-full p-4 sm:p-5 text-left flex items-center justify-between gap-4 focus:outline-none"
                     aria-expanded={isOpen}
                   >
-                    <span className="font-serif font-bold text-sm sm:text-base text-[#292727]">
+                    <span className="font-serif font-bold text-sm sm:text-base text-[#27272A]">
                       {faq.question}
                     </span>
                     <span
                       className={`w-7 h-7 rounded-full flex items-center justify-center shrink-0 transition-colors ${
-                        isOpen ? 'bg-[#E8C9C5] text-[#292727]' : 'bg-[#F8F4EF] text-[#786F6A]'
+                        isOpen ? 'bg-[#E8C9C5] text-[#27272A]' : 'bg-[#FAF8F9] text-[#71717A]'
                       }`}
                     >
                       {isOpen ? <ChevronUp className="w-4 h-4" /> : <ChevronDown className="w-4 h-4" />}
@@ -116,7 +116,7 @@ export const FAQSection: React.FC<FAQSectionProps> = ({ onOpenContact }) => {
                   </button>
 
                   {isOpen && (
-                    <div className="px-4 pb-5 sm:px-5 sm:pb-5 pt-1 text-xs sm:text-sm text-[#554E4A] leading-relaxed border-t border-[#D8CEC7]/50">
+                    <div className="px-4 pb-5 sm:px-5 sm:pb-5 pt-1 text-xs sm:text-sm text-[#52525B] leading-relaxed border-t border-[#E4E4E7]/50">
                       {faq.answer}
                     </div>
                   )}
@@ -127,18 +127,18 @@ export const FAQSection: React.FC<FAQSectionProps> = ({ onOpenContact }) => {
         </div>
 
         {/* Still Have Questions Box */}
-        <div className="mt-12 p-6 bg-[#F8F4EF] rounded-2xl border border-[#D8CEC7] flex flex-col sm:flex-row items-center justify-between gap-4 text-center sm:text-left">
+        <div className="mt-12 p-6 bg-[#FAF8F9] rounded-2xl border border-[#E4E4E7] flex flex-col sm:flex-row items-center justify-between gap-4 text-center sm:text-left">
           <div className="space-y-1">
-            <h4 className="font-serif font-bold text-base text-[#292727]">
+            <h4 className="font-serif font-bold text-base text-[#27272A]">
               Still have questions about your specific documents?
             </h4>
-            <p className="text-xs text-[#786F6A]">
+            <p className="text-xs text-[#71717A]">
               We're happy to explain the scheduling or notarization process.
             </p>
           </div>
           <button
             onClick={onOpenContact}
-            className="py-2.5 px-5 bg-[#292727] hover:bg-[#3d3a3a] text-white text-xs font-semibold tracking-wider uppercase rounded-xl transition-all shadow-xs shrink-0 flex items-center gap-1.5"
+            className="py-2.5 px-5 bg-[#27272A] hover:bg-[#3F3F46] text-white text-xs font-semibold tracking-wider uppercase rounded-xl transition-all shadow-xs shrink-0 flex items-center gap-1.5"
           >
             <MessageCircle className="w-3.5 h-3.5 text-[#E8C9C5]" />
             <span>Contact Us</span>

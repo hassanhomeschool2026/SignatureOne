@@ -41,19 +41,19 @@ export const PricingSection: React.FC<PricingSectionProps> = ({
   const balanceDue = Math.max(0, totalEstimated - deposit);
 
   return (
-    <section id="pricing" className="py-16 md:py-24 bg-[#F8F4EF]">
+    <section id="pricing" className="py-16 md:py-24 bg-[#FAF8F9]">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         
         {/* Section Header */}
         <div className="text-center max-w-3xl mx-auto mb-14 space-y-3">
-          <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-xs font-semibold uppercase tracking-wider bg-[#FFFFFF] text-[#292727] border border-[#D8CEC7]">
+          <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-xs font-semibold uppercase tracking-wider bg-[#FFFFFF] text-[#27272A] border border-[#E4E4E7]">
             <DollarSign className="w-3.5 h-3.5 text-[#B9827B]" />
             Transparent Rates
           </div>
-          <h2 className="font-serif text-3xl sm:text-4xl font-bold text-[#292727]">
+          <h2 className="font-serif text-3xl sm:text-4xl font-bold text-[#27272A]">
             Simple, Upfront Pricing
           </h2>
-          <p className="text-base text-[#554E4A] leading-relaxed">
+          <p className="text-base text-[#52525B] leading-relaxed">
             All SignatureOne service fees are disclosed before booking and separately itemized from applicable Texas notarial fees. No hidden surcharges.
           </p>
         </div>
@@ -62,19 +62,19 @@ export const PricingSection: React.FC<PricingSectionProps> = ({
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mb-12">
           
           {/* Card 1: Meet Me */}
-          <div className="bg-white rounded-2xl p-6 border border-[#D8CEC7] hover:border-[#B9827B] transition-all flex flex-col justify-between shadow-xs">
+          <div className="bg-white rounded-2xl p-6 border border-[#E4E4E7] hover:border-[#B9827B] transition-all flex flex-col justify-between shadow-xs">
             <div>
-              <span className="text-[10px] font-bold uppercase tracking-wider text-[#786F6A] block">
+              <span className="text-[10px] font-bold uppercase tracking-wider text-[#71717A] block">
                 In-Person At Meeting Point
               </span>
-              <h3 className="font-serif text-xl font-bold text-[#292727] mt-1">
+              <h3 className="font-serif text-xl font-bold text-[#27272A] mt-1">
                 You Come to Me
               </h3>
-              <div className="mt-4 pb-4 border-b border-[#D8CEC7]">
-                <span className="font-serif text-3xl font-bold text-[#292727]">$15</span>
-                <span className="text-xs text-[#786F6A] ml-2">Convenience Fee</span>
+              <div className="mt-4 pb-4 border-b border-[#E4E4E7]">
+                <span className="font-serif text-3xl font-bold text-[#27272A]">$15</span>
+                <span className="text-xs text-[#71717A] ml-2">Convenience Fee</span>
               </div>
-              <ul className="mt-4 space-y-2 text-xs text-[#554E4A]">
+              <ul className="mt-4 space-y-2 text-xs text-[#52525B]">
                 <li className="flex items-start gap-2">
                   <Check className="w-4 h-4 text-[#B9827B] shrink-0 mt-0.5" />
                   <span>PLUS applicable Texas statutory notarial fee(s)</span>
@@ -89,7 +89,7 @@ export const PricingSection: React.FC<PricingSectionProps> = ({
                 </li>
               </ul>
             </div>
-            <div className="mt-6 pt-4 border-t border-[#D8CEC7]">
+            <div className="mt-6 pt-4 border-t border-[#E4E4E7]">
               <button
                 onClick={() => openBookingLink(CALENDLY_LINKS.inPerson)}
                 className="w-full py-2.5 bg-[#B9827B] hover:bg-[#a66f68] text-white text-xs font-semibold tracking-wider uppercase rounded-xl transition-all cursor-pointer"
@@ -108,14 +108,14 @@ export const PricingSection: React.FC<PricingSectionProps> = ({
               <span className="text-[10px] font-bold uppercase tracking-wider text-[#B9827B] block">
                 Travels to You (12 Miles)
               </span>
-              <h3 className="font-serif text-xl font-bold text-[#292727] mt-1">
+              <h3 className="font-serif text-xl font-bold text-[#27272A] mt-1">
                 Local Mobile Notary
               </h3>
-              <div className="mt-4 pb-4 border-b border-[#D8CEC7]">
-                <span className="font-serif text-3xl font-bold text-[#292727]">$35</span>
-                <span className="text-xs text-[#786F6A] ml-2">Mobile Convenience Fee</span>
+              <div className="mt-4 pb-4 border-b border-[#E4E4E7]">
+                <span className="font-serif text-3xl font-bold text-[#27272A]">$35</span>
+                <span className="text-xs text-[#71717A] ml-2">Mobile Convenience Fee</span>
               </div>
-              <ul className="mt-4 space-y-2 text-xs text-[#554E4A]">
+              <ul className="mt-4 space-y-2 text-xs text-[#52525B]">
                 <li className="flex items-start gap-2">
                   <Check className="w-4 h-4 text-[#B9827B] shrink-0 mt-0.5" />
                   <span>PLUS applicable Texas statutory notarial fee(s)</span>
@@ -130,7 +130,7 @@ export const PricingSection: React.FC<PricingSectionProps> = ({
                 </li>
               </ul>
             </div>
-            <div className="mt-6 pt-4 border-t border-[#D8CEC7]">
+            <div className="mt-6 pt-4 border-t border-[#E4E4E7]">
               <button
                 onClick={() => openBookingLink(CALENDLY_LINKS.mobile)}
                 className="w-full py-2.5 bg-[#B9827B] hover:bg-[#a66f68] text-white text-xs font-semibold tracking-wider uppercase rounded-xl transition-all cursor-pointer"
@@ -141,19 +141,19 @@ export const PricingSection: React.FC<PricingSectionProps> = ({
           </div>
 
           {/* Card 3: Online Notary (RON) & After Hours */}
-          <div className="bg-white rounded-2xl p-6 border border-[#D8CEC7] hover:border-[#B9827B] transition-all flex flex-col justify-between shadow-xs">
+          <div className="bg-white rounded-2xl p-6 border border-[#E4E4E7] hover:border-[#B9827B] transition-all flex flex-col justify-between shadow-xs">
             <div>
-              <span className="text-[10px] font-bold uppercase tracking-wider text-[#786F6A] block">
+              <span className="text-[10px] font-bold uppercase tracking-wider text-[#71717A] block">
                 100% Digital Remote
               </span>
-              <h3 className="font-serif text-xl font-bold text-[#292727] mt-1">
+              <h3 className="font-serif text-xl font-bold text-[#27272A] mt-1">
                 Remote Online (RON)
               </h3>
-              <div className="mt-4 pb-4 border-b border-[#D8CEC7]">
-                <span className="font-serif text-3xl font-bold text-[#292727]">$25</span>
-                <span className="text-xs text-[#786F6A] ml-2">RON Platform Fee</span>
+              <div className="mt-4 pb-4 border-b border-[#E4E4E7]">
+                <span className="font-serif text-3xl font-bold text-[#27272A]">$25</span>
+                <span className="text-xs text-[#71717A] ml-2">RON Platform Fee</span>
               </div>
-              <ul className="mt-4 space-y-2 text-xs text-[#554E4A]">
+              <ul className="mt-4 space-y-2 text-xs text-[#52525B]">
                 <li className="flex items-start gap-2">
                   <Check className="w-4 h-4 text-[#B9827B] shrink-0 mt-0.5" />
                   <span>PLUS applicable Texas statutory notarial fee(s)</span>
@@ -168,7 +168,7 @@ export const PricingSection: React.FC<PricingSectionProps> = ({
                 </li>
               </ul>
             </div>
-            <div className="mt-6 pt-4 border-t border-[#D8CEC7]">
+            <div className="mt-6 pt-4 border-t border-[#E4E4E7]">
               <button
                 onClick={() => openBookingLink(CALENDLY_LINKS.ron)}
                 className="w-full py-2.5 bg-[#B9827B] hover:bg-[#a66f68] text-white text-xs font-semibold tracking-wider uppercase rounded-xl transition-all cursor-pointer"
@@ -181,22 +181,22 @@ export const PricingSection: React.FC<PricingSectionProps> = ({
         </div>
 
         {/* Interactive Fee Estimator & Deposit Breakdown Widget */}
-        <div className="bg-white rounded-3xl p-6 sm:p-8 border border-[#D8CEC7] shadow-md">
-          <div className="flex flex-col md:flex-row md:items-center justify-between gap-4 pb-6 border-b border-[#D8CEC7]">
+        <div className="bg-white rounded-3xl p-6 sm:p-8 border border-[#E4E4E7] shadow-md">
+          <div className="flex flex-col md:flex-row md:items-center justify-between gap-4 pb-6 border-b border-[#E4E4E7]">
             <div className="flex items-center gap-3">
-              <div className="w-10 h-10 rounded-xl bg-[#F8F4EF] border border-[#D8CEC7] flex items-center justify-center text-[#B9827B]">
+              <div className="w-10 h-10 rounded-xl bg-[#FAF8F9] border border-[#E4E4E7] flex items-center justify-center text-[#B9827B]">
                 <Calculator className="w-5 h-5" />
               </div>
               <div>
-                <h3 className="font-serif text-xl font-bold text-[#292727]">
+                <h3 className="font-serif text-xl font-bold text-[#27272A]">
                   Interactive Fee Estimator
                 </h3>
-                <p className="text-xs text-[#786F6A]">
+                <p className="text-xs text-[#71717A]">
                   Calculate your itemized estimate and understand the $10 deposit breakdown
                 </p>
               </div>
             </div>
-            <div className="text-xs text-[#786F6A] bg-[#F8F4EF] px-3 py-1.5 rounded-lg border border-[#D8CEC7]">
+            <div className="text-xs text-[#71717A] bg-[#FAF8F9] px-3 py-1.5 rounded-lg border border-[#E4E4E7]">
               $10 deposit applied directly to final balance
             </div>
           </div>
@@ -206,7 +206,7 @@ export const PricingSection: React.FC<PricingSectionProps> = ({
             {/* Calculator Controls */}
             <div className="lg:col-span-6 space-y-5">
               <div>
-                <label className="block text-xs font-semibold uppercase tracking-wider text-[#292727] mb-2">
+                <label className="block text-xs font-semibold uppercase tracking-wider text-[#27272A] mb-2">
                   1. Select Service Type
                 </label>
                 <div className="grid grid-cols-2 gap-2">
@@ -215,8 +215,8 @@ export const PricingSection: React.FC<PricingSectionProps> = ({
                     onClick={() => setSelectedService('meet-me')}
                     className={`p-2.5 rounded-xl border text-xs font-semibold text-left transition-all ${
                       selectedService === 'meet-me'
-                        ? 'bg-[#F8F4EF] border-[#B9827B] text-[#292727] ring-1 ring-[#B9827B]'
-                        : 'bg-white border-[#D8CEC7] text-[#554E4A] hover:bg-[#F8F4EF]'
+                        ? 'bg-[#FAF8F9] border-[#B9827B] text-[#27272A] ring-1 ring-[#B9827B]'
+                        : 'bg-white border-[#E4E4E7] text-[#52525B] hover:bg-[#FAF8F9]'
                     }`}
                   >
                     You Come to Me ($15)
@@ -226,8 +226,8 @@ export const PricingSection: React.FC<PricingSectionProps> = ({
                     onClick={() => setSelectedService('mobile')}
                     className={`p-2.5 rounded-xl border text-xs font-semibold text-left transition-all ${
                       selectedService === 'mobile'
-                        ? 'bg-[#F8F4EF] border-[#B9827B] text-[#292727] ring-1 ring-[#B9827B]'
-                        : 'bg-white border-[#D8CEC7] text-[#554E4A] hover:bg-[#F8F4EF]'
+                        ? 'bg-[#FAF8F9] border-[#B9827B] text-[#27272A] ring-1 ring-[#B9827B]'
+                        : 'bg-white border-[#E4E4E7] text-[#52525B] hover:bg-[#FAF8F9]'
                     }`}
                   >
                     Local Mobile ($35)
@@ -237,8 +237,8 @@ export const PricingSection: React.FC<PricingSectionProps> = ({
                     onClick={() => setSelectedService('ron')}
                     className={`p-2.5 rounded-xl border text-xs font-semibold text-left transition-all ${
                       selectedService === 'ron'
-                        ? 'bg-[#F8F4EF] border-[#B9827B] text-[#292727] ring-1 ring-[#B9827B]'
-                        : 'bg-white border-[#D8CEC7] text-[#554E4A] hover:bg-[#F8F4EF]'
+                        ? 'bg-[#FAF8F9] border-[#B9827B] text-[#27272A] ring-1 ring-[#B9827B]'
+                        : 'bg-white border-[#E4E4E7] text-[#52525B] hover:bg-[#FAF8F9]'
                     }`}
                   >
                     Online RON ($25)
@@ -248,8 +248,8 @@ export const PricingSection: React.FC<PricingSectionProps> = ({
                     onClick={() => setSelectedService('ron-after')}
                     className={`p-2.5 rounded-xl border text-xs font-semibold text-left transition-all ${
                       selectedService === 'ron-after'
-                        ? 'bg-[#F8F4EF] border-[#B9827B] text-[#292727] ring-1 ring-[#B9827B]'
-                        : 'bg-white border-[#D8CEC7] text-[#554E4A] hover:bg-[#F8F4EF]'
+                        ? 'bg-[#FAF8F9] border-[#B9827B] text-[#27272A] ring-1 ring-[#B9827B]'
+                        : 'bg-white border-[#E4E4E7] text-[#52525B] hover:bg-[#FAF8F9]'
                     }`}
                   >
                     After-Hours RON ($50)
@@ -258,7 +258,7 @@ export const PricingSection: React.FC<PricingSectionProps> = ({
               </div>
 
               <div>
-                <label className="block text-xs font-semibold uppercase tracking-wider text-[#292727] mb-2">
+                <label className="block text-xs font-semibold uppercase tracking-wider text-[#27272A] mb-2">
                   2. Number of Notarized Signatures / Certificates
                 </label>
                 <div className="flex items-center gap-3">
@@ -269,20 +269,20 @@ export const PricingSection: React.FC<PricingSectionProps> = ({
                       onClick={() => setSignaturesCount(num)}
                       className={`w-10 h-10 rounded-xl font-semibold text-xs border transition-all ${
                         signaturesCount === num
-                          ? 'bg-[#292727] text-white border-[#292727]'
-                          : 'bg-white border-[#D8CEC7] text-[#292727] hover:bg-[#F8F4EF]'
+                          ? 'bg-[#27272A] text-white border-[#27272A]'
+                          : 'bg-white border-[#E4E4E7] text-[#27272A] hover:bg-[#FAF8F9]'
                       }`}
                     >
                       {num}
                     </button>
                   ))}
-                  <span className="text-xs text-[#786F6A] pl-2">
+                  <span className="text-xs text-[#71717A] pl-2">
                     (@ $10 statutory fee each)
                   </span>
                 </div>
               </div>
 
-              <div className="p-3 bg-[#F8F4EF] rounded-xl border border-[#D8CEC7] text-[11px] text-[#786F6A]">
+              <div className="p-3 bg-[#FAF8F9] rounded-xl border border-[#E4E4E7] text-[11px] text-[#71717A]">
                 <p>
                   <strong>Note:</strong> Texas statutory notarial fees are established by Texas Gov. Code § 406.024. Convenience fees cover travel, meeting location coordination, and remote technology platform hosting.
                 </p>
@@ -290,33 +290,33 @@ export const PricingSection: React.FC<PricingSectionProps> = ({
             </div>
 
             {/* Itemized Calculation Summary Card */}
-            <div className="lg:col-span-6 bg-[#F8F4EF] p-5 sm:p-6 rounded-2xl border border-[#D8CEC7] flex flex-col justify-between">
+            <div className="lg:col-span-6 bg-[#FAF8F9] p-5 sm:p-6 rounded-2xl border border-[#E4E4E7] flex flex-col justify-between">
               <div className="space-y-3">
                 <span className="text-[10px] font-bold uppercase tracking-widest text-[#B9827B] block">
                   Estimated Itemized Receipt
                 </span>
-                <h4 className="font-serif font-bold text-lg text-[#292727]">
+                <h4 className="font-serif font-bold text-lg text-[#27272A]">
                   {serviceNames[selectedService]}
                 </h4>
 
                 <div className="space-y-2 text-xs pt-2">
-                  <div className="flex justify-between py-1 border-b border-[#D8CEC7]">
-                    <span className="text-[#554E4A]">SignatureOne Convenience / Platform Fee:</span>
-                    <span className="font-semibold text-[#292727]">${currentConvenienceFee}.00</span>
+                  <div className="flex justify-between py-1 border-b border-[#E4E4E7]">
+                    <span className="text-[#52525B]">SignatureOne Convenience / Platform Fee:</span>
+                    <span className="font-semibold text-[#27272A]">${currentConvenienceFee}.00</span>
                   </div>
-                  <div className="flex justify-between py-1 border-b border-[#D8CEC7]">
-                    <span className="text-[#554E4A]">Texas Statutory Fee ({signaturesCount} × $10):</span>
-                    <span className="font-semibold text-[#292727]">${totalStatFee}.00</span>
+                  <div className="flex justify-between py-1 border-b border-[#E4E4E7]">
+                    <span className="text-[#52525B]">Texas Statutory Fee ({signaturesCount} × $10):</span>
+                    <span className="font-semibold text-[#27272A]">${totalStatFee}.00</span>
                   </div>
-                  <div className="flex justify-between py-1 font-bold text-sm text-[#292727]">
+                  <div className="flex justify-between py-1 font-bold text-sm text-[#27272A]">
                     <span>Total Service Amount:</span>
                     <span className="font-serif text-base">${totalEstimated}.00</span>
                   </div>
-                  <div className="flex justify-between py-1 text-xs text-[#B9827B] border-t border-[#D8CEC7]">
+                  <div className="flex justify-between py-1 text-xs text-[#B9827B] border-t border-[#E4E4E7]">
                     <span>Less Booking Deposit Paid Online:</span>
                     <span className="font-semibold">-${deposit}.00</span>
                   </div>
-                  <div className="flex justify-between py-1.5 font-bold text-sm text-[#292727] bg-white p-2.5 rounded-lg border border-[#D8CEC7]">
+                  <div className="flex justify-between py-1.5 font-bold text-sm text-[#27272A] bg-white p-2.5 rounded-lg border border-[#E4E4E7]">
                     <span>Remaining Balance Due After Signing:</span>
                     <span className="font-serif text-lg text-[#B9827B]">${balanceDue}.00</span>
                   </div>

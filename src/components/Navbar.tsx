@@ -47,7 +47,7 @@ export const Navbar: React.FC<NavbarProps> = ({
   return (
     <header className="sticky top-0 z-40 w-full transition-all">
       {/* 1. Top Appointment-Only Notice Bar (Clean Black Bar) */}
-      <div className="bg-[#1E1B18] text-white py-2 px-4 text-xs font-medium tracking-wide text-center border-b border-black flex items-center justify-center gap-2">
+      <div className="bg-[#18181B] text-white py-2 px-4 text-xs font-medium tracking-wide text-center border-b border-black flex items-center justify-center gap-2">
         <span className="inline-block w-1.5 h-1.5 rounded-full bg-[#E8C9C5]"></span>
         <span>All SignatureOne services are by appointment only. Walk-ins are not accepted.</span>
       </div>
@@ -56,8 +56,8 @@ export const Navbar: React.FC<NavbarProps> = ({
       <nav
         className={`w-full transition-all duration-200 bg-white ${
           isScrolled
-            ? 'shadow-xs border-b border-[#F0EAE6]'
-            : 'border-b border-[#F0EAE6]'
+            ? 'shadow-xs border-b border-[#F0ECED]'
+            : 'border-b border-[#F0ECED]'
         }`}
       >
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -83,8 +83,8 @@ export const Navbar: React.FC<NavbarProps> = ({
                     onClick={item.action}
                     className={`px-3.5 py-2 rounded-xl text-xs font-semibold tracking-wide transition-all ${
                       isActive
-                        ? 'text-[#B9827B] font-bold bg-[#FAF6F5]'
-                        : 'text-[#1E1B18] hover:text-[#B9827B] hover:bg-[#FAF6F5]'
+                        ? 'text-[#B9827B] font-bold bg-[#FAF8F9]'
+                        : 'text-[#18181B] hover:text-[#B9827B] hover:bg-[#FAF8F9]'
                     }`}
                   >
                     {item.label}
@@ -97,7 +97,7 @@ export const Navbar: React.FC<NavbarProps> = ({
             <div className="hidden md:flex items-center gap-4">
               <a
                 href="tel:+19728531513"
-                className="flex items-center gap-1.5 text-xs font-semibold text-[#1E1B18] hover:text-[#B9827B] transition-colors py-2 px-1"
+                className="flex items-center gap-1.5 text-xs font-semibold text-[#18181B] hover:text-[#B9827B] transition-colors py-2 px-1"
                 aria-label="Call SignatureOne Mobile Notary at (972) 853-1513"
               >
                 <Phone className="w-3.5 h-3.5 text-[#B9827B]" />
@@ -118,7 +118,7 @@ export const Navbar: React.FC<NavbarProps> = ({
             <div className="flex lg:hidden items-center gap-2">
               <a
                 href="tel:+19728531513"
-                className="p-2 text-[#1E1B18] hover:text-[#B9827B] rounded-lg"
+                className="p-2 text-[#18181B] hover:text-[#B9827B] rounded-lg"
                 aria-label="Call business phone"
               >
                 <Phone className="w-4 h-4 text-[#B9827B]" />
@@ -136,7 +136,7 @@ export const Navbar: React.FC<NavbarProps> = ({
                 id="mobile-nav-toggle-btn"
                 onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
                 aria-label="Toggle navigation menu"
-                className="p-2 rounded-xl text-[#1E1B18] hover:bg-[#FAF6F5] focus:outline-none"
+                className="p-2 rounded-xl text-[#18181B] hover:bg-[#FAF8F9] focus:outline-none"
               >
                 {mobileMenuOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
               </button>
@@ -147,23 +147,23 @@ export const Navbar: React.FC<NavbarProps> = ({
 
         {/* Mobile Dropdown Menu */}
         {mobileMenuOpen && (
-          <div className="lg:hidden bg-white border-b border-[#F0EAE6] px-4 pt-3 pb-6 space-y-3 shadow-lg">
+          <div className="lg:hidden bg-white border-b border-[#F0ECED] px-4 pt-3 pb-6 space-y-3 shadow-lg">
             <div className="space-y-1">
               {navItems.map((item) => (
                 <button
                   key={item.label}
                   onClick={item.action}
-                  className="w-full text-left px-4 py-2.5 text-sm font-semibold rounded-xl transition-colors text-[#1E1B18] hover:bg-[#FAF6F5] hover:text-[#B9827B]"
+                  className="w-full text-left px-4 py-2.5 text-sm font-semibold rounded-xl transition-colors text-[#18181B] hover:bg-[#FAF8F9] hover:text-[#B9827B]"
                 >
                   {item.label}
                 </button>
               ))}
             </div>
 
-            <div className="pt-3 border-t border-[#F0EAE6] space-y-2">
+            <div className="pt-3 border-t border-[#F0ECED] space-y-2">
               <a
                 href="tel:+19728531513"
-                className="w-full py-2.5 bg-[#FAF6F5] text-[#1E1B18] border border-[#F0EAE6] font-semibold text-xs rounded-xl flex items-center justify-center gap-2"
+                className="w-full py-2.5 bg-[#FAF8F9] text-[#18181B] border border-[#F0ECED] font-semibold text-xs rounded-xl flex items-center justify-center gap-2"
               >
                 <Phone className="w-3.5 h-3.5 text-[#B9827B]" />
                 <span>Call (972) 853-1513</span>

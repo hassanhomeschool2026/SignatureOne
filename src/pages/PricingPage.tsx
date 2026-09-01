@@ -13,7 +13,8 @@ import {
   Building2,
   Car,
   Video,
-  Briefcase
+  Briefcase,
+  Upload
 } from 'lucide-react';
 import { BRAND_INFO, PRICING_DATA } from '../data/notaryData';
 import { CALENDLY_LINKS, openBookingLink } from '../config/booking';
@@ -52,36 +53,36 @@ export const PricingPage: React.FC<PricingPageProps> = ({
       
       {/* Page Header */}
       <div className="text-center max-w-3xl mx-auto space-y-3">
-        <h1 className="text-3xl sm:text-4xl font-extrabold text-[#1E1B18] tracking-tight font-heading uppercase">
+        <h1 className="text-3xl sm:text-4xl font-extrabold text-[#18181B] tracking-tight font-heading uppercase">
           Pricing &amp; Fees
         </h1>
-        <p className="text-sm sm:text-base text-[#554E4A] leading-relaxed">
+        <p className="text-sm sm:text-base text-[#52525B] leading-relaxed">
           Transparent, upfront rates. SignatureOne business and service fees are clearly separated from statutory Texas notarial fees.
         </p>
       </div>
 
       {/* Primary Fee Notice Banner */}
-      <div className="bg-[#FAF6F5] border border-[#F0EAE6] rounded-2xl p-5 sm:p-6 text-xs sm:text-sm text-[#554E4A] space-y-2">
-        <div className="flex items-center gap-2 text-[#1E1B18] font-bold">
+      <div className="bg-[#FAF8F9] border border-[#F0ECED] rounded-2xl p-5 sm:p-6 text-xs sm:text-sm text-[#52525B] space-y-2">
+        <div className="flex items-center gap-2 text-[#18181B] font-bold">
           <Info className="w-4 h-4 text-[#B9827B] shrink-0" />
           <span className="font-heading uppercase tracking-wide text-xs">Fee Transparency Notice</span>
         </div>
-        <p className="font-semibold text-[#1E1B18]">
+        <p className="font-semibold text-[#18181B]">
           Business service fees are separate from statutory notarial fees.
         </p>
-        <p className="text-[#786F6A] leading-relaxed text-xs">
+        <p className="text-[#71717A] leading-relaxed text-xs">
           Mobile travel, convenience, RON technology/platform services, after-hours availability, printing, package handling, travel, scanbacks, drop-off, etc. are business/service charges and are not charges for performing the official notarial act itself.
         </p>
       </div>
 
       {/* SignatureOne Service Fees Grid */}
       <div className="space-y-6">
-        <div className="flex flex-col sm:flex-row sm:items-end justify-between gap-2 border-b border-[#F0EAE6] pb-3">
+        <div className="flex flex-col sm:flex-row sm:items-end justify-between gap-2 border-b border-[#F0ECED] pb-3">
           <div>
-            <h2 className="text-xl sm:text-2xl font-bold text-[#1E1B18] font-heading uppercase">
+            <h2 className="text-xl sm:text-2xl font-bold text-[#18181B] font-heading uppercase">
               SignatureOne Service Fees
             </h2>
-            <p className="text-xs text-[#786F6A]">
+            <p className="text-xs text-[#71717A]">
               Standard business fees applied per appointment based on service format.
             </p>
           </div>
@@ -93,32 +94,32 @@ export const PricingPage: React.FC<PricingPageProps> = ({
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5">
           
           {/* Card 1: In-Person */}
-          <div className="bg-white rounded-2xl border border-[#F0EAE6] p-6 flex flex-col justify-between hover:border-[#E8C9C5] transition-all shadow-2xs">
+          <div className="bg-white rounded-2xl border border-[#F0ECED] p-6 flex flex-col justify-between hover:border-[#E8C9C5] transition-all shadow-2xs">
             <div className="space-y-4">
               <div className="flex items-center justify-between">
-                <span className="w-8 h-8 rounded-xl bg-[#FAF6F5] flex items-center justify-center text-[#B9827B]">
+                <span className="w-8 h-8 rounded-xl bg-[#FAF8F9] flex items-center justify-center text-[#B9827B]">
                   <Building2 className="w-4 h-4" />
                 </span>
-                <span className="text-[10px] font-bold uppercase tracking-wider px-2 py-0.5 rounded bg-[#FAF6F5] text-[#786F6A]">
+                <span className="text-[10px] font-bold uppercase tracking-wider px-2 py-0.5 rounded bg-[#FAF8F9] text-[#71717A]">
                   In Person
                 </span>
               </div>
               <div>
-                <h3 className="text-base font-bold text-[#1E1B18] font-heading">In-Person</h3>
-                <p className="text-xs text-[#786F6A]">Designated location in Wylie, TX 75098</p>
+                <h3 className="text-base font-bold text-[#18181B] font-heading">In-Person</h3>
+                <p className="text-xs text-[#71717A]">Designated location in Wylie, TX 75098</p>
               </div>
-              <div className="pt-2 border-t border-[#F0EAE6]">
-                <div className="text-2xl font-extrabold text-[#1E1B18]">$15</div>
-                <div className="text-xs font-medium text-[#786F6A]">In-Person Convenience Fee</div>
+              <div className="pt-2 border-t border-[#F0ECED]">
+                <div className="text-2xl font-extrabold text-[#18181B]">$15</div>
+                <div className="text-xs font-medium text-[#71717A]">In-Person Convenience Fee</div>
                 <div className="text-[11px] text-[#B9827B] mt-1">+ applicable statutory notarial fees</div>
               </div>
-              <div className="text-xs text-[#554E4A] pt-2 border-t border-[#F0EAE6] space-y-1">
+              <div className="text-xs text-[#52525B] pt-2 border-t border-[#F0ECED] space-y-1">
                 <p>• $10 booking deposit required</p>
                 <p>• Deposit reserves appointment time</p>
               </div>
             </div>
 
-            <div className="mt-6 pt-4 border-t border-[#F0EAE6]">
+            <div className="mt-6 pt-4 border-t border-[#F0ECED]">
               <button
                 onClick={() => openBookingLink(CALENDLY_LINKS.inPerson)}
                 className="w-full py-2.5 bg-[#B9827B] hover:bg-[#a56f68] text-white text-xs font-bold uppercase tracking-wider rounded-xl transition-all cursor-pointer"
@@ -129,32 +130,32 @@ export const PricingPage: React.FC<PricingPageProps> = ({
           </div>
 
           {/* Card 2: Mobile */}
-          <div className="bg-white rounded-2xl border border-[#F0EAE6] p-6 flex flex-col justify-between hover:border-[#E8C9C5] transition-all shadow-2xs">
+          <div className="bg-white rounded-2xl border border-[#F0ECED] p-6 flex flex-col justify-between hover:border-[#E8C9C5] transition-all shadow-2xs">
             <div className="space-y-4">
               <div className="flex items-center justify-between">
-                <span className="w-8 h-8 rounded-xl bg-[#FAF6F5] flex items-center justify-center text-[#B9827B]">
+                <span className="w-8 h-8 rounded-xl bg-[#FAF8F9] flex items-center justify-center text-[#B9827B]">
                   <Car className="w-4 h-4" />
                 </span>
-                <span className="text-[10px] font-bold uppercase tracking-wider px-2 py-0.5 rounded bg-[#FAF6F5] text-[#786F6A]">
+                <span className="text-[10px] font-bold uppercase tracking-wider px-2 py-0.5 rounded bg-[#FAF8F9] text-[#71717A]">
                   Mobile Travel
                 </span>
               </div>
               <div>
-                <h3 className="text-base font-bold text-[#1E1B18] font-heading">Mobile</h3>
-                <p className="text-xs text-[#786F6A]">12-mile travel radius from Lavon, TX</p>
+                <h3 className="text-base font-bold text-[#18181B] font-heading">Mobile</h3>
+                <p className="text-xs text-[#71717A]">12-mile travel radius from Lavon, TX</p>
               </div>
-              <div className="pt-2 border-t border-[#F0EAE6]">
-                <div className="text-2xl font-extrabold text-[#1E1B18]">$35</div>
-                <div className="text-xs font-medium text-[#786F6A]">Mobile Service Fee</div>
+              <div className="pt-2 border-t border-[#F0ECED]">
+                <div className="text-2xl font-extrabold text-[#18181B]">$35</div>
+                <div className="text-xs font-medium text-[#71717A]">Mobile Service Fee</div>
                 <div className="text-[11px] text-[#B9827B] mt-1">+ applicable statutory notarial fees</div>
               </div>
-              <div className="text-xs text-[#554E4A] pt-2 border-t border-[#F0EAE6] space-y-1">
+              <div className="text-xs text-[#52525B] pt-2 border-t border-[#F0ECED] space-y-1">
                 <p>• $10 booking deposit required</p>
                 <p>• Travel directly to home, office, or facility</p>
               </div>
             </div>
 
-            <div className="mt-6 pt-4 border-t border-[#F0EAE6]">
+            <div className="mt-6 pt-4 border-t border-[#F0ECED]">
               <button
                 onClick={() => openBookingLink(CALENDLY_LINKS.mobile)}
                 className="w-full py-2.5 bg-[#B9827B] hover:bg-[#a56f68] text-white text-xs font-bold uppercase tracking-wider rounded-xl transition-all cursor-pointer"
@@ -165,34 +166,34 @@ export const PricingPage: React.FC<PricingPageProps> = ({
           </div>
 
           {/* Card 3: RON Business Hours */}
-          <div className="bg-white rounded-2xl border border-[#F0EAE6] p-6 flex flex-col justify-between hover:border-[#E8C9C5] transition-all shadow-2xs">
+          <div className="bg-white rounded-2xl border border-[#F0ECED] p-6 flex flex-col justify-between hover:border-[#E8C9C5] transition-all shadow-2xs">
             <div className="space-y-4">
               <div className="flex items-center justify-between">
-                <span className="w-8 h-8 rounded-xl bg-[#FAF6F5] flex items-center justify-center text-[#B9827B]">
+                <span className="w-8 h-8 rounded-xl bg-[#FAF8F9] flex items-center justify-center text-[#B9827B]">
                   <Video className="w-4 h-4" />
                 </span>
-                <span className="text-[10px] font-bold uppercase tracking-wider px-2 py-0.5 rounded bg-[#FAF6F5] text-[#786F6A]">
+                <span className="text-[10px] font-bold uppercase tracking-wider px-2 py-0.5 rounded bg-[#FAF8F9] text-[#71717A]">
                   Online (RON)
                 </span>
               </div>
               <div>
-                <h3 className="text-base font-bold text-[#1E1B18] font-heading">RON (Business Hours)</h3>
-                <p className="text-xs text-[#786F6A]">Mon–Fri: 10 AM–7 PM · Sat: 11 AM–1 PM</p>
+                <h3 className="text-base font-bold text-[#18181B] font-heading">RON (Business Hours)</h3>
+                <p className="text-xs text-[#71717A]">Mon–Fri: 10 AM–7 PM · Sat: 11 AM–1 PM</p>
               </div>
-              <div className="pt-2 border-t border-[#F0EAE6]">
-                <div className="text-2xl font-extrabold text-[#1E1B18]">$25</div>
-                <div className="text-xs font-medium text-[#786F6A]">RON Service Fee</div>
+              <div className="pt-2 border-t border-[#F0ECED]">
+                <div className="text-2xl font-extrabold text-[#18181B]">$25</div>
+                <div className="text-xs font-medium text-[#71717A]">RON Service Fee</div>
                 <div className="text-[11px] text-[#B9827B] mt-1">+ applicable statutory notarial fees</div>
               </div>
-              <div className="text-xs text-[#554E4A] pt-2 border-t border-[#F0EAE6] space-y-1">
-                <p className="font-semibold text-[#1E1B18]">• Remote Online Notarization is available anywhere in the U.S.</p>
+              <div className="text-xs text-[#52525B] pt-2 border-t border-[#F0ECED] space-y-1">
+                <p className="font-semibold text-[#18181B]">• Remote Online Notarization is available anywhere in the U.S.</p>
                 <p className="text-[#B9827B] font-medium">• No additional travel fee</p>
                 <p>• $10 booking deposit required</p>
                 <p>• Completed securely via BlueNotary</p>
               </div>
             </div>
 
-            <div className="mt-6 pt-4 border-t border-[#F0EAE6]">
+            <div className="mt-6 pt-4 border-t border-[#F0ECED]">
               <button
                 onClick={() => openBookingLink(CALENDLY_LINKS.ron)}
                 className="w-full py-2.5 bg-[#B9827B] hover:bg-[#a56f68] text-white text-xs font-bold uppercase tracking-wider rounded-xl transition-all cursor-pointer"
@@ -203,37 +204,37 @@ export const PricingPage: React.FC<PricingPageProps> = ({
           </div>
 
           {/* Card 4: After-Hours RON */}
-          <div className="bg-white rounded-2xl border border-[#F0EAE6] p-6 flex flex-col justify-between hover:border-[#E8C9C5] transition-all shadow-2xs">
+          <div className="bg-white rounded-2xl border border-[#F0ECED] p-6 flex flex-col justify-between hover:border-[#E8C9C5] transition-all shadow-2xs">
             <div className="space-y-4">
               <div className="flex items-center justify-between">
-                <span className="w-8 h-8 rounded-xl bg-[#FAF6F5] flex items-center justify-center text-[#B9827B]">
+                <span className="w-8 h-8 rounded-xl bg-[#FAF8F9] flex items-center justify-center text-[#B9827B]">
                   <Clock className="w-4 h-4" />
                 </span>
-                <span className="text-[10px] font-bold uppercase tracking-wider px-2 py-0.5 rounded bg-[#1E1B18] text-white">
+                <span className="text-[10px] font-bold uppercase tracking-wider px-2 py-0.5 rounded bg-[#18181B] text-white">
                   After-Hours
                 </span>
               </div>
               <div>
-                <h3 className="text-base font-bold text-[#1E1B18] font-heading">After-Hours RON</h3>
-                <p className="text-xs text-[#786F6A]">Evenings up to 10:00 PM &amp; Sundays</p>
+                <h3 className="text-base font-bold text-[#18181B] font-heading">After-Hours RON</h3>
+                <p className="text-xs text-[#71717A]">Evenings up to 10:00 PM &amp; Sundays</p>
               </div>
-              <div className="pt-2 border-t border-[#F0EAE6]">
-                <div className="text-2xl font-extrabold text-[#1E1B18]">$25 + Fee</div>
-                <div className="text-xs font-medium text-[#786F6A]">$25 RON Service Fee + After-Hours Fee</div>
+              <div className="pt-2 border-t border-[#F0ECED]">
+                <div className="text-2xl font-extrabold text-[#18181B]">$25 + Fee</div>
+                <div className="text-xs font-medium text-[#71717A]">$25 RON Service Fee + After-Hours Fee</div>
                 <div className="text-[11px] text-[#B9827B] mt-1">+ applicable statutory notarial fees</div>
               </div>
-              <div className="text-xs text-[#554E4A] pt-2 border-t border-[#F0EAE6] space-y-1">
-                <p className="font-semibold text-[#1E1B18]">• Remote Online Notarization is available anywhere in the U.S.</p>
+              <div className="text-xs text-[#52525B] pt-2 border-t border-[#F0ECED] space-y-1">
+                <p className="font-semibold text-[#18181B]">• Remote Online Notarization is available anywhere in the U.S.</p>
                 <p className="text-[#B9827B] font-medium">• No additional travel fee</p>
                 <p>• $10 booking deposit required</p>
                 <p>• Completed securely via BlueNotary</p>
               </div>
             </div>
 
-            <div className="mt-6 pt-4 border-t border-[#F0EAE6]">
+            <div className="mt-6 pt-4 border-t border-[#F0ECED]">
               <button
                 onClick={() => openBookingLink(CALENDLY_LINKS.ronAfterHours)}
-                className="w-full py-2.5 bg-[#1E1B18] hover:bg-[#35302C] text-white text-xs font-bold uppercase tracking-wider rounded-xl transition-all cursor-pointer"
+                className="w-full py-2.5 bg-[#18181B] hover:bg-[#27272A] text-white text-xs font-bold uppercase tracking-wider rounded-xl transition-all cursor-pointer"
               >
                 Book After-Hours
               </button>
@@ -241,74 +242,82 @@ export const PricingPage: React.FC<PricingPageProps> = ({
           </div>
 
           {/* Card 5: Loan Closings / Large Packages */}
-          <div className="bg-white rounded-2xl border border-[#F0EAE6] p-6 flex flex-col justify-between hover:border-[#E8C9C5] transition-all shadow-2xs">
+          <div className="bg-white rounded-2xl border border-[#F0ECED] p-6 flex flex-col justify-between hover:border-[#E8C9C5] transition-all shadow-2xs">
             <div className="space-y-4">
               <div className="flex items-center justify-between">
-                <span className="w-8 h-8 rounded-xl bg-[#FAF6F5] flex items-center justify-center text-[#B9827B]">
+                <span className="w-8 h-8 rounded-xl bg-[#FAF8F9] flex items-center justify-center text-[#B9827B]">
                   <Briefcase className="w-4 h-4" />
                 </span>
-                <span className="text-[10px] font-bold uppercase tracking-wider px-2 py-0.5 rounded bg-[#FAF6F5] text-[#786F6A]">
+                <span className="text-[10px] font-bold uppercase tracking-wider px-2 py-0.5 rounded bg-[#FAF8F9] text-[#71717A]">
                   Closings
                 </span>
               </div>
               <div>
-                <h3 className="text-base font-bold text-[#1E1B18] font-heading">Loan Closings / Large Packages</h3>
-                <p className="text-xs text-[#786F6A]">Title, escrow &amp; real estate signings</p>
+                <h3 className="text-base font-bold text-[#18181B] font-heading">Loan Closings / Large Packages</h3>
+                <p className="text-xs text-[#71717A]">Title, escrow &amp; real estate signings</p>
               </div>
-              <div className="pt-2 border-t border-[#F0EAE6]">
-                <div className="text-2xl font-extrabold text-[#1E1B18]">Starting at $50+</div>
-                <div className="text-xs font-medium text-[#786F6A]">Custom quote required</div>
+              <div className="pt-2 border-t border-[#F0ECED]">
+                <div className="text-2xl font-extrabold text-[#18181B]">Starting at $50+</div>
+                <div className="text-xs font-medium text-[#71717A]">Custom quote required</div>
                 <div className="text-[11px] text-[#B9827B] mt-1">Based on package size &amp; requirements</div>
               </div>
-              <div className="text-xs text-[#554E4A] pt-2 border-t border-[#F0EAE6] space-y-1">
+              <div className="text-xs text-[#52525B] pt-2 border-t border-[#F0ECED] space-y-1">
                 <p>• $20 booking deposit for loan closings</p>
                 <p>• Printing, scanbacks &amp; drop-off available</p>
               </div>
             </div>
 
-            <div className="mt-6 pt-4 border-t border-[#F0EAE6]">
+            <div className="mt-6 pt-4 border-t border-[#F0ECED]">
               <button
                 onClick={onOpenQuote}
-                className="w-full py-2.5 bg-[#1E1B18] hover:bg-[#35302C] text-white text-xs font-bold uppercase tracking-wider rounded-xl transition-all"
+                className="w-full py-2.5 bg-[#18181B] hover:bg-[#27272A] text-white text-xs font-bold uppercase tracking-wider rounded-xl transition-all"
               >
                 Request a Quote
               </button>
             </div>
           </div>
 
-          {/* Card 6: Document Printing */}
-          <div className="bg-white rounded-2xl border border-[#F0EAE6] p-6 flex flex-col justify-between hover:border-[#E8C9C5] transition-all shadow-2xs">
+          {/* Card 6: Document Printing & Pre-Appointment Uploads */}
+          <div className="bg-white rounded-2xl border border-[#F0ECED] p-6 flex flex-col justify-between hover:border-[#E8C9C5] transition-all shadow-2xs">
             <div className="space-y-4">
               <div className="flex items-center justify-between">
-                <span className="w-8 h-8 rounded-xl bg-[#FAF6F5] flex items-center justify-center text-[#B9827B]">
+                <span className="w-8 h-8 rounded-xl bg-[#FAF8F9] flex items-center justify-center text-[#B9827B]">
                   <Printer className="w-4 h-4" />
                 </span>
-                <span className="text-[10px] font-bold uppercase tracking-wider px-2 py-0.5 rounded bg-[#FAF6F5] text-[#786F6A]">
+                <span className="text-[10px] font-bold uppercase tracking-wider px-2 py-0.5 rounded bg-[#FAF8F9] text-[#71717A]">
                   Add-On
                 </span>
               </div>
               <div>
-                <h3 className="text-base font-bold text-[#1E1B18] font-heading">Document Printing</h3>
-                <p className="text-xs text-[#786F6A]">Convenience printing before your appointment</p>
+                <h3 className="text-base font-bold text-[#18181B] font-heading">Document Printing</h3>
+                <p className="text-xs text-[#71717A]">Need to send documents before your appointment?</p>
               </div>
-              <div className="pt-2 border-t border-[#F0EAE6]">
-                <div className="text-2xl font-extrabold text-[#1E1B18]">$1 <span className="text-xs font-normal text-[#786F6A]">/ page</span></div>
-                <div className="text-xs font-medium text-[#786F6A]">For qualifying requests under 10 pages</div>
-                <div className="text-[11px] text-[#786F6A] mt-1">Send documents to upload@sonotary.com</div>
+              <div className="pt-2 border-t border-[#F0ECED]">
+                <div className="text-2xl font-extrabold text-[#18181B]">$1 <span className="text-xs font-normal text-[#71717A]">/ page</span></div>
+                <div className="text-xs font-medium text-[#71717A]">For qualifying requests under 10 pages</div>
+                <div className="text-[11px] text-[#52525B] mt-1.5 leading-relaxed">
+                  Securely upload documents for appointment preparation, printing, or review of notarial requirements.
+                </div>
               </div>
-              <div className="text-xs text-[#554E4A] pt-2 border-t border-[#F0EAE6] space-y-1">
+              <div className="text-xs text-[#52525B] pt-2 border-t border-[#F0ECED] space-y-1">
                 <p>• Available upon advance request</p>
                 <p>• Ready at appointment time</p>
               </div>
             </div>
 
-            <div className="mt-6 pt-4 border-t border-[#F0EAE6]">
+            <div className="mt-6 pt-4 border-t border-[#F0ECED] space-y-2">
               <a
-                href="mailto:upload@sonotary.com"
-                className="w-full py-2.5 bg-white hover:bg-[#FAF6F5] text-[#1E1B18] border border-[#F0EAE6] hover:border-[#B9827B] text-xs font-bold uppercase tracking-wider rounded-xl transition-all block text-center"
+                href="https://www.dropbox.com/request/mkjmo10p6dtay97gtnbj"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="w-full py-2.5 bg-[#18181B] hover:bg-[#27272A] text-white text-xs font-bold uppercase tracking-wider rounded-xl transition-all shadow-2xs flex items-center justify-center gap-2 text-center cursor-pointer"
               >
-                Email Documents
+                <Upload className="w-4 h-4 text-[#B9827B]" />
+                <span>Secure Document Upload</span>
               </a>
+              <p className="text-[11px] text-[#71717A] text-center leading-tight">
+                Optional - uploading documents is not required to book an appointment.
+              </p>
             </div>
           </div>
 
@@ -316,77 +325,77 @@ export const PricingPage: React.FC<PricingPageProps> = ({
       </div>
 
       {/* Texas Statutory Notarial Fees Section */}
-      <div className="bg-[#FAF6F5] rounded-3xl border border-[#F0EAE6] p-6 sm:p-8 space-y-6">
+      <div className="bg-[#FAF8F9] rounded-3xl border border-[#F0ECED] p-6 sm:p-8 space-y-6">
         <div className="space-y-1">
           <div className="flex items-center gap-2">
             <ShieldCheck className="w-5 h-5 text-[#B9827B]" />
-            <h2 className="text-xl sm:text-2xl font-bold text-[#1E1B18] font-heading uppercase">
+            <h2 className="text-xl sm:text-2xl font-bold text-[#18181B] font-heading uppercase">
               Texas Statutory Notarial Fees
             </h2>
           </div>
-          <p className="text-xs sm:text-sm text-[#554E4A]">
+          <p className="text-xs sm:text-sm text-[#52525B]">
             Official notarial fees are governed by Texas Government Code Chapter 406 and are subject to applicable statutory limits.
           </p>
         </div>
 
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 text-xs">
-          <div className="bg-white rounded-xl p-4 border border-[#F0EAE6] space-y-1">
-            <div className="flex justify-between items-center font-bold text-[#1E1B18]">
+          <div className="bg-white rounded-xl p-4 border border-[#F0ECED] space-y-1 shadow-2xs">
+            <div className="flex justify-between items-center font-bold text-[#18181B]">
               <span>Acknowledgment / Proof (First Signature)</span>
               <span className="text-sm font-extrabold text-[#B9827B]">$10.00</span>
             </div>
-            <p className="text-[#786F6A] text-[11px]">Taking acknowledgment or proof of deed or instrument, including certificate and seal.</p>
+            <p className="text-[#71717A] text-[11px]">Taking acknowledgment or proof of deed or instrument, including certificate and seal.</p>
           </div>
 
-          <div className="bg-white rounded-xl p-4 border border-[#F0EAE6] space-y-1">
-            <div className="flex justify-between items-center font-bold text-[#1E1B18]">
+          <div className="bg-white rounded-xl p-4 border border-[#F0ECED] space-y-1 shadow-2xs">
+            <div className="flex justify-between items-center font-bold text-[#18181B]">
               <span>Additional Signatures (Same Document)</span>
               <span className="text-sm font-extrabold text-[#B9827B]">$1.00</span>
             </div>
-            <p className="text-[#786F6A] text-[11px]">Each additional signature on the same document / certificate.</p>
+            <p className="text-[#71717A] text-[11px]">Each additional signature on the same document / certificate.</p>
           </div>
 
-          <div className="bg-white rounded-xl p-4 border border-[#F0EAE6] space-y-1">
-            <div className="flex justify-between items-center font-bold text-[#1E1B18]">
+          <div className="bg-white rounded-xl p-4 border border-[#F0ECED] space-y-1 shadow-2xs">
+            <div className="flex justify-between items-center font-bold text-[#18181B]">
               <span>Oath or Affirmation with Certificate</span>
               <span className="text-sm font-extrabold text-[#B9827B]">$10.00</span>
             </div>
-            <p className="text-[#786F6A] text-[11px]">Administering an oath or affirmation with certificate and seal.</p>
+            <p className="text-[#71717A] text-[11px]">Administering an oath or affirmation with certificate and seal.</p>
           </div>
 
-          <div className="bg-white rounded-xl p-4 border border-[#F0EAE6] space-y-1">
-            <div className="flex justify-between items-center font-bold text-[#1E1B18]">
+          <div className="bg-white rounded-xl p-4 border border-[#F0ECED] space-y-1 shadow-2xs">
+            <div className="flex justify-between items-center font-bold text-[#18181B]">
               <span>Jurat with Certificate &amp; Seal</span>
               <span className="text-sm font-extrabold text-[#B9827B]">$10.00</span>
             </div>
-            <p className="text-[#786F6A] text-[11px]">Executing sworn jurat certificate upon oath verification.</p>
+            <p className="text-[#71717A] text-[11px]">Executing sworn jurat certificate upon oath verification.</p>
           </div>
 
-          <div className="bg-white rounded-xl p-4 border border-[#F0EAE6] space-y-1">
-            <div className="flex justify-between items-center font-bold text-[#1E1B18]">
+          <div className="bg-white rounded-xl p-4 border border-[#F0ECED] space-y-1 shadow-2xs">
+            <div className="flex justify-between items-center font-bold text-[#18181B]">
               <span>Certified Copies (Non-Recordable)</span>
               <span className="text-sm font-extrabold text-[#B9827B]">$10.00</span>
             </div>
-            <p className="text-[#786F6A] text-[11px]">Certificate under seal certifying a copy of non-recordable document.</p>
+            <p className="text-[#71717A] text-[11px]">Certificate under seal certifying a copy of non-recordable document.</p>
           </div>
 
-          <div className="bg-white rounded-xl p-4 border border-[#F0EAE6] space-y-1">
-            <div className="flex justify-between items-center font-bold text-[#1E1B18]">
+          <div className="bg-white rounded-xl p-4 border border-[#F0ECED] space-y-1 shadow-2xs">
+            <div className="flex justify-between items-center font-bold text-[#18181B]">
               <span>All Other Notarial Acts</span>
               <span className="text-sm font-extrabold text-[#B9827B]">Statutory</span>
             </div>
-            <p className="text-[#786F6A] text-[11px]">As established by Texas Government Code § 406.024.</p>
+            <p className="text-[#71717A] text-[11px]">As established by Texas Government Code § 406.024.</p>
           </div>
         </div>
       </div>
 
       {/* Simple Fee Estimator */}
-      <div className="bg-white rounded-3xl border border-[#F0EAE6] p-6 sm:p-8 space-y-6 shadow-xs">
+      <div className="bg-white rounded-3xl border border-[#F0ECED] p-6 sm:p-8 space-y-6 shadow-xs">
         <div className="space-y-1">
-          <h2 className="text-xl sm:text-2xl font-bold text-[#1E1B18] font-heading uppercase">
+          <h2 className="text-xl sm:text-2xl font-bold text-[#18181B] font-heading uppercase">
             Simple Fee Estimator
           </h2>
-          <p className="text-xs sm:text-sm text-[#786F6A]">
+          <p className="text-xs sm:text-sm text-[#71717A]">
             Select your service type and estimated number of notarized signatures to view an estimate.
           </p>
         </div>
@@ -397,7 +406,7 @@ export const PricingPage: React.FC<PricingPageProps> = ({
           <div className="lg:col-span-7 space-y-5">
             {/* Service selector */}
             <div className="space-y-2">
-              <label className="block text-xs font-bold text-[#1E1B18] uppercase tracking-wider">
+              <label className="block text-xs font-bold text-[#18181B] uppercase tracking-wider">
                 1. Select Service Format
               </label>
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-2">
@@ -406,12 +415,12 @@ export const PricingPage: React.FC<PricingPageProps> = ({
                   onClick={() => setSelectedService('in-person')}
                   className={`p-3 rounded-xl border text-left transition-all text-xs font-semibold ${
                     selectedService === 'in-person'
-                      ? 'border-[#B9827B] bg-[#FAF6F5] text-[#1E1B18]'
-                      : 'border-[#F0EAE6] text-[#554E4A] hover:border-[#D8CEC7]'
+                      ? 'border-[#B9827B] bg-[#FAF8F9] text-[#18181B]'
+                      : 'border-[#F0ECED] text-[#52525B] hover:border-[#E4E4E7]'
                   }`}
                 >
                   <span className="block font-bold">In-Person Notary</span>
-                  <span className="text-[11px] text-[#786F6A]">$15 Convenience Fee</span>
+                  <span className="text-[11px] text-[#71717A]">$15 Convenience Fee</span>
                 </button>
 
                 <button
@@ -419,12 +428,12 @@ export const PricingPage: React.FC<PricingPageProps> = ({
                   onClick={() => setSelectedService('mobile')}
                   className={`p-3 rounded-xl border text-left transition-all text-xs font-semibold ${
                     selectedService === 'mobile'
-                      ? 'border-[#B9827B] bg-[#FAF6F5] text-[#1E1B18]'
-                      : 'border-[#F0EAE6] text-[#554E4A] hover:border-[#D8CEC7]'
+                      ? 'border-[#B9827B] bg-[#FAF8F9] text-[#18181B]'
+                      : 'border-[#F0ECED] text-[#52525B] hover:border-[#E4E4E7]'
                   }`}
                 >
                   <span className="block font-bold">Mobile Notary</span>
-                  <span className="text-[11px] text-[#786F6A]">$35 Mobile Service Fee</span>
+                  <span className="text-[11px] text-[#71717A]">$35 Mobile Service Fee</span>
                 </button>
 
                 <button
@@ -432,12 +441,12 @@ export const PricingPage: React.FC<PricingPageProps> = ({
                   onClick={() => setSelectedService('ron')}
                   className={`p-3 rounded-xl border text-left transition-all text-xs font-semibold ${
                     selectedService === 'ron'
-                      ? 'border-[#B9827B] bg-[#FAF6F5] text-[#1E1B18]'
-                      : 'border-[#F0EAE6] text-[#554E4A] hover:border-[#D8CEC7]'
+                      ? 'border-[#B9827B] bg-[#FAF8F9] text-[#18181B]'
+                      : 'border-[#F0ECED] text-[#52525B] hover:border-[#E4E4E7]'
                   }`}
                 >
                   <span className="block font-bold">Remote Online (RON)</span>
-                  <span className="text-[11px] text-[#786F6A]">$25 RON Service Fee</span>
+                  <span className="text-[11px] text-[#71717A]">$25 RON Service Fee</span>
                 </button>
 
                 <button
@@ -445,12 +454,12 @@ export const PricingPage: React.FC<PricingPageProps> = ({
                   onClick={() => setSelectedService('ron-after')}
                   className={`p-3 rounded-xl border text-left transition-all text-xs font-semibold ${
                     selectedService === 'ron-after'
-                      ? 'border-[#B9827B] bg-[#FAF6F5] text-[#1E1B18]'
-                      : 'border-[#F0EAE6] text-[#554E4A] hover:border-[#D8CEC7]'
+                      ? 'border-[#B9827B] bg-[#FAF8F9] text-[#18181B]'
+                      : 'border-[#F0ECED] text-[#52525B] hover:border-[#E4E4E7]'
                   }`}
                 >
                   <span className="block font-bold">After-Hours RON</span>
-                  <span className="text-[11px] text-[#786F6A]">$25 RON + $25 Evening</span>
+                  <span className="text-[11px] text-[#71717A]">$25 RON + $25 Evening</span>
                 </button>
               </div>
             </div>
@@ -458,7 +467,7 @@ export const PricingPage: React.FC<PricingPageProps> = ({
             {/* Signature count selector */}
             <div className="space-y-2">
               <div className="flex justify-between items-center">
-                <label className="block text-xs font-bold text-[#1E1B18] uppercase tracking-wider">
+                <label className="block text-xs font-bold text-[#18181B] uppercase tracking-wider">
                   2. Number of Notarized Signatures
                 </label>
                 <span className="text-xs font-bold text-[#B9827B]">
@@ -473,8 +482,8 @@ export const PricingPage: React.FC<PricingPageProps> = ({
                     onClick={() => setSignaturesCount(cnt)}
                     className={`flex-1 py-2 rounded-xl text-xs font-bold border transition-all ${
                       signaturesCount === cnt
-                        ? 'bg-[#1E1B18] text-white border-[#1E1B18]'
-                        : 'bg-white text-[#554E4A] border-[#F0EAE6] hover:border-[#D8CEC7]'
+                        ? 'bg-[#18181B] text-white border-[#18181B]'
+                        : 'bg-white text-[#52525B] border-[#F0ECED] hover:border-[#E4E4E7]'
                     }`}
                   >
                     {cnt}
@@ -483,29 +492,29 @@ export const PricingPage: React.FC<PricingPageProps> = ({
               </div>
             </div>
 
-            <p className="text-[11px] text-[#786F6A] italic">
+            <p className="text-[11px] text-[#71717A] italic">
               Note: Loan closings and large packages require a custom quote starting at $50+.
             </p>
           </div>
 
           {/* Breakdown & Calculation */}
-          <div className="lg:col-span-5 bg-[#FAF6F5] rounded-2xl p-5 border border-[#F0EAE6] space-y-4">
-            <h3 className="text-xs font-bold uppercase tracking-wider text-[#1E1B18]">
+          <div className="lg:col-span-5 bg-[#FAF8F9] rounded-2xl p-5 border border-[#F0ECED] space-y-4">
+            <h3 className="text-xs font-bold uppercase tracking-wider text-[#18181B]">
               Estimated Invoice Summary
             </h3>
 
-            <div className="space-y-2 text-xs text-[#554E4A]">
-              <div className="flex justify-between pb-1.5 border-b border-[#EAE2D8]">
+            <div className="space-y-2 text-xs text-[#52525B]">
+              <div className="flex justify-between pb-1.5 border-b border-[#E4E4E7]">
                 <span>Service Fee ({serviceFees[selectedService].name})</span>
-                <span className="font-semibold text-[#1E1B18]">${currentServiceFee}.00</span>
+                <span className="font-semibold text-[#18181B]">${currentServiceFee}.00</span>
               </div>
 
-              <div className="flex justify-between pb-1.5 border-b border-[#EAE2D8]">
+              <div className="flex justify-between pb-1.5 border-b border-[#E4E4E7]">
                 <span>Statutory Notarial Fee ({signaturesCount} × $10)</span>
-                <span className="font-semibold text-[#1E1B18]">${totalStatutoryFee}.00</span>
+                <span className="font-semibold text-[#18181B]">${totalStatutoryFee}.00</span>
               </div>
 
-              <div className="flex justify-between font-bold text-sm text-[#1E1B18] pt-1">
+              <div className="flex justify-between font-bold text-sm text-[#18181B] pt-1">
                 <span>Estimated Total</span>
                 <span>${estimatedTotal}.00</span>
               </div>
@@ -515,7 +524,7 @@ export const PricingPage: React.FC<PricingPageProps> = ({
                 <span>-${currentDeposit}.00</span>
               </div>
 
-              <div className="flex justify-between font-semibold text-xs text-[#1E1B18] pt-2 border-t border-[#EAE2D8]">
+              <div className="flex justify-between font-semibold text-xs text-[#18181B] pt-2 border-t border-[#E4E4E7]">
                 <span>Estimated Balance Due at Service</span>
                 <span>${estimatedBalance}.00</span>
               </div>
@@ -540,12 +549,12 @@ export const PricingPage: React.FC<PricingPageProps> = ({
       </div>
 
       {/* Policy Links Section */}
-      <div className="border-t border-[#F0EAE6] pt-10 space-y-4">
+      <div className="border-t border-[#F0ECED] pt-10 space-y-4">
         <div className="text-center space-y-1">
-          <h3 className="text-sm font-bold uppercase tracking-wider text-[#1E1B18] font-heading">
+          <h3 className="text-sm font-bold uppercase tracking-wider text-[#18181B] font-heading">
             Policies &amp; Service Terms
           </h3>
-          <p className="text-xs text-[#786F6A]">
+          <p className="text-xs text-[#71717A]">
             Review our detailed policies regarding appointments, deposits, cancellations, and privacy.
           </p>
         </div>
@@ -553,7 +562,7 @@ export const PricingPage: React.FC<PricingPageProps> = ({
         <div className="flex flex-wrap items-center justify-center gap-3 pt-2">
           <button
             onClick={() => onNavigateToTab('policies')}
-            className="px-4 py-2 bg-white hover:bg-[#FAF6F5] text-[#1E1B18] border border-[#F0EAE6] hover:border-[#B9827B] text-xs font-semibold rounded-xl transition-all flex items-center gap-1.5"
+            className="px-4 py-2 bg-white hover:bg-[#FAF8F9] text-[#18181B] border border-[#F0ECED] hover:border-[#B9827B] text-xs font-semibold rounded-xl transition-all flex items-center gap-1.5"
           >
             <ShieldCheck className="w-3.5 h-3.5 text-[#B9827B]" />
             <span>Cancellation &amp; Refund Policy</span>
@@ -561,7 +570,7 @@ export const PricingPage: React.FC<PricingPageProps> = ({
 
           <button
             onClick={() => onNavigateToTab('policies')}
-            className="px-4 py-2 bg-white hover:bg-[#FAF6F5] text-[#1E1B18] border border-[#F0EAE6] hover:border-[#B9827B] text-xs font-semibold rounded-xl transition-all flex items-center gap-1.5"
+            className="px-4 py-2 bg-white hover:bg-[#FAF8F9] text-[#18181B] border border-[#F0ECED] hover:border-[#B9827B] text-xs font-semibold rounded-xl transition-all flex items-center gap-1.5"
           >
             <FileText className="w-3.5 h-3.5 text-[#B9827B]" />
             <span>Terms &amp; Notary Service Policy</span>
@@ -569,7 +578,7 @@ export const PricingPage: React.FC<PricingPageProps> = ({
 
           <button
             onClick={() => onNavigateToTab('policies')}
-            className="px-4 py-2 bg-white hover:bg-[#FAF6F5] text-[#1E1B18] border border-[#F0EAE6] hover:border-[#B9827B] text-xs font-semibold rounded-xl transition-all flex items-center gap-1.5"
+            className="px-4 py-2 bg-white hover:bg-[#FAF8F9] text-[#18181B] border border-[#F0ECED] hover:border-[#B9827B] text-xs font-semibold rounded-xl transition-all flex items-center gap-1.5"
           >
             <ShieldCheck className="w-3.5 h-3.5 text-[#B9827B]" />
             <span>Privacy Policy</span>

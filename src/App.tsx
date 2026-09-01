@@ -72,7 +72,7 @@ export default function App() {
   };
 
   return (
-    <div className="min-h-screen flex flex-col bg-white text-[#1E1B18] font-sans antialiased selection:bg-[#E8C9C5] selection:text-[#1E1B18]">
+    <div className="min-h-screen flex flex-col bg-white text-[#18181B] font-sans antialiased selection:bg-[#E8C9C5] selection:text-[#18181B]">
       
       {/* Header with Appointment Notice & Page Navigation */}
       <Navbar
