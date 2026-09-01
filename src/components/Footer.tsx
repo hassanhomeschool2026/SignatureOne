@@ -21,137 +21,143 @@ export const Footer: React.FC<FooterProps> = ({
   };
 
   return (
-    <footer className="bg-[#18181B] text-[#E4E4E7] py-10 border-t border-black">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <footer className="bg-[#18181B] text-[#E4E4E7] py-12 border-t border-black">
+      <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center space-y-7">
         
-        {/* Main Clean Row */}
-        <div className="grid grid-cols-1 md:grid-cols-12 gap-8 pb-8 border-b border-[#27272A] items-start">
-          
-          {/* Brand Info */}
-          <div className="md:col-span-5 space-y-2">
-            <h3 className="font-serif text-lg font-bold text-white tracking-wide">
-              SignatureOne Mobile Notary
-            </h3>
-            <p className="font-script text-base text-[#E8C9C5]">
-              Trusted. Professional. Convenient.
+        {/* Brand Info */}
+        <div className="space-y-1.5">
+          <h3 className="font-serif text-lg sm:text-xl font-bold text-white tracking-wide">
+            SignatureOne Mobile Notary
+          </h3>
+          <p className="font-script text-base sm:text-lg text-[#E8C9C5]">
+            Trusted. Professional. Convenient.
+          </p>
+        </div>
+
+        {/* Addresses: Service Address & Mailing Address */}
+        <div className="flex flex-col sm:flex-row items-center justify-center gap-6 sm:gap-12 text-xs border-y border-[#27272A] py-5">
+          <div className="space-y-1 text-center">
+            <span className="text-white font-medium block text-xs">Service Address:</span>
+            <span className="text-[#A1A1AA] block">Mclendon Rd, Lavon, TX 75166</span>
+          </div>
+
+          <div className="hidden sm:block w-px h-8 bg-[#27272A]" />
+
+          <div className="space-y-0.5 text-center text-[11px]">
+            <span className="text-white font-medium block text-xs">Mailing Address:</span>
+            <span className="text-[#71717A] block">5900 Balcones Dr, Ste 165</span>
+            <span className="text-[#71717A] block">Austin, TX</span>
+          </div>
+        </div>
+
+        {/* Contact Info */}
+        <div className="space-y-2.5 text-xs">
+          <div>
+            <a
+              href="tel:+19728531513"
+              className="text-white hover:text-[#E8C9C5] font-semibold text-sm transition-colors inline-block"
+            >
+              (972) 853-1513
+            </a>
+          </div>
+
+          <div className="flex flex-wrap items-center justify-center gap-x-5 gap-y-1.5 text-[11px]">
+            <p>
+              <span className="text-[#71717A]">Booking: </span>
+              <a
+                href="mailto:booking@sonotary.com"
+                className="text-[#E4E4E7] hover:text-[#E8C9C5] transition-colors"
+              >
+                booking@sonotary.com
+              </a>
             </p>
-            <div className="text-xs text-[#A1A1AA] pt-1 space-y-1">
-              <p>
-                <span className="text-white font-medium">Service Location:</span> Lavon, TX  75166
-              </p>
-              <div className="pt-1.5 text-[11px] text-[#71717A] leading-relaxed">
-                <span className="text-[#A1A1AA] font-medium block">Mailing Address:</span>
-                <span>5900 Balcones Dr, Ste 165</span>
-                <span className="block">Austin, TX</span>
-              </div>
-            </div>
-            <div className="pt-2 space-y-1.5 text-xs">
-              <p>
-                <a
-                  href="tel:+19728531513"
-                  className="text-white hover:text-[#E8C9C5] font-semibold transition-colors"
-                >
-                  (972) 853-1513
-                </a>
-              </p>
-              <div className="grid grid-cols-1 sm:grid-cols-2 gap-x-4 gap-y-1 pt-1 text-[11px]">
-                <p>
-                  <span className="text-[#71717A]">Booking: </span>
-                  <a
-                    href="mailto:booking@sonotary.com"
-                    className="text-[#E4E4E7] hover:text-[#E8C9C5] transition-colors"
-                  >
-                    booking@sonotary.com
-                  </a>
-                </p>
-                <p>
-                  <span className="text-[#71717A]">Info: </span>
-                  <a
-                    href="mailto:info@sonotary.com"
-                    className="text-[#A1A1AA] hover:text-white transition-colors"
-                  >
-                    info@sonotary.com
-                  </a>
-                </p>
-                <p>
-                  <span className="text-[#71717A]">Legal: </span>
-                  <a
-                    href="mailto:legal@sonotary.com"
-                    className="text-[#A1A1AA] hover:text-white transition-colors"
-                  >
-                    legal@sonotary.com
-                  </a>
-                </p>
-              </div>
-            </div>
+            <span className="text-[#3F3F46] hidden sm:inline">·</span>
+            <p>
+              <span className="text-[#71717A]">Info: </span>
+              <a
+                href="mailto:info@sonotary.com"
+                className="text-[#A1A1AA] hover:text-white transition-colors"
+              >
+                info@sonotary.com
+              </a>
+            </p>
+            <span className="text-[#3F3F46] hidden sm:inline">·</span>
+            <p>
+              <span className="text-[#71717A]">Legal: </span>
+              <a
+                href="mailto:legal@sonotary.com"
+                className="text-[#A1A1AA] hover:text-white transition-colors"
+              >
+                legal@sonotary.com
+              </a>
+            </p>
           </div>
+        </div>
 
-          {/* Navigation Links */}
-          <div className="md:col-span-7 flex flex-wrap gap-x-6 gap-y-3 items-center md:justify-end text-xs font-medium text-[#A1A1AA] pt-2">
-            <button
-              onClick={() => handleNav('home')}
-              className="hover:text-white transition-colors"
-            >
-              Home
-            </button>
-            <button
-              onClick={() => handleNav('pricing')}
-              className="hover:text-white transition-colors"
-            >
-              Pricing
-            </button>
-            <button
-              onClick={() => handleNav('services')}
-              className="hover:text-white transition-colors"
-            >
-              Services
-            </button>
-            <button
-              onClick={() => handleNav('how-it-works')}
-              className="hover:text-white transition-colors"
-            >
-              How It Works
-            </button>
-            <button
-              onClick={() => handleNav('loan-signing')}
-              className="hover:text-white transition-colors"
-            >
-              Loan Signings
-            </button>
-            <button
-              onClick={() => handleNav('contact')}
-              className="hover:text-white transition-colors"
-            >
-              Contact
-            </button>
-          </div>
-
+        {/* Navigation Links */}
+        <div className="flex flex-wrap justify-center gap-x-6 gap-y-2.5 text-xs font-medium text-[#A1A1AA] pt-1">
+          <button
+            onClick={() => handleNav('home')}
+            className="hover:text-white transition-colors cursor-pointer"
+          >
+            Home
+          </button>
+          <button
+            onClick={() => handleNav('pricing')}
+            className="hover:text-white transition-colors cursor-pointer"
+          >
+            Pricing
+          </button>
+          <button
+            onClick={() => handleNav('services')}
+            className="hover:text-white transition-colors cursor-pointer"
+          >
+            Services
+          </button>
+          <button
+            onClick={() => handleNav('how-it-works')}
+            className="hover:text-white transition-colors cursor-pointer"
+          >
+            How It Works
+          </button>
+          <button
+            onClick={() => handleNav('loan-signing')}
+            className="hover:text-white transition-colors cursor-pointer"
+          >
+            Loan Signings
+          </button>
+          <button
+            onClick={() => handleNav('contact')}
+            className="hover:text-white transition-colors cursor-pointer"
+          >
+            Contact
+          </button>
         </div>
 
         {/* Bottom Minimal Copyright & Policies */}
-        <div className="pt-6 flex flex-col sm:flex-row items-center justify-between gap-4 text-xs text-[#71717A]">
+        <div className="pt-6 border-t border-[#27272A] flex flex-col items-center justify-center gap-3 text-xs text-[#71717A]">
           <div>
-            © 2026 SignatureOne Mobile Notary · All services by appointment only.
+            © 2026 SignatureOne Mobile Notary
           </div>
 
-          <div className="flex items-center gap-4 text-xs">
+          <div className="flex flex-wrap items-center justify-center gap-4 text-xs">
             <button
               onClick={() => handleNav('policies')}
-              className="hover:text-white transition-colors"
+              className="hover:text-white transition-colors cursor-pointer"
             >
               Cancellation &amp; Refund
             </button>
             <span>·</span>
             <button
               onClick={() => handleNav('policies')}
-              className="hover:text-white transition-colors"
+              className="hover:text-white transition-colors cursor-pointer"
             >
               Terms &amp; Notary Policy
             </button>
             <span>·</span>
             <button
               onClick={() => handleNav('policies')}
-              className="hover:text-white transition-colors"
+              className="hover:text-white transition-colors cursor-pointer"
             >
               Privacy Policy
             </button>
